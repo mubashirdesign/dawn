@@ -1984,8 +1984,8 @@
         "name": "Video"
       }
     },
-    "tabs": {
-      "name": "Tabs",
+    "collapsible_content": {
+      "name": "Collapsible content",
       "settings": {
         "caption": {
           "label": "Caption"
@@ -2032,8 +2032,8 @@
             "label": "Accent 2"
           }
         },
-        "open_first_collapsible_tab": {
-          "label": "Open first collapsible tab"
+        "open_first_collapsible_row": {
+          "label": "Open first collapsible row"
         },
         "header": {
           "content": "Image layout"
@@ -2065,18 +2065,18 @@
         }
       },
       "blocks": {
-        "collapsible_tab": {
-          "name": "Collapsible tab",
+        "collapsible_row": {
+          "name": "Collapsible row",
           "settings": {
             "heading": {
               "info": "Include a heading that explains the content.",
               "label": "Heading"
             },
-            "tab_content": {
+            "row_content": {
               "label": "Tab content"
             },
             "page": {
-              "label": "Tab content from page"
+              "label": "Row content from page"
             },
             "icon": {
               "label": "Icon",
@@ -2157,7 +2157,7 @@
         }
       },
       "presets": {
-        "name": "Tabs"
+        "name": "Collapsible content"
       }
     }
   }
