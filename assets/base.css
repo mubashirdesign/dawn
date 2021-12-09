@@ -247,19 +247,6 @@ body,
   background-color: rgb(var(--color-background));
 }
 
-.background-secondary {
-  background-color: rgba(var(--color-foreground), 0.04);
-  padding-top: 4rem;
-  padding-bottom: 5rem;
-}
-
-@media screen and (min-width: 750px) {
-  .background-secondary {
-    padding-top: calc(6rem + var(--page-width-margin));
-    padding-bottom: calc(5rem + var(--page-width-margin));
-  }
-}
-
 .grid-auto-flow {
   display: grid;
   grid-auto-flow: column;
@@ -903,6 +890,10 @@ summary::-webkit-details-marker {
   .title-wrapper-with-link.title-wrapper-with-link--no-heading {
     display: none;
   }
+}
+
+.title-wrapper--no-top-margin {
+  margin-top: 0;
 }
 
 .subtitle {

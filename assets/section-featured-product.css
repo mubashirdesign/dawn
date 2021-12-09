@@ -20,7 +20,8 @@
 
 .background-secondary .featured-product {
   background: rgb(var(--color-background));
-  padding: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .product__view-details {
@@ -65,7 +66,8 @@
   }
 
   .background-secondary .featured-product {
-    padding: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
 
