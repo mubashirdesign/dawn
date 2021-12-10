@@ -166,7 +166,7 @@ fieldset.product-form__input .form__label {
   color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: var(--inputs-padding);
+  padding: 1rem 2rem;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
   line-height: 1;
@@ -180,10 +180,6 @@ fieldset.product-form__input .form__label {
     rgba(var(--color-foreground), var(--inputs-shadow-opacity))
   );
 }
-
-/* .product-form__input input[type='radio'] + label:hover {
-  border: 0.1rem solid rgb(var(--color-foreground));
-} */
 
 .product-form__input input[type='radio']:checked + label {
   background-color: rgb(var(--color-foreground));

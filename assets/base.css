@@ -1168,7 +1168,7 @@ deferred-media {
   box-sizing: border-box;
   font: inherit;
   font-size: 1.5rem;
-  padding: var(--buttons-padding) calc(var(--buttons-padding) * 3);
+  padding: 0.9rem 3rem 1.1rem;
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: var(--buttons-radius);
