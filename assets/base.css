@@ -247,6 +247,10 @@ body,
   background-color: rgb(var(--color-background));
 }
 
+.background-secondary {
+  background-color: rgba(var(--color-foreground), 0.04);
+}
+
 .grid-auto-flow {
   display: grid;
   grid-auto-flow: column;
