@@ -2082,7 +2082,8 @@
           },
           "options__5": {
             "label": "Korostus 2"
-          }
+          },
+          "info": "Näkyy, kun asetteluna on rivi- tai osiosäiliö."
         }
       },
       "blocks": {
