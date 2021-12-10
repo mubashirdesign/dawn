@@ -1448,12 +1448,12 @@
           "info": "Medieindhold optimeres automatisk til mobil."
         },
         "mobile_thumbnails": {
-          "label": "Miniaturer – mobil",
+          "label": "Mobillayout",
           "options__1": {
-            "label": "Vis"
+            "label": "Vis miniaturer"
           },
           "options__2": {
-            "label": "Skjul"
+            "label": "Skjul miniaturer"
           }
         }
       }
