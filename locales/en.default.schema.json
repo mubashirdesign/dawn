@@ -333,10 +333,8 @@
     "all": {
       "padding": {
         "section_padding_heading": "Section padding",
-        "desktop_padding_top": "Desktop top padding",
-        "desktop_padding_bottom": "Desktop bottom padding",
-        "mobile_padding_top": "Mobile top padding",
-        "mobile_padding_bottom": "Mobile bottom padding"
+        "padding_top": "Top padding",
+        "padding_bottom": "Bottom padding"
       }
     },
     "announcement-bar": {
