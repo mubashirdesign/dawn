@@ -71,7 +71,8 @@
     "of": "di",
     "skip_to_product_info": "Passa alle informazioni sul prodotto",
     "total_reviews": "recensioni totali",
-    "star_reviews_info": "{{ rating_value }} stelle su {{ rating_max }}"
+    "star_reviews_info": "{{ rating_value }} stelle su {{ rating_max }}",
+    "collapsible_content_title": "Contenuto comprimibile"
   },
   "blogs": {
     "article": {
