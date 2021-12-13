@@ -13,15 +13,9 @@
   display: none;
 }
 
-.section-featured-product .background-secondary {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
 .background-secondary .featured-product {
   background: rgb(var(--color-background));
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding: 2.5rem;
 }
 
 .product__view-details {
@@ -60,14 +54,8 @@
     padding-bottom: 0;
   }
 
-  .section-featured-product .background-secondary {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
-
   .background-secondary .featured-product {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding: 5rem;
   }
 }
 
