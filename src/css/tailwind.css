@@ -5,7 +5,7 @@
 
   html,
   body {
-    @apply font-arimo;
+    @apply font-sans;
     @apply text-base;
     @apply leading-normal;
     @apply text-secondary;
@@ -30,7 +30,7 @@
   .h4,
   .h5,
   .h6 {
-    @apply font-mencken;
+    @apply font-sans;
     @apply text-secondary;
     @apply leading-tight;
     @apply font-normal;
@@ -109,7 +109,7 @@
   }
 
   .subheading {
-    @apply font-futura;
+    @apply font-sans;
     @apply text-secondary;
     @apply font-medium;
   }
@@ -191,7 +191,7 @@
 
   blockquote p {
     @apply relative;
-    @apply font-mencken;
+    @apply font-sans;
     @apply text-xl;
     @apply leading-snug;
     @apply text-primary2;

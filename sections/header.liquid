@@ -14,7 +14,7 @@
   }
   ```
 -->
-<div class="bg-[#245aef]">
+<div class="bg-lightPrimaryBlue">
   <!--
     Mobile menu
 
@@ -33,7 +33,7 @@
     -->
     <div class="fixed inset-0 bg-black bg-opacity-25"></div>
 
-    <div class="fixed inset-0 flex z-40">
+    <div class="fixed inset-0 flex hidden">
       <!--
         Off-canvas menu, show/hide based on off-canvas menu state.
 
@@ -312,33 +312,7 @@
       <!-- Top navigation -->
       <div class="bg-gray-900">
         <div class="max-w-7xl mx-auto h-10 px-4 flex items-center justify-between sm:px-6 lg:px-8">
-          <!-- Currency selector -->
-          <form class="hidden lg:block lg:flex-1">
-            <div class="flex">
-              <label for="desktop-currency" class="sr-only">Currency</label>
-              <div class="-ml-2 group relative bg-gray-900 border-transparent rounded-md focus-within:ring-2 focus-within:ring-white">
-                <select id="desktop-currency" name="currency" class="bg-none bg-gray-900 border-transparent rounded-md py-0.5 pl-2 pr-5 flex items-center text-sm font-medium text-white group-hover:text-gray-100 focus:outline-none focus:ring-0 focus:border-transparent">
-                  <option>CAD</option>
-
-                  <option>USD</option>
-
-                  <option>AUD</option>
-
-                  <option>EUR</option>
-
-                  <option>GBP</option>
-                </select>
-                <div class="absolute right-0 inset-y-0 flex items-center pointer-events-none">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" class="w-5 h-5 text-gray-300">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </form>
-
-          <p class="flex-1 text-center text-sm text-primaryRed font-semibold lg:flex-none">Get free delivery on orders over $100</p>
-
+    
           <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
             <a href="#" class="text-sm font-medium text-white hover:text-gray-100">Create an account</a>
             <span class="h-6 w-px bg-gray-600" aria-hidden="true"></span>
@@ -354,10 +328,26 @@
             <div class="h-16 flex items-center justify-between">
               <!-- Logo (lg+) -->
               <div class="hidden lg:flex lg:items-center">
-                <a href="#">
-                  <span class="sr-only">Workflow</span>
-                  <img class="h-8 w-auto" src="https://cdn.shopify.com/s/files/1/0612/9644/3607/files/three-pedals-logo-2017.svg?v=1652791633" alt="">
-                </a>
+               
+            
+                    <a href="{{ routes.root_url }}" class="">
+                      <span class="sr-only">Workflow</span>
+
+                      {%- if section.settings.logo != blank -%}
+                        {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+                        {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+                        {{ section.settings.logo | image_url: width: section.settings.width | image_tag:
+                          class: 'h-12 w-auto',
+                          widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                          height: logo_height,
+                          width: section.settings.logo_width,
+                          alt: logo_alt
+                        }}
+                      {%- else -%}
+                        <span class="h2">{{ shop.name }}</span>
+                      {%- endif -%}
+                    </a>
+             
               </div>
 
              
@@ -365,10 +355,12 @@
                 <!-- Mega menus -->
                 <div class="ml-8">
                   <div class="h-full flex justify-center space-x-8">
+                    {% for link in linklists[section.settings.menu].links %}
+                    {% if link.links != blank %}
                     <div class="flex">
                       <div class="relative flex item-1">
                         <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                        <button type="button" class="border-transparent text-gray-100 hover:text-primaryRed relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">Women</button>
+                        <button id="meganav-heading" type="button" class="border-transparent text-gray-100 hover:text-white relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false" meganav_heading_index="{{forloop.index}}">{{ link.title }}</button>
                       </div>
 
                       <!--
@@ -381,229 +373,41 @@
                           From: "opacity-100"
                           To: "opacity-0"
                       -->
-                      <div class="absolute top-full inset-x-0 text-gray-500 sm:text-sm hidden meganav-1">
+                      <div class="absolute top-full inset-x-0 text-gray-500 sm:text-sm hidden meganav-1" meganav_index="{{forloop.index}}">
                         <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
                         <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
 
                         <div class="relative bg-white">
                           <div class="max-w-7xl mx-auto px-8">
-                            <div class="grid grid-cols-2 items-start gap-y-10 gap-x-8 pt-10 pb-12">
-                              <div class="grid grid-cols-2 gap-y-10 gap-x-8">
+                            <div class="grid grid-cols-1 items-start gap-y-10 gap-x-8 pt-10 pb-12">
+                              <div class="grid grid-cols-4 gap-y-10 gap-x-8">
+                                {% for childlink in link.links %}
                                 <div>
-                                  <p id="desktop-featured-heading-0" class="font-medium text-gray-900">Featured</p>
-                                  <ul role="list" aria-labelledby="desktop-featured-heading-0" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                  <p class="font-medium text-gray-900">{{ childlink.title }}</p>
+                                  {% if childlink.links != blank %}
+                                  <ul role="list" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                    {% for grandchildlink in childlink.links %}
                                     <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Sleep </a>
+                                      <a href="{{ grandchildlink.url }}" class="hover:text-gray-800">{{ grandchildlink.title }}</a>
                                     </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Swimwear </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Underwear </a>
-                                    </li>
+                                    {% endfor %}
                                   </ul>
+                                  {% endif %}
                                 </div>
-                                <div>
-                                  <p id="desktop-categories-heading" class="font-medium text-gray-900">Categories</p>
-                                  <ul role="list" aria-labelledby="desktop-categories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Basic Tees </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Artwork Tees </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Bottoms </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Underwear </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Accessories </a>
-                                    </li>
-                                  </ul>
-                                </div>
+                                {% endfor %}
+                              
                               </div>
-                              <div class="grid grid-cols-2 gap-y-10 gap-x-8">
-                                <div>
-                                  <p id="desktop-collection-heading" class="font-medium text-gray-900">Collection</p>
-                                  <ul role="list" aria-labelledby="desktop-collection-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Everything </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Core </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> New Arrivals </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Sale </a>
-                                    </li>
-                                  </ul>
-                                </div>
-
-                                <div>
-                                  <p id="desktop-brand-heading" class="font-medium text-gray-900">Brands</p>
-                                  <ul role="list" aria-labelledby="desktop-brand-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Full Nelson </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> My Way </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Re-Arranged </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Counterfeit </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Significant Other </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
+                            
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="flex">
-                      <div class="relative flex">
-                        <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                        <button type="button" class="border-transparent text-gray-100 hover:text-primaryRed relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">Men</button>
-                      </div>
-
-                      <!--
-                        'Men' mega menu, show/hide based on flyout menu state.
-
-                        Entering: "transition ease-out duration-200"
-                          From: "opacity-0"
-                          To: "opacity-100"
-                        Leaving: "transition ease-in duration-150"
-                          From: "opacity-100"
-                          To: "opacity-0"
-                      -->
-                      <div class="absolute top-full inset-x-0 text-gray-500 sm:text-sm hidden">
-                        <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
-                        <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
-
-                        <div class="relative bg-white">
-                          <div class="max-w-7xl mx-auto px-8">
-                            <div class="grid grid-cols-2 items-start gap-y-10 gap-x-8 pt-10 pb-12">
-                              <div class="grid grid-cols-2 gap-y-10 gap-x-8">
-                                <div>
-                                  <p id="desktop-featured-heading-1" class="font-medium text-gray-900">Featured</p>
-                                  <ul role="list" aria-labelledby="desktop-featured-heading-1" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Casual </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Boxers </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Outdoor </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <p id="desktop-categories-heading" class="font-medium text-gray-900">Categories</p>
-                                  <ul role="list" aria-labelledby="desktop-categories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Artwork Tees </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Pants </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Accessories </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Boxers </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Basic Tees </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div class="grid grid-cols-2 gap-y-10 gap-x-8">
-                                <div>
-                                  <p id="desktop-collection-heading" class="font-medium text-gray-900">Collection</p>
-                                  <ul role="list" aria-labelledby="desktop-collection-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Everything </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Core </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> New Arrivals </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Sale </a>
-                                    </li>
-                                  </ul>
-                                </div>
-
-                                <div>
-                                  <p id="desktop-brand-heading" class="font-medium text-gray-900">Brands</p>
-                                  <ul role="list" aria-labelledby="desktop-brand-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Significant Other </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> My Way </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Counterfeit </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Re-Arranged </a>
-                                    </li>
-
-                                    <li class="flex">
-                                      <a href="#" class="hover:text-gray-800"> Full Nelson </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <a href="#" class="flex items-center text-sm font-medium text-gray-100 hover:text-primaryRed">Company</a>
-
-                    <a href="#" class="flex items-center text-sm font-medium text-gray-100 hover:text-primaryRed">Stores</a>
+                    {% else %}
+                      <a href="{{ link.url }}" class="flex items-center text-sm font-medium text-gray-100 hover:text-primaryRed">{{ link.title }}</a>
+                    {% endif %}
+                    {% endfor %}
                   </div>
                 </div>
               </div>
@@ -630,9 +434,22 @@
               </div>
 
               <!-- Logo (lg-) -->
-              <a href="#" class="lg:hidden">
+              <a href="{{ routes.root_url }}" class="lg:hidden">
                 <span class="sr-only">Workflow</span>
-                <img src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="" class="h-8 w-auto">
+
+                {%- if section.settings.logo != blank -%}
+                  {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+                  {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+                  {{ section.settings.logo | image_url: width: section.settings.width | image_tag:
+                    class: 'h-12 w-auto',
+                    widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                    height: logo_height,
+                    width: section.settings.logo_width,
+                    alt: logo_alt
+                  }}
+                {%- else -%}
+                  <span class="h2">{{ shop.name }}</span>
+                {%- endif -%}
               </a>
 
               <div class="flex-1 flex items-center justify-end">
@@ -686,7 +503,31 @@ class Header extends HTMLElement {
   constructor() {
     super();
     console.log('init');
-    
+  }
+
+  connectedCallback() {
+    this.addEventListener('mouseover', function(e){
+      var targetName = e.target.id;
+      var indexValue = e.target.getAttribute("meganav_heading_index");
+      console.log(e);
+      if (targetName) {
+        this.querySelectorAll("[meganav_index]").forEach(element => {
+          if (element.getAttribute("meganav_index") != indexValue) {
+            element.style.display = "none";
+          } else {
+            element.style.display = "block";
+          }
+        })
+      }
+
+    });
+
+    this.addEventListener('mouseleave', e => {
+      this.querySelectorAll("[meganav_index]").forEach(element => {
+            element.style.display = "none";
+        });
+    });
+
   }
 
   
@@ -700,34 +541,6 @@ customElements.define('main-header', Header);
 {
   "name": "t:sections.header.name",
   "settings": [
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "options": [
-        {
-          "value": "accent-1",
-          "label": "t:sections.header.settings.color_scheme.options__1.label"
-        },
-        {
-          "value": "accent-2",
-          "label": "t:sections.header.settings.color_scheme.options__2.label"
-        },
-        {
-          "value": "background-1",
-          "label": "t:sections.header.settings.color_scheme.options__3.label"
-        },
-        {
-          "value": "background-2",
-          "label": "t:sections.header.settings.color_scheme.options__4.label"
-        },
-        {
-          "value": "inverse",
-          "label": "t:sections.header.settings.color_scheme.options__5.label"
-        }
-      ],
-      "default": "background-1",
-      "label": "t:sections.header.settings.color_scheme.label"
-    },
     {
       "type": "image_picker",
       "id": "logo",
@@ -744,43 +557,10 @@ customElements.define('main-header', Header);
       "label": "t:sections.header.settings.logo_width.label"
     },
     {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label"
-    },
-    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_sticky_header",
-      "default": true,
-      "label": "t:sections.header.settings.enable_sticky_header.label",
-      "info": "t:sections.header.settings.enable_sticky_header.info"
     }
   ]
 }
