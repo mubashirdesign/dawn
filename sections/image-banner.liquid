@@ -1,70 +1,17 @@
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
+ <!-- Hero section -->
+ <div class="relative bg-gray-900">
+  <!-- Decorative image and overlay -->
+  <div aria-hidden="true" class="absolute inset-0 overflow-hidden">
+    <img src="https://cdn.shopify.com/s/files/1/0612/9644/3607/files/PXL_20220418_123502480.jpg?v=1653522708" alt="" class="w-full h-full object-center object-cover">
+  </div>
+  <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-50"></div>
 
 
-<div class="bg-gray-800 pb-2 flex flex-col">
 
-  <div class="pt-8 overflow-hidden sm:pt-12 md:relative md:py-12">
-    <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 md:px-8 md:max-w-7xl md:grid lg:grid-cols-2 lg:gap-24">
-      <div>
-    
-        <div class="mt-2">
-         
-          <div class="mt-6 sm:max-w-xl">
-            <h1 class="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">High Performance <span class="text-primaryRed">Exhaust</span> Systems</h1>
-            <p class="mt-6 text-xl text-white font-semibold">Your online stop for everything related to high performance exhaust systems and exhaust parts.</p>
-          </div>
-          <form action="#" class="mt-12 sm:max-w-lg sm:w-full sm:flex">
-          
-            <div class="mt-4 sm:mt-0">
-              <button type="submit" class="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-600 text-base font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:px-10">Shop Now</button>
-            </div>
-          </form>
-       
-        </div>
-      </div>
-    </div>
-
-    <div class="sm:mx-auto sm:max-w-3xl sm:px-6">
-      <div class="py-12 sm:relative sm:mt-12 sm:py-16 md:absolute md:inset-y-0 md:right-0 md:w-1/2">
-       
-        <div class="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 md:h-full md:pl-12">
-       
-          <img
-        srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
-          {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
-          {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
-          {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
-          {%- if section.settings.image.width >= 1780 -%}{{ section.settings.image | img_url: '1780x' }} 1780w,{%- endif -%}
-          {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | img_url: '2000x' }} 2000w,{%- endif -%}
-          {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | img_url: '3000x' }} 3000w,{%- endif -%}
-          {%- if section.settings.image.width >= 3840 -%}{{ section.settings.image | img_url: '3840x' }} 3840w,{%- endif -%}
-          {{ section.settings.image | img_url: 'master' }} {{ section.settings.image.width }}w"
-        sizes="100vw"
-        src="{{ section.settings.image | img_url: '1500x' }}"
-        loading="lazy"
-        class="w-full rounded-md md:w-auto"
-        alt="{{ section.settings.image.alt | escape }}"
-        width="{{ section.settings.image.width }}"
-        height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio }}"
-      >
-        </div>
-      </div>
-    </div>
+  <div class="relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-0">
+    <h1 class="text-4xl font-extrabold tracking-tight text-white lg:text-6xl" style="text-shadow: 1px 5px black;">The Ultimate B-Body Header's & Exhaust Systems</h1>
+    <p class="mt-4 text-xl font-semibold text-white"><span class="text-gray-200 text-lg italic">Some said it couldn't be done. Some said it shouldn't be done.. </span><br>Now introducing the Ultimate Street Header For The 94 - 96 Impala SS!</p>
+    <a href="#" class="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100">Shop Now</a>
   </div>
 </div>
 
