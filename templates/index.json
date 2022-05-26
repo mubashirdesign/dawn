@@ -56,15 +56,67 @@
         "show_rating": false
       }
     },
+    "16535287530956fd10": {
+      "type": "image-with-text",
+      "blocks": {
+        "1653528753407e5fb0-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text"
+          }
+        },
+        "1653528753407e5fb0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
+          }
+        },
+        "1653528753407e5fb0-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1653528753407e5fb0-0",
+        "1653528753407e5fb0-1",
+        "1653528753407e5fb0-2"
+      ],
+      "settings": {
+        "height": "adapt",
+        "color_scheme": "background-1",
+        "layout": "image_first"
+      }
+    },
     "16535283086797c94c": {
       "type": "featured-incentives",
       "settings": {
+      }
+    },
+    "16535287556bef1f16": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
       }
     }
   },
   "order": [
     "image_banner",
     "featured_products",
-    "16535283086797c94c"
+    "16535287530956fd10",
+    "16535283086797c94c",
+    "16535287556bef1f16"
   ]
 }
