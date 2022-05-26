@@ -37,6 +37,8 @@ const selectors = {
 
 register('product', {
   async onLoad() {
+
+    console.log('test');
     const productFormElement = document.querySelector(selectors.productForm);
 
     this.product = await this.getProductJson(
