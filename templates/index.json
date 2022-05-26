@@ -47,6 +47,13 @@
         "style": "circle"
       }
     },
+    "16535287556bef1f16": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "style": "grid"
+      }
+    },
     "16535287530956fd10": {
       "type": "image-with-text",
       "blocks": {
@@ -85,20 +92,13 @@
       "type": "featured-incentives",
       "settings": {
       }
-    },
-    "16535287556bef1f16": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured collection",
-        "style": "grid"
-      }
     }
   },
   "order": [
     "image_banner",
     "featured_products",
+    "16535287556bef1f16",
     "16535287530956fd10",
-    "16535283086797c94c",
-    "16535287556bef1f16"
+    "16535283086797c94c"
   ]
 }
