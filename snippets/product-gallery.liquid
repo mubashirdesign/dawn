@@ -1,6 +1,19 @@
-<div class="flex flex-col-reverse">
+<div class="flex flex-col">
     <!-- Image selector -->
-    <thumbnail-slider thumbsSlider class="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none overflow-hidden h-24">
+    <product-gallery class="w-full swiper-product-gallery overflow-hidden">
+      <!-- Tab panel, show/hide based on tab state. -->
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+            <img src="{{ image | image_url: width: 1200 }}" alt="Angled front view with bag zipped and handles upright." class="swiper-slide w-full h-full object-center object-cover sm:rounded-lg">
+        {% endfor %}
+      </div>
+      <div style="bottom: auto" class="swiper-pagination sm:hidden"></div>
+
+      <!-- More images... -->
+    </product-gallery>
+
+
+    <thumbnail-slider class="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none overflow-hidden h-24">
       <div class="swiper-wrapper" aria-orientation="horizontal" role="tablist">
         {% for image in product.images %}
            
@@ -17,19 +30,5 @@
       </div>
     </thumbnail-slider>
 
-    <product-gallery class="w-full swiper-product-gallery overflow-hidden">
-      <!-- Tab panel, show/hide based on tab state. -->
-      <div class="swiper-wrapper">
-        {% for image in product.images %}
-            <img src="{{ image | image_url: width: 1200 }}" alt="Angled front view with bag zipped and handles upright." class="swiper-slide w-full h-full object-center object-cover sm:rounded-lg">
-        {% endfor %}
-
-      </div>
-
-      <!-- More images... -->
-    </product-gallery>
+ 
   </div>
-
-  <style>
-     
-  </style>
