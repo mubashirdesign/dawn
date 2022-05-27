@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 
@@ -17,6 +19,8 @@
   main {
     @apply overflow-x-hidden;
   }
+
+
 
   h1,
   h2,
@@ -235,6 +239,9 @@
 
 @layer components {
 
+  button {
+    @apply font-sans;
+  }
   /** Buttons/Links */
   .button,
   .btn {
