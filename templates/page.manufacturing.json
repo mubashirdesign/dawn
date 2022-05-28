@@ -4,9 +4,23 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "1653735030544b31b1": {
+      "type": "support-section",
+      "settings": {
+      }
+    },
+    "1653735033fcdfc37b": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "style": "circle"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1653735030544b31b1",
+    "1653735033fcdfc37b"
   ]
 }
