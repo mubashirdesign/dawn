@@ -180,18 +180,7 @@
     @apply text-lg;
   }
 
-  main a {
-    @apply inline-block;
-    @apply text-primary;
-    /* @apply underline; */
-    @apply transition-colors;
-  }
-
-  main a:hover,
-  main a:focus {
-    /* @apply text-primary2;
-    @apply border-primary2; */
-  }
+ 
 
   blockquote p {
     @apply relative;
