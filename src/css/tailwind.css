@@ -128,8 +128,6 @@
 
   main ul {
     @apply pb-3;
-    @apply pl-5;
-    @apply list-disc;
 
     ul {
       @apply mt-2;
@@ -156,6 +154,7 @@
     @apply leading-none;
 
     li {
+      list-style-type: none;
       @apply mb-2;
     }
   }
