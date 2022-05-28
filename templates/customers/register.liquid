@@ -45,15 +45,12 @@
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     <div class="space-y-6">
       {%- if form.errors -%}
-      <h2 class="form__message" tabindex="-1" autofocus>
-        <svg aria-hidden="true" focusable="false" role="presentation">
-          <use href="#icon-error" />
-        </svg>
+      <h2 class="text-error font-bold" tabindex="-1" autofocus>
         {{ 'templates.contact.form.error_heading' | t }}
       </h2>
       <ul> 
         {%- for field in form.errors -%}
-          <li>
+          <li class="text-white">
             {%- if field == 'form' -%}
               {{ form.errors.messages[field] }}
             {%- else -%}
@@ -122,10 +119,7 @@
       
     </div>
     {%- if form.errors contains 'email' -%}
-      <span id="RegisterForm-email-error" class="form__message">
-        <svg aria-hidden="true" focusable="false" role="presentation">
-          <use href="#icon-error" />
-        </svg>
+      <span id="RegisterForm-email-error" class="text-error font-bold">
         {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
       </span>
     {%- endif -%}
@@ -148,10 +142,7 @@
       
     </div>
     {%- if form.errors contains 'password' -%}
-      <span id="RegisterForm-password-error" class="form__message">
-        <svg aria-hidden="true" focusable="false" role="presentation">
-          <use href="#icon-error" />
-        </svg>
+      <span id="RegisterForm-password-error" class="text-error font-bold">
         {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
       </span>
     {%- endif -%}
