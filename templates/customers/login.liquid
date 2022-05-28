@@ -1,72 +1,50 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div class="customer login">
-  <h1 id="recover" tabindex="-1">
-    {{ 'customer.recover_password.title' | t }}
-  </h1>
-  <div>
-    <p>
-      {{ 'customer.recover_password.subtext' | t }}
-    </p>
 
-    {%- form 'recover_customer_password' -%}
-      {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
-        <input type="email"
-          value=""
-          name="email"
-          id="RecoverEmail"
-          autocorrect="off"
-          autocapitalize="off"
-          autocomplete="email"
-          {% if form.errors %}
-            aria-invalid="true"
-            aria-describedby="RecoverEmail-email-error"
-            autofocus
-          {% endif %}
-          placeholder="{{ 'customer.login_page.email' | t }}"
-        >
-        <label for="RecoverEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-white">
+  <body class="h-full">
+  ```
+-->
+<div class="flex bg-gray-900">
+  <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+    <div class="mx-auto w-full max-w-sm lg:w-96">
+      <div>
+        <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+        <h2 class="mt-6 text-3xl font-extrabold text-white">Sign in to your account</h2>
+        <p class="mt-2 text-sm text-white">
+          Or
+          <a href="{{ routes.account_register_url }}" class="font-medium text-white hover:text-lightPrimaryBlue"> Create Account </a>
+        </p>
       </div>
-      {%- if form.errors -%}
-        <small id="RecoverEmail-email-error" class="form__message">
-          <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
-            <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-            <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-            <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-          </svg>
-          {{ form.errors.messages['form'] }}
-        </small>
-      {%- endif -%}
 
-      <button>
-        {{ 'customer.login_page.submit' | t }}
-      </button>
+      <div class="mt-8">
+       
 
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
-    {%- endform -%}
-  </div>
+        <div class="mt-6">
+       
 
-  <h1 id="login" tabindex="-1">
-    {{ 'customer.login_page.title' | t }}
-  </h1>
-  <div>
-    {%- if recover_success == true -%}
-      <h3 class="form__message" tabindex="-1" autofocus>
-        <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
-          <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z" fill="#428445" stroke="white" stroke-width="0.7"/>
-          <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"/>
-          <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white">
-        </svg>
-        {{ 'customer.recover_password.success' | t }}
-      </h3>
-    {%- endif -%}
     {%- form 'customer_login', novalidate: 'novalidate' -%}
+    <div class="space-y-6">
       {%- if form.errors -%}
         <h2 class="form__message" tabindex="-1" autofocus>
           <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
@@ -81,7 +59,11 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field">        
+      <div> 
+        <label class="block text-sm font-medium text-gray-100" for="CustomerEmail">
+          Email address
+        </label>  
+        <div class="mt-1">     
         <input
           type="email"
           name="customer[email]"
@@ -89,60 +71,178 @@
           autocomplete="email"
           autocorrect="off"
           autocapitalize="off"
+          class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           {% if form.errors contains 'form' %}
             aria-invalid="true"
           {% endif %}
           placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="CustomerEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
+        </div>
+        
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">          
+        <div class="space-y-1">  
+          <label class="block text-sm font-medium text-gray-100" for="CustomerPassword">
+            Password
+          </label> 
+          <div class="mt-1">       
           <input
             type="password"
             value=""
             name="customer[password]"
             id="CustomerPassword"
+            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             autocomplete="current-password"
             {% if form.errors contains 'form' %}
               aria-invalid="true"
             {% endif %}
             placeholder="{{ 'customer.login_page.password' | t }}"
           >
-          <label for="CustomerPassword">
-            {{ 'customer.login_page.password' | t }}
-          </label>
+          </div>
         </div>
 
-        <a href="#recover">
-          {{ 'customer.login_page.forgot_password' | t }}
-        </a>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+            <label for="remember-me" class="ml-2 block text-sm text-gray-900"></label>
+          </div>
+
+          <div class="text-sm">
+            <a id="forgot-password" href="#recover" class="font-medium text-white hover:text-lightPrimaryBlue"> Forgot your password? </a>
+          </div>
+        </div>
+
       {%- endif -%}
+      <div>
+        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-lightPrimaryBlue hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign in</button>
+      </div>
+     
 
-      <button>
-        {{ 'customer.login_page.sign_in' | t }}
-      </button>
-
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
-      </a>
-      
+   
+    </div>
     {%- endform -%}
-  </div>
-  
-  {%- if shop.checkout.guest_login -%}
-    <div>
-      <hr>
-      <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
-      {%- form 'guest_login' -%}
-        <button>
-          {{ 'customer.login_page.guest_continue' | t }}
-        </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden lg:block relative w-0 flex-1">
+    <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80" alt="">
+  </div>
+</div>
+
+<!-- This example requires Tailwind CSS v2.0+ -->
+<recover-modal class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <!--
+    Background backdrop, show/hide based on modal state.
+
+    Entering: "ease-out duration-300"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in duration-200"
+      From: "opacity-100"
+      To: "opacity-0"
+  -->
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+  <div class="fixed z-10 inset-0 overflow-y-auto">
+    <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+      <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+      {%- form 'recover_customer_password' -%}
+
+      <div class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full sm:p-6">
+        <div>
+         
+          <div class="mt-3 text-center sm:mt-5">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Reset Your Password</h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">Please contact us if you have any issues with resetting your password.</p>
+            </div>
+          </div>
+          <div class="space-y-6">
+            {%- if form.errors -%}
+              <h2 class="form__message" tabindex="-1" autofocus>
+                <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+                <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
+                  <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                  <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                  <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                  <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+                </svg>
+                {{ 'templates.contact.form.error_heading' | t }}
+              </h2>
+              {{ form.errors | default_errors }}
+            {%- endif -%}
+      
+            <div>
+              <label for="RecoverEmail" class="block text-sm font-medium text-lightPrimaryBlue">
+                {{ 'customer.login_page.email' | t }}
+              </label>
+              <input type="email"
+                value=""
+                name="email"
+                id="RecoverEmail"
+                autocorrect="off"
+                autocapitalize="off"
+                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                autocomplete="email"
+                {% if form.errors %}
+                  aria-invalid="true"
+                  aria-describedby="RecoverEmail-email-error"
+                  autofocus
+                {% endif %}
+                placeholder="{{ 'customer.login_page.email' | t }}"
+              >
+              
+            </div>
+      
+         
+          </div>
+        </div>
+        <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+          <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-lightPrimaryBlue text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:col-start-2 sm:text-sm">Submit</button>
+          <button id="cancel" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:col-start-1 sm:text-sm">Cancel</button>
+        </div>
+      </div>
+
       {%- endform -%}
     </div>
-  {%- endif -%}
-</div>
+  </div>
+</recover-modal>
+
+<script>
+  class RecoverModal extends HTMLElement {
+    constructor() {
+      super();
+    }
+  
+    connectedCallback() {
+      document.querySelector('#forgot-password').addEventListener('click', () => {
+        this.classList.add('block');
+        this.classList.remove('hidden');
+      })
+      document.querySelector('#cancel').addEventListener('click', () => {
+        this.classList.add('hidden');
+        this.classList.remove('block');
+      })
+    }
+  
+    
+  }
+  
+  customElements.define('recover-modal', RecoverModal);
+  </script>
+  
+  
+
