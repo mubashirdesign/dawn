@@ -1,17 +1,33 @@
 {
   "sections": {
     "main": {
-      "type": "main-page"
+      "type": "main-page",
+      "settings": {
+      }
     },
     "form": {
       "type": "contact-form",
       "settings": {
         "heading": ""
       }
+    },
+    "1653735084358125bf": {
+      "type": "support-section",
+      "settings": {
+      }
+    },
+    "16537350869256ac99": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "style": "circle"
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "form",
+    "1653735084358125bf",
+    "16537350869256ac99"
   ]
 }
