@@ -92,6 +92,11 @@
       "type": "featured-incentives",
       "settings": {
       }
+    },
+    "165370467974bc36f1": {
+      "type": "support-section",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -99,6 +104,7 @@
     "featured_products",
     "16535287556bef1f16",
     "16535287530956fd10",
-    "16535283086797c94c"
+    "16535283086797c94c",
+    "165370467974bc36f1"
   ]
 }
