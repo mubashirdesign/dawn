@@ -296,11 +296,11 @@
     cursor: not-allowed !important;
   }
 
-  .button--secondary:disabled {
+  /* .button--secondary:disabled {
     @apply text-button-bg-disabled;
     @apply border-button-bg-disabled;
     cursor: not-allowed;
-  }
+  } */
 
   .button--small {
     @apply text-xs;

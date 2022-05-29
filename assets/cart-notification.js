@@ -3,7 +3,7 @@ class CartNotification extends HTMLElement {
     super();
 
     this.notification = document.getElementById('cart-notification');
-    this.header = document.querySelector('sticky-header');
+    this.header = document.querySelector('main-header');
     this.onBodyClick = this.handleBodyClick.bind(this);
     
     this.notification.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
@@ -34,11 +34,11 @@ class CartNotification extends HTMLElement {
   renderContents(parsedState) {
       this.productId = parsedState.id;
       this.getSectionsToRender().forEach((section => {
+        console.log(document.getElementById(section.id)); 
         document.getElementById(section.id).innerHTML =
           this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
       }));
 
-      if (this.header) this.header.reveal();
       this.open();
   }
 
