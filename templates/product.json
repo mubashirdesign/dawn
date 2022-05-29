@@ -13,6 +13,11 @@
           "settings": {
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -29,20 +34,15 @@
           "settings": {
             "show_dynamic_checkout": true
           }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
         }
       },
       "block_order": [
         "title",
         "price",
+        "description",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons",
-        "description"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
