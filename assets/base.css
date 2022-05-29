@@ -371,16 +371,7 @@ blockquote {
   text-transform: uppercase;
 }
 
-.caption-large,
-.customer .field input,
-.customer select,
-.field__input,
-.form__label,
-.select__select {
-  font-size: 1.3rem;
-  line-height: calc(1 + 0.5 / var(--font-body-scale));
-  letter-spacing: 0.04rem;
-}
+
 
 .color-foreground {
   color: rgb(var(--color-foreground));
@@ -1103,21 +1094,14 @@ details[open] > .share-button__fallback {
   border: 0.1rem solid transparent;
   border-radius: 0;
   color: rgb(var(--color-foreground));
-  font-size: 1.6rem;
   width: 100%;
   box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.55);
-  height: 4.5rem;
+  height: 2.5rem;
   box-sizing: border-box;
   transition: box-shadow var(--duration-short) ease;
 }
 
-.select__select {
-  font-family: var(--font-body-family);
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
-  font-size: 1.2rem;
-  color: rgba(var(--color-foreground), 0.75);
-}
+
 
 .field__input:hover,
 .select__select:hover,
@@ -1281,10 +1265,7 @@ input[type='checkbox'] {
 
 /* Form global */
 
-.form__label {
-  display: block;
-  margin-bottom: 0.6rem;
-}
+
 
 .form__message {
   align-items: center;
@@ -1344,8 +1325,8 @@ input[type='checkbox'] {
 .quantity {
   border: 0.1rem solid rgba(var(--color-base-text), 0.08);
   position: relative;
-  height: 3.5rem;
-  width: 10rem;
+  height: 2.5rem;
+  width: 8rem;
   display: flex;
 }
 

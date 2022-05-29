@@ -217,12 +217,7 @@
     @apply text-secondary;
   }
 
-  label {
-    @apply uppercase;
-    @apply text-xs;
-    @apply tracking-wider;
-    @apply font-medium;
-  }
+
 }
 
 @layer components {

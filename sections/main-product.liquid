@@ -79,7 +79,7 @@
             </div>
             {%- when 'quantity_selector' -%}
               <div class="product-form__input product-form__quantity mt-3" {{ block.shopify_attributes }}>
-                <label class="form__label form__label block text-sm font-medium text-gray-700" for="Quantity-{{ section.id }}">
+                <label class="form__label form__label block text-sm font-medium text-gray-700 mt-3 mb-2" for="Quantity-{{ section.id }}">
                   {{ 'products.product.quantity.label' | t }}
                 </label>
                 <quantity-input class="quantity rounded-md">
@@ -134,7 +134,7 @@
 
                     {%- for option in product.options_with_values -%}
                       <div class="product-form__input product-form__input--dropdown">
-                        <label class="form__label block text-sm font-medium text-gray-700" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                        <label class="form__label mt-3 mb-2 block text-sm font-medium text-gray-700" for="Option-{{ section.id }}-{{ forloop.index0 }}">
                           {{ option.name }}
                         </label>
                         <div class="select">
@@ -149,7 +149,6 @@
                               </option>
                             {%- endfor -%}
                           </select>
-                          {% render 'icon-caret' %}
                         </div>
                       </div>
                     {%- endfor -%}
