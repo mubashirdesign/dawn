@@ -47,8 +47,10 @@
 
   <div class="relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-0">
     <h1 class="text-4xl font-extrabold tracking-tight text-white lg:text-6xl" style="text-shadow: 1px 5px black;">{{ section.settings.heading }}</h1>
-    <p class="mt-4 text-xl font-semibold text-white">{{ section.settings.subheading }}<</p>
-    <a href="#" class="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100">Shop Now</a>
+    <p class="mt-4 text-xl font-semibold text-white">{{ section.settings.subheading }}</p>
+    {% if section.settings.button_label != blank % %}
+    <a href="{{ section.settings.button_url }}" class="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100">{{ section.settings.button_label }}</a>
+    {% endif %}
   </div>
 </div>
 
@@ -80,6 +82,17 @@
       "id": "subheading",
       "default": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!",
       "label": "Sub Heading"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Url"
     }
   ],
   "blocks": [
