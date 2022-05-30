@@ -293,6 +293,20 @@
   cursor: not-allowed;
   }
 
+  .product-form__submit[disabled] {
+    color: white;
+    background-color: #cbcbcb;
+    @apply border-button-bg-disabled;
+    cursor: not-allowed;
+  }
+
+  .product-form__submit[disabled]:hover {
+    color: white;
+    background-color: #cbcbcb;
+    cursor: not-allowed;
+  }
+
+
   .button--secondary[disabled]:hover {
     color: white;
     background-color: #cbcbcb;

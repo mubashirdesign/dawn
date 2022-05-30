@@ -15,11 +15,12 @@ class ProductGallery extends HTMLElement {
             slidesPerView: 4,
             freeMode: true,
             
+            
           });
 
         var ProductGallery = new Swiper(this, {
             loop: true,
-          
+            autoHeight: true,
             spaceBetween: 10,
             slidesPerView: 1,
             modules: [Thumbs, Pagination],

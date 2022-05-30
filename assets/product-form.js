@@ -19,25 +19,30 @@ if (!customElements.get('product-form')) {
 
       submitButton.setAttribute('aria-disabled', true);
       submitButton.classList.add('loading');
-    
 
       const config = fetchConfig('javascript');
       config.headers['X-Requested-With'] = 'XMLHttpRequest';
       delete config.headers['Content-Type'];
 
       const formData = new FormData(this.form);
+      formData.append('items[1]id', 42812633350359);
+      formData.append('items[1]quantity', 1)
+      formData.append('properties[Accessories]', 'Catalytic Converter')
       formData.append('sections', this.cartNotification.getSectionsToRender().map((section) => section.id));
       formData.append('sections_url', window.location.pathname);
       config.body = formData;
 
+      console.log(config);
+
       fetch(`${routes.cart_add_url}`, config)
         .then((response) => response.json())
         .then((response) => {
+          console.log(response);
           if (response.status) {
             this.handleErrorMessage(response.description);
             return;
           }
-          console.log(this.cartNotification);
+
           this.cartNotification.renderContents(response);
         })
         .catch((e) => {
@@ -46,7 +51,6 @@ if (!customElements.get('product-form')) {
         .finally(() => {
           submitButton.classList.remove('loading');
           submitButton.removeAttribute('aria-disabled');
-          this.querySelector('.loading-overlay__spinner').classList.add('hidden');
         });
     }
 
