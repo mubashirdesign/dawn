@@ -27,17 +27,10 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/car.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "adapt_height_first_image": false,
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "image": "shopify:\/\/shop_images\/PXL_20220418_123502480-compressed.jpg",
+        "image_2": "shopify:\/\/shop_images\/PXL_20220418_123514366-compressed.jpg",
+        "heading": "The Ultimate B-Body Header's & Exhaust Systems",
+        "subheading": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!"
       }
     },
     "featured_products": {
