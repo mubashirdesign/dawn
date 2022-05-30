@@ -32,9 +32,9 @@
           From: "opacity-100"
           To: "opacity-0"
       -->
-      <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+      <div class="fixed inset-0 bg-black bg-opacity-25 hidden"></div>
 
-      <div class="fixed inset-0 flex z-40">
+      <div class="fixed inset-0 flex z-40 hidden">
         <!--
           Off-canvas menu, show/hide based on off-canvas menu state.
 
@@ -45,7 +45,7 @@
             From: "translate-x-0"
             To: "translate-x-full"
         -->
-        <div class="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
+        <div class="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto hidden">
           <div class="px-4 flex items-center justify-between">
             <h2 class="text-lg font-medium text-gray-900">Filters</h2>
             <button type="button" class="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400">
