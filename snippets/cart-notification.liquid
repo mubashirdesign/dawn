@@ -18,11 +18,11 @@
         </button>
       </div>
       <div id="cart-notification-product" class="cart-notification-product"></div>
-      <div class="cart-notification__links text-center">
+      <div class="mt-2 cart-notification__links text-center">
         <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
           <button class="w-full bg-lightPrimaryBlue border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500" name="checkout">Place Order Request</button>
         </form>
-        <a href="{{ routes.cart_url }}" id="cart-notification-button" class="text-sm font-medium text-indigo-600 hover:text-indigo-500"></a>
+        <a href="{{ routes.cart_url }}" id="cart-notification-button" class="text-sm mt-2 font-medium text-lightPrimaryBlue hover:text-indigo-500"></a>
       </div>
     </div>
   </div>
