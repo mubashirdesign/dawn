@@ -1,7 +1,6 @@
 
 
-<div class="text-sm py-2 px-4 sm:px-6 lg:px-8" style="background-color: {{section.settings.bg_color}}; color: {{ section.settings.text_color }}">
-  <div class="text-center relative text-xs md:text-sm">
+  <div class="text-center relative text-xs md:text-sm w-full" style="background-color: {{section.settings.bg_color}}; color: {{ section.settings.text_color }}">
     <announcement-bar class="block w-full">
       <div class="swiper-wrapper w-full">
         {%- for block in section.blocks -%}
@@ -11,7 +10,6 @@
       </div>
     </announcement-bar>
   </div>
-</div>
 
 
 {% schema %}

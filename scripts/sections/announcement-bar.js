@@ -1,4 +1,5 @@
-import { Swiper} from 'swiper';
+import { Swiper } from 'swiper';
+import 'swiper/css';
 
 class AnnouncementBar extends HTMLElement {
     constructor() {

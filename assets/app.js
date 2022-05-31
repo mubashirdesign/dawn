@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"./node_modules/swiper/swiper.esm.js\");\n\n\nclass AnnouncementBar extends HTMLElement {\n  constructor() {\n    super();\n  }\n\n  connectedCallback() {\n    const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(this, {\n      // Optional parameters\n      centeredSlides: true,\n      autoplay: {\n        delay: 5000\n      }\n    });\n  }\n\n}\n\ncustomElements.define('announcement-bar', AnnouncementBar);\n\n//# sourceURL=webpack://trespedals/./scripts/sections/announcement-bar.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"./node_modules/swiper/swiper.esm.js\");\n/* harmony import */ var swiper_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/css */ \"./node_modules/swiper/swiper.min.css\");\n\n\n\nclass AnnouncementBar extends HTMLElement {\n  constructor() {\n    super();\n  }\n\n  connectedCallback() {\n    const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(this, {\n      // Optional parameters\n      centeredSlides: true,\n      autoplay: {\n        delay: 5000\n      }\n    });\n  }\n\n}\n\ncustomElements.define('announcement-bar', AnnouncementBar);\n\n//# sourceURL=webpack://trespedals/./scripts/sections/announcement-bar.js?");
 
 /***/ }),
 
@@ -83,6 +83,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://trespedals/./node_modules/swiper/swiper-bundle.min.css?");
+
+/***/ }),
+
+/***/ "./node_modules/swiper/swiper.min.css":
+/*!********************************************!*\
+  !*** ./node_modules/swiper/swiper.min.css ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://trespedals/./node_modules/swiper/swiper.min.css?");
 
 /***/ }),
 
