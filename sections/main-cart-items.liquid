@@ -19,14 +19,12 @@
   }
   ```
 -->
-<div class="bg-white">
-  <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
-    <form action="{{ routes.cart_url }}" id="cart" class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
+
+    <form action="{{ routes.cart_url }}" id="cart">
       <cart-items aria-labelledby="cart-heading" id="main-cart-items" class="lg:col-span-7" data-id="{{ section.id }}">
         <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
 
-        <ul role="list" class="js-contents border-t border-b border-gray-200 divide-y divide-gray-200">
+        <ul role="list" class="js-contents border-t border-b border-gray-200 border-r-0 border-l-0 border-solid divide-y divide-gray-200">
        
           {%- for item in cart.items -%}
             <li class="cart-item flex py-6 sm:py-10" id="CartItem-{{ item.index | plus: 1 }}">
@@ -157,34 +155,12 @@
         </ul>
       </cart-items>
 
-      <!-- Order summary -->
-      <section aria-labelledby="summary-heading" class="cart__footer mt-16 bg-gray-50 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5">
-        <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Order summary</h2>
-
-        <dl class="js-contents mt-6 space-y-4">
-          <div class="totals flex items-center justify-between">
-            <dt class="totals__subtotal text-sm text-gray-600">Subtotal</dt>
-            <dd class="totals__subtotal-value text-sm font-medium text-gray-900">{{ cart.total_price | money }}</dd>
-          </div>
-         
-          <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-            <dt class="text-base font-medium text-gray-600"></dt>
-            <dd class="text-sm font-medium text-gray-600">Taxes and shipping calculated at checkout</dd>
-          </div>
-        </dl>
-
-        <div class="mt-6">
-          <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Checkout</button>
-        </div>
-        <div id="cart-errors"></div>
-
-      </section>
+    
       
     <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
     </form>
-  </div>
-</div>
+  
 
 {% schema %}
 {
