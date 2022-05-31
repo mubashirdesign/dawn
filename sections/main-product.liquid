@@ -15,6 +15,13 @@
   }
   ```
 -->
+{% assign disabled = false %}
+  {% for tag in product.tags %}
+    {% if tag == "disabled" %}
+      {% assign disabled = true %}
+    {% endif %}
+{% endfor %}
+
 <div class="bg-gray-50">
   <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
@@ -183,6 +190,20 @@
               </noscript>
             {%- when 'buy_buttons' -%}
               <div class="mt-3 flex sm:flex-col" {{ block.shopify_attributes }}>
+                
+                
+                {% if disabled == true %}
+                <a href="mailto:dan.ferraro@clearimageautomotive.com?subject=Interested In Purchasing {{ product.title }}&body=Please provide the SKU number based on your selection"
+                class="max-w-xs flex-1 bg-lightPrimaryBlue border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+                >
+                   Contact Us To Place Order
+                   <svg class="-mr-1 ml-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                  </a>
+                  <p class="mt-2 text-lightPrimaryBlue">or call us at <a class="font-medium hover:underline" href="tel:+1-425-251-0329">+1-425-251-032</a></p>
+                {% else %}
                 {%- if product != blank -%}
                   <product-form class="product-form">
                     <div class="product-form__error-message-wrapper mb-3" role="alert" hidden>
@@ -195,7 +216,7 @@
                       <span class="product-form__error-message text-error font-bold mb-3"></span>
                     </div>
 
-             
+            
 
                     {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
@@ -236,7 +257,9 @@
                       </button>
                     </div>
                   </div>
-                {%- endif -%}
+              {%- endif -%}
+
+                {% endif %}
               </div>
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
