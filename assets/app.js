@@ -9,6 +9,17 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./scripts/sections/announcement-bar.js":
+/*!**********************************************!*\
+  !*** ./scripts/sections/announcement-bar.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"./node_modules/swiper/swiper.esm.js\");\n\n\nclass AnnouncementBar extends HTMLElement {\n  constructor() {\n    super();\n  }\n\n  connectedCallback() {\n    const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(this, {\n      // Optional parameters\n      centeredSlides: true,\n      autoplay: {\n        delay: 5000\n      }\n    });\n  }\n\n}\n\ncustomElements.define('announcement-bar', AnnouncementBar);\n\n//# sourceURL=webpack://trespedals/./scripts/sections/announcement-bar.js?");
+
+/***/ }),
+
 /***/ "./scripts/sections/blog-filters.js":
 /*!******************************************!*\
   !*** ./scripts/sections/blog-filters.js ***!
@@ -60,7 +71,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var swip
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/app.scss */ \"./src/css/app.scss\");\n/* harmony import */ var _css_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/tailwind.css */ \"./src/css/tailwind.css\");\n/* harmony import */ var _scripts_sections_lazyloading_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../scripts/sections/lazyloading.js */ \"./scripts/sections/lazyloading.js\");\n/* harmony import */ var _scripts_sections_collection_filters_form_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../scripts/sections/collection-filters-form.js */ \"./scripts/sections/collection-filters-form.js\");\n/* harmony import */ var _scripts_sections_blog_filters_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../scripts/sections/blog-filters.js */ \"./scripts/sections/blog-filters.js\");\n/* harmony import */ var _scripts_sections_product_gallery_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../scripts/sections/product-gallery.js */ \"./scripts/sections/product-gallery.js\");\n\n\n\n\n\n\n\n//# sourceURL=webpack://trespedals/./src/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/app.scss */ \"./src/css/app.scss\");\n/* harmony import */ var _css_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/tailwind.css */ \"./src/css/tailwind.css\");\n/* harmony import */ var _scripts_sections_announcement_bar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../scripts/sections/announcement-bar.js */ \"./scripts/sections/announcement-bar.js\");\n/* harmony import */ var _scripts_sections_lazyloading_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../scripts/sections/lazyloading.js */ \"./scripts/sections/lazyloading.js\");\n/* harmony import */ var _scripts_sections_collection_filters_form_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../scripts/sections/collection-filters-form.js */ \"./scripts/sections/collection-filters-form.js\");\n/* harmony import */ var _scripts_sections_blog_filters_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../scripts/sections/blog-filters.js */ \"./scripts/sections/blog-filters.js\");\n/* harmony import */ var _scripts_sections_product_gallery_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../scripts/sections/product-gallery.js */ \"./scripts/sections/product-gallery.js\");\n\n\n\n\n\n\n\n\n//# sourceURL=webpack://trespedals/./src/js/app.js?");
 
 /***/ }),
 
