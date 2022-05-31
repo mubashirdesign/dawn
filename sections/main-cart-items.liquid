@@ -2,277 +2,6 @@
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
-<cart-items class="page-width{% if cart == empty %} is-empty{% endif %}">
-  <div class="title-wrapper-with-link">
-    <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
-  </div>
-
-  <div class="cart__warnings">
-    <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="button">
-      {{ 'general.continue_shopping' | t }}
-    </a>
-
-    {%- if shop.customer_accounts_enabled -%}
-      <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-      <p class="cart__login-paragraph">
-        {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-      </p>
-    {%- endif -%}
-  </div>
-
-  <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
-    <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
-      <div class="js-contents">
-        {%- if cart != empty -%}
-          <table class="cart-items">
-            <thead>
-              <tr>
-                <th class="caption-with-letter-spacing" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
-                <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
-                <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {%- for item in cart.items -%}
-                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
-                  <td class="cart-item__media">
-                    {% if item.image %}
-                      {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
-                      <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                      <img class="cart-item__image"
-                        src="{{ item.image | img_url: '300x' }}"
-                        alt="{{ item.image.alt | escape }}"
-                        loading="lazy"
-                        width="150"
-                        height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
-                      >
-                    {% endif %}
-                  </td>
-
-                  <td class="cart-item__details">
-                    {%- if section.settings.show_vendor -%}
-                      <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
-                    {%- endif -%}
-
-                    <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
-
-                    {%- if item.original_price != item.final_price -%}
-                      <div class="cart-item__discounted-prices">
-                        <span class="visually-hidden">
-                          {{ 'products.product.price.regular_price' | t }}
-                        </span>
-                        <s class="cart-item__old-price product-option">
-                          {{- item.original_price | money -}}
-                        </s>
-                        <span class="visually-hidden">
-                          {{ 'products.product.price.sale_price' | t }}
-                        </span>
-                        <strong class="cart-item__final-price product-option">
-                          {{ item.final_price | money }}
-                        </strong>
-                      </div>
-                    {%- else -%}
-                      <div class="product-option">
-                        {{ item.original_price | money }}
-                      </div>
-                    {%- endif -%}
-
-                    {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
-                      <dl>
-                        {%- if item.product.has_only_default_variant == false -%}
-                          {%- for option in item.options_with_values -%}
-                            <div class="product-option">
-                              <dt>{{ option.name }}: </dt>
-                              <dd>{{ option.value }}</dd>
-                            </div>
-                          {%- endfor -%}
-                        {%- endif -%}
-
-                        {%- for property in item.properties -%}
-                          {%- assign property_first_char = property.first | slice: 0 -%}
-                          {%- if property.last != blank and property_first_char != '_' -%}
-                            <div class="product-option">
-                              <dt>{{ property.first }}: </dt>
-                              <dd>
-                                {%- if property.last contains '/uploads/' -%}
-                                  <a href="{{ property.last }}" class="link" target="_blank">
-                                    {{ property.last | split: '/' | last }}
-                                  </a>
-                                {%- else -%}
-                                  {{ property.last }}
-                                {%- endif -%}
-                              </dd>
-                            </div>
-                          {%- endif -%}
-                        {%- endfor -%}
-                      </dl>
-
-                      <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
-                    {%- endif -%}
-
-                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                      {%- for discount in item.discounts -%}
-                        <li class="discounts__discount">
-                          {%- render 'icon-discount' -%}
-                          {{ discount.title }}
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </td>
-
-                  <td class="cart-item__totals right medium-hide large-up-hide">
-                    <div class="loading-overlay hidden">
-                      <div class="loading-overlay__spinner">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="cart-item__price-wrapper">
-                      {%- if item.original_line_price != item.final_line_price -%}
-                        <dl class="cart-item__discounted-prices">
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.regular_price' | t }}
-                          </dt>
-                          <dd>
-                            <s class="cart-item__old-price price price--end">
-                              {{ item.original_line_price | money }}
-                            </s>
-                          </dd>
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.sale_price' | t }}
-                          </dt>
-                          <dd class="price price--end">
-                            {{ item.final_line_price | money }}
-                          </dd>
-                        </dl>
-                      {%- else -%}
-                        <span class="price price--end">
-                          {{ item.original_line_price | money }}
-                        </span>
-                      {%- endif -%}
-
-                      {%- if item.variant.available and item.unit_price_measurement -%}
-                        <div class="unit-price caption">
-                          <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                          {{ item.variant.unit_price | money }}
-                          <span aria-hidden="true">/</span>
-                          <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-                          {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
-                            {{- item.variant.unit_price_measurement.reference_value -}}
-                          {%- endif -%}
-                          {{ item.variant.unit_price_measurement.reference_unit }}
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </td>
-
-                  <td class="cart-item__quantity">
-                    <div class="cart-item__quantity-wrapper">
-                      <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
-                        {{ 'products.product.quantity.label' | t }}
-                      </label>
-                      <quantity-input class="quantity">
-                        <button class="quantity__button no-js-hidden" name="minus" type="button">
-                          <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
-                          {% render 'icon-minus' %}
-                        </button>
-                        <input class="quantity__input"
-                          type="number"
-                          name="updates[]"
-                          value="{{ item.quantity }}"
-                          min="0"
-                          aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                          id="Quantity-{{ item.index | plus: 1 }}"
-                          data-index="{{ item.index | plus: 1 }}"
-                        >
-                        <button class="quantity__button no-js-hidden" name="plus" type="button">
-                          <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
-                          {% render 'icon-plus' %}
-                        </button>
-                      </quantity-input>
-
-                      <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                        <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
-                          {% render 'icon-remove' %}
-                        </a>
-                      </cart-remove-button>
-                    </div>
-                    <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
-                      <small class="cart-item__error-text"></small>
-                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
-                        <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-                        <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-                        <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-                        <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-                      </svg>
-                    </div>
-                  </td>
-
-                  <td class="cart-item__totals right small-hide">
-                    <div class="loading-overlay hidden">
-                      <div class="loading-overlay__spinner">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
-                      </div>
-                    </div>
-
-                    <div class="cart-item__price-wrapper">
-                      {%- if item.original_line_price != item.final_line_price -%}
-                        <dl class="cart-item__discounted-prices">
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.regular_price' | t }}
-                          </dt>
-                          <dd>
-                            <s class="cart-item__old-price price price--end">
-                              {{ item.original_line_price | money }}
-                            </s>
-                          </dd>
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.sale_price' | t }}
-                          </dt>
-                          <dd class="price price--end">
-                            {{ item.final_line_price | money }}
-                          </dd>
-                        </dl>
-                      {%- else -%}
-                        <span class="price price--end">
-                          {{ item.original_line_price | money }}
-                        </span>
-                      {%- endif -%}
-
-                      {%- if item.variant.available and item.unit_price_measurement -%}
-                        <div class="unit-price caption">
-                          <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                          {{ item.variant.unit_price | money }}
-                          <span aria-hidden="true">/</span>
-                          <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-                          {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
-                            {{- item.variant.unit_price_measurement.reference_value -}}
-                          {%- endif -%}
-                          {{ item.variant.unit_price_measurement.reference_unit }}
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        {%- endif -%}
-      </div>
-    </div>
-
-    <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
-    <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
-  </form>
-</cart-items>
-
 
 <!--
   This example requires Tailwind CSS v2.0+ 
@@ -293,68 +22,14 @@
 <div class="bg-white">
   <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
-    <form action="{{ routes.cart_url }}" class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
-      <cart-items aria-labelledby="cart-heading" class="lg:col-span-7">
+    <form action="{{ routes.cart_url }}" id="cart" class="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
+      <cart-items aria-labelledby="cart-heading" id="main-cart-items" class="lg:col-span-7" data-id="{{ section.id }}">
         <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
 
-        <ul role="list" class="border-t border-b border-gray-200 divide-y divide-gray-200">
-          <li class="flex py-6 sm:py-10">
-            <div class="flex-shrink-0">
-              <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg" alt="Front of men&#039;s Basic Tee in sienna." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
-            </div>
-
-            <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
-              <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                <div>
-                  <div class="flex justify-between">
-                    <h3 class="text-sm">
-                      <a href="#" class="font-medium text-gray-700 hover:text-gray-800"> Basic Tee </a>
-                    </h3>
-                  </div>
-                  <div class="mt-1 flex text-sm">
-                    <p class="text-gray-500">Sienna</p>
-
-                    <p class="ml-4 pl-4 border-l border-gray-200 text-gray-500">Large</p>
-                  </div>
-                  <p class="mt-1 text-sm font-medium text-gray-900">$32.00</p>
-                </div>
-
-                <div class="mt-4 sm:mt-0 sm:pr-9">
-                  <label for="quantity-0" class="sr-only">Quantity, Basic Tee</label>
-                  <select id="quantity-0" name="quantity-0" class="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                  </select>
-
-                  <div class="absolute top-0 right-0">
-                    <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
-                      <span class="sr-only">Remove</span>
-                      <!-- Heroicon name: solid/x -->
-                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <p class="mt-4 flex text-sm text-gray-700 space-x-2">
-                <!-- Heroicon name: solid/check -->
-                <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                <span>In stock</span>
-              </p>
-            </div>
-          </li>
+        <ul role="list" class="js-contents border-t border-b border-gray-200 divide-y divide-gray-200">
+       
           {%- for item in cart.items -%}
-            <li class="flex py-6 sm:py-10">
+            <li class="cart-item flex py-6 sm:py-10" id="CartItem-{{ item.index | plus: 1 }}">
               <div class="flex-shrink-0">
                 {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -381,19 +56,16 @@
                     <div class="mt-1 flex flex-col text-sm">
                       {%- if item.product.has_only_default_variant == false -%}
                       {%- for option in item.options_with_values -%}
-                        <div class="text-gray-500">
-                          <dt>{{ option.name }}: </dt>
-                          <dd>{{ option.value }}</dd>
+                        <div class="text-gray-500 flex mt-1">
+                          <dt class="font-medium">{{ option.name }}: </dt>
+                          <dd class="ml-1">{{ option.value }}</dd>
                         </div>
                       {%- endfor -%}
                     {%- endif -%}
-                      <p class="text-gray-500">Black</p>
 
                     </div>
-                    <p class="mt-1 text-sm font-medium text-gray-900">$32.00</p>
-                    <td class="cart-item__totals mt-1 text-sm font-medium">
-                     
-                      <div class="cart-item__price-wrapper">
+                     <div class="cart-item__totals">
+                      <div class="cart-item__price-wrapper mt-3">
                         {%- if item.original_line_price != item.final_line_price -%}
                           <div class="cart-item__discounted-prices text-sm font-medium text-gray-900">
                             <div class="visually-hidden">
@@ -412,7 +84,7 @@
                             </div>
                           </div>
                         {%- else -%}
-                          <span class="price price--end">
+                          <span class="price price--end mt-1 text-sm font-medium text-gray-900">
                             {{ item.original_line_price | money }}
                           </span>
                         {%- endif -%}
@@ -430,7 +102,7 @@
                           </div>
                         {%- endif -%}
                       </div>
-                    </td>
+                      </div>
                   </div>
 
                   <div class="mt-4 sm:mt-0 sm:pr-9">
@@ -456,18 +128,21 @@
                     </quantity-input>
 
                     <div class="absolute top-0 right-0">
-                      <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">Remove</span>
-                        <!-- Heroicon name: solid/x -->
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                      </button>
+                      <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                        <a href="{{ item.url_to_remove }}" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </a>
+                        
+                      </cart-remove-button>
+
+                    
                     </div>
                   </div>
                 </div>
 
-                <p class="mt-4 flex text-sm text-gray-700 space-x-2">
+                <p class="mt-4 flex text-sm text-gray-700 space-x-2 items-center">
                   <!-- Heroicon name: solid/clock -->
                   <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
@@ -478,167 +153,38 @@
             </li>
           {% endfor %}
 
-          <li class="flex py-6 sm:py-10">
-            <div class="flex-shrink-0">
-              <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
-            </div>
-
-            <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
-              <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                <div>
-                  <div class="flex justify-between">
-                    <h3 class="text-sm">
-                      <a href="#" class="font-medium text-gray-700 hover:text-gray-800"> Basic Tee </a>
-                    </h3>
-                  </div>
-                  <div class="mt-1 flex text-sm">
-                    <p class="text-gray-500">Black</p>
-
-                    <p class="ml-4 pl-4 border-l border-gray-200 text-gray-500">Large</p>
-                  </div>
-                  <p class="mt-1 text-sm font-medium text-gray-900">$32.00</p>
-                </div>
-
-                <div class="mt-4 sm:mt-0 sm:pr-9">
-                  <label for="quantity-1" class="sr-only">Quantity, Basic Tee</label>
-                  <select id="quantity-1" name="quantity-1" class="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                  </select>
-
-                  <div class="absolute top-0 right-0">
-                    <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
-                      <span class="sr-only">Remove</span>
-                      <!-- Heroicon name: solid/x -->
-                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <p class="mt-4 flex text-sm text-gray-700 space-x-2">
-                <!-- Heroicon name: solid/clock -->
-                <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-                </svg>
-                <span>Ships in 3–4 weeks</span>
-              </p>
-            </div>
-          </li>
-
-          <li class="flex py-6 sm:py-10">
-            <div class="flex-shrink-0">
-              <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg" alt="Insulated bottle with white base and black snap lid." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
-            </div>
-
-            <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
-              <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                <div>
-                  <div class="flex justify-between">
-                    <h3 class="text-sm">
-                      <a href="#" class="font-medium text-gray-700 hover:text-gray-800"> Nomad Tumbler </a>
-                    </h3>
-                  </div>
-                  <div class="mt-1 flex text-sm">
-                    <p class="text-gray-500">White</p>
-                  </div>
-                  <p class="mt-1 text-sm font-medium text-gray-900">$35.00</p>
-                </div>
-
-                <div class="mt-4 sm:mt-0 sm:pr-9">
-                  <label for="quantity-2" class="sr-only">Quantity, Nomad Tumbler</label>
-                  <select id="quantity-2" name="quantity-2" class="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                  </select>
-
-                  <div class="absolute top-0 right-0">
-                    <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
-                      <span class="sr-only">Remove</span>
-                      <!-- Heroicon name: solid/x -->
-                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <p class="mt-4 flex text-sm text-gray-700 space-x-2">
-                <!-- Heroicon name: solid/check -->
-                <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                <span>In stock</span>
-              </p>
-            </div>
-          </li>
+      
         </ul>
       </cart-items>
 
       <!-- Order summary -->
-      <section aria-labelledby="summary-heading" class="mt-16 bg-gray-50 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5">
+      <section aria-labelledby="summary-heading" class="cart__footer mt-16 bg-gray-50 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5">
         <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Order summary</h2>
 
-        <dl class="mt-6 space-y-4">
-          <div class="flex items-center justify-between">
-            <dt class="text-sm text-gray-600">Subtotal</dt>
-            <dd class="text-sm font-medium text-gray-900">$99.00</dd>
+        <dl class="js-contents mt-6 space-y-4">
+          <div class="totals flex items-center justify-between">
+            <dt class="totals__subtotal text-sm text-gray-600">Subtotal</dt>
+            <dd class="totals__subtotal-value text-sm font-medium text-gray-900">{{ cart.total_price | money }}</dd>
           </div>
+         
           <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-            <dt class="flex items-center text-sm text-gray-600">
-              <span>Shipping estimate</span>
-              <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                <span class="sr-only">Learn more about how shipping is calculated</span>
-                <!-- Heroicon name: solid/question-mark-circle -->
-                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </dt>
-            <dd class="text-sm font-medium text-gray-900">$5.00</dd>
-          </div>
-          <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-            <dt class="flex text-sm text-gray-600">
-              <span>Tax estimate</span>
-              <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                <span class="sr-only">Learn more about how tax is calculated</span>
-                <!-- Heroicon name: solid/question-mark-circle -->
-                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </dt>
-            <dd class="text-sm font-medium text-gray-900">$8.32</dd>
-          </div>
-          <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
-            <dt class="text-base font-medium text-gray-900">Order total</dt>
-            <dd class="text-base font-medium text-gray-900">$112.32</dd>
+            <dt class="text-base font-medium text-gray-600"></dt>
+            <dd class="text-sm font-medium text-gray-600">Taxes and shipping calculated at checkout</dd>
           </div>
         </dl>
 
         <div class="mt-6">
           <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Checkout</button>
         </div>
+        <div id="cart-errors"></div>
+
       </section>
+      
+    <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
+    <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
     </form>
   </div>
 </div>
-
 
 {% schema %}
 {

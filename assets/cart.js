@@ -65,21 +65,22 @@ class CartItems extends HTMLElement {
       sections_url: window.location.pathname
     });
 
+
+
     fetch(`${routes.cart_change_url}`, {...fetchConfig(), ...{ body }})
       .then((response) => {
         return response.text();
       })
       .then((state) => {
         const parsedState = JSON.parse(state);
+        console.log(parsedState)
         this.classList.toggle('is-empty', parsedState.item_count === 0);
         const cartFooter = document.getElementById('main-cart-footer');
-
+      
         if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
-
         this.getSectionsToRender().forEach((section => {
           const elementToReplace =
             document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-
           elementToReplace.innerHTML =
             this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
         }));
@@ -88,8 +89,9 @@ class CartItems extends HTMLElement {
         const lineItem =  document.getElementById(`CartItem-${line}`);
         if (lineItem && lineItem.querySelector(`[name="${name}"]`)) lineItem.querySelector(`[name="${name}"]`).focus();
         this.disableLoading();
-      }).catch(() => {
-        this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
+      }).catch((e) => {
+        console.log(e);
+
         document.getElementById('cart-errors').textContent = window.cartStrings.error;
         this.disableLoading();
       });

@@ -15,9 +15,9 @@
           <dl>
             {%- unless item.product.has_only_default_variant -%}
               {%- for option in item.options_with_values -%}
-                <div class="product-option text-gray-500">
+                <div class="product-option text-gray-500 flex text-sm mt-1">
                   <dt>{{ option.name }}: </dt>
-                  <dd>{{ option.value }}</dd>
+                  <dd class="ml-1">{{ option.value }}</dd>
                 </div>
               {%- endfor -%}
             {%- endunless -%}
