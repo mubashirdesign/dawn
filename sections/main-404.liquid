@@ -1,23 +1,19 @@
-<style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
-  }
+<!-- This example requires Tailwind CSS v2.0+ -->
+<!--
+  This example requires updating your template:
 
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
-    }
-  }
-</style>
-
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
-  </a>
-</div>
+  ```
+  <html class="h-full">
+  <body class="h-full">
+  ```
+-->
+<main class="min-h-full bg-cover bg-center" style="background-image: url('https://cdn.shopify.com/s/files/1/0612/9644/3607/files/20190818_121140.jpg?v=1654017329')">
+  <div class="max-w-7xl mx-auto px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8 lg:py-48">
+    <p class="text-sm font-semibold text-white uppercase tracking-wide">404 error</p>
+    <h1 class="mt-2 text-4xl font-extrabold text-white tracking-tight sm:text-5xl">Uh oh! I think you’re lost.</h1>
+    <p class="mt-2 text-lg font-medium text-white">It looks like the page you’re looking for doesn't exist.</p>
+    <div class="mt-6">
+      <a href="/" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-black bg-white"> Go back home </a>
+    </div>
+  </div>
+</main>
