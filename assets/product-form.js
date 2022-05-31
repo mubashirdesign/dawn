@@ -25,9 +25,9 @@ if (!customElements.get('product-form')) {
       delete config.headers['Content-Type'];
 
       const formData = new FormData(this.form);
-      formData.append('items[1]id', 42812633350359);
-      formData.append('items[1]quantity', 1)
-      formData.append('properties[Accessories]', 'Catalytic Converter')
+      // formData.append('items[1]id', 42812633350359);
+      // formData.append('items[1]quantity', 1)
+      // formData.append('properties[Accessories]', 'Catalytic Converter')
       formData.append('sections', this.cartNotification.getSectionsToRender().map((section) => section.id));
       formData.append('sections_url', window.location.pathname);
       config.body = formData;

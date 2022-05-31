@@ -11,11 +11,11 @@
         >
       {% endif %}
       <div>
-        <h3 class="cart-notification-product__name h4">{{ item.product.title | escape }}</h3>
+        <h3 class="cart-notification-product__name font-medium text-gray-900 text-base pb-0 mb-0">{{ item.product.title | escape }}</h3>
           <dl>
             {%- unless item.product.has_only_default_variant -%}
               {%- for option in item.options_with_values -%}
-                <div class="product-option">
+                <div class="product-option text-gray-500">
                   <dt>{{ option.name }}: </dt>
                   <dd>{{ option.value }}</dd>
                 </div>
@@ -24,11 +24,11 @@
             {%- for property in item.properties -%}
               {%- assign property_first_char = property.first | slice: 0 -%}
               {%- if property.last != blank and property_first_char != '_' -%}
-                <div class="product-option">
+                <div class="product-option text-gray-500 text-sm">
                   <dt>{{ property.first }}: </dt>
                   <dd>
                     {%- if property.last contains '/uploads/' -%}
-                      <a href="{{ property.last }}" class="link" target="_blank">
+                      <a href="{{ property.last }}" class="link text-gray-500" target="_blank">
                         {{ property.last | split: '/' | last }}
                       </a>
                     {%- else -%}

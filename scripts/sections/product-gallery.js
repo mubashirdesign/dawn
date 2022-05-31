@@ -10,7 +10,7 @@ class ProductGallery extends HTMLElement {
 
     connectedCallback() {
         var ThumbnailSlider = new Swiper(document.querySelector('thumbnail-slider'), {
-            loop: true,
+            loop: false,
             spaceBetween: 10,
             slidesPerView: 4,
             freeMode: true,
@@ -19,7 +19,7 @@ class ProductGallery extends HTMLElement {
           });
 
         var ProductGallery = new Swiper(this, {
-            loop: true,
+            loop: false,
             autoHeight: true,
             spaceBetween: 10,
             slidesPerView: 1,
