@@ -1330,6 +1330,13 @@ input[type='checkbox'] {
   display: flex;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
 .quantity__input {
   color: currentColor;
   font-size: 1.4rem;

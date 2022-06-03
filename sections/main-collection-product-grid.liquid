@@ -14,6 +14,9 @@
   }
   ```
 -->
+{{ 'component-facets.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+
 <div class="bg-white">
   <div>
     <!--
@@ -265,20 +268,19 @@
     </div>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b-2 tw-border-solid border-gray-200">
+      <div class="relative z-10 flex items-baseline justify-between pt-24 pb-2 border-b-2 tw-border-solid border-gray-200">
         <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">{{ collection.title }}</h1>
 
         <div class="flex items-center">
           <div class="relative inline-block text-left">
-            <div>
+            <!-- <div>
               <button type="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" id="menu-button" aria-expanded="false" aria-haspopup="true">
                 Sort
-                <!-- Heroicon name: solid/chevron-down -->
                 <svg class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
               </button>
-            </div>
+            </div> -->
 
             <!--
               Dropdown menu, show/hide based on menu state.
@@ -289,14 +291,12 @@
               Leaving: "transition ease-in duration-75"
                 From: "transform opacity-100 scale-100"
                 To: "transform opacity-0 scale-95"
+                
             -->
+<!-- 
             <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
               <div class="py-1" role="none">
-                <!--
-                  Active: "bg-gray-100", Not Active: ""
-
-                  Selected: "font-medium text-gray-900", Not Selected: "text-gray-500"
-                -->
+       
                 <a href="#" class="font-medium text-gray-900 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0"> Most Popular </a>
 
                 <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1"> Best Rating </a>
@@ -307,16 +307,34 @@
 
                 <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4"> Price: High to Low </a>
               </div>
-            </div>
+            </div> -->
+            
+
+            <facet-filters-form>
+              <form>
+                <div class="facet-filters block">
+                  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+                  <!-- <label for="location" class="block text-sm font-medium text-gray-700">Location</label> -->
+                  <select id="SortBy" class="cursor-pointer mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 border-solid focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                  
+                    {%- for option in collection.sort_options -%}
+                        <option class="text-gray-500 block px-4 py-2 text-sm cursor-pointer" value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                    {%- endfor -%}
+                  </select>
+                </div>
+              </form>
+            </facet-filters-form>
+
+            
           </div>
 
-          <button type="button" class="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500">
+          <!-- <button type="button" class="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500">
             <span class="sr-only">View grid</span>
-            <!-- Heroicon name: solid/view-grid -->
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
             </svg>
-          </button>
+          </button> -->
           <button type="button" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden">
             <span class="sr-only">Filters</span>
             <!-- Heroicon name: solid/filter -->
@@ -326,13 +344,173 @@
           </button>
         </div>
       </div>
+      <div>
+        <div class="active-facets active-facets-desktop border-gray-200 border-b-1 border-r-0 border-l-0 border-t-0 border-solid py-2">
+          {%- for filter in collection.filters -%}
+            {%- for value in filter.active_values -%}
+              <facet-remove>
+                <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
+                    {{ value.label | escape }}
+                    {% render 'icon-close-small' %}
+                    <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                  </span>
+                </a>
+              </facet-remove>
+            {%- endfor -%}
+            {% if filter.type == "price_range" %}
+              {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                <facet-remove>
+                  <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
+                      {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                      {% render 'icon-close-small' %}
+                      <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                    </span>
+                  </a>
+                </facet-remove>
+              {%- endif -%}
+            {% endif %}
+          {%- endfor -%}
+          <facet-remove class="active-facets__button-wrapper">
+            <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
+              <span class="text-sm">{{ 'products.facets.clear_all' | t }}</span>
+            </a>
+          </facet-remove>
+        </div>
+      </div>
 
       <section aria-labelledby="products-heading" class="pt-6 pb-24">
         <h2 id="products-heading" class="sr-only">Products</h2>
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
           <!-- Filters -->
-          <form class="hidden lg:block">
+          <div id="main-collection-filters" data-id="{{ section.id }}">
+            <facet-filters-form>
+          <form class="hidden lg:block facets__form space-y-4" id="FacetFiltersForm">
+           
+            {%- for filter in collection.filters -%}
+            {% case filter.type %}
+            {% when 'list' %}
+            <details id="Details-{{ forloop.index }}-{{ section.id }}" class="text-sm font-medium text-gray-900 border-b border-gray-200 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+              <summary class="facets__summary caption-large focus-offset">
+                <div class="font-medium text-gray-900">
+                  <span class="text-sm">{{ filter.label | escape }}</span>
+                  {% render 'icon-caret' %}
+                </div>
+              </summary>
+              <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
+                <div class="facets__header">
+                  <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
+                  <facet-remove>
+                    <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
+                      {{ 'products.facets.reset' | t }}
+                    </a>
+                  </facet-remove>
+                </div>
+
+                <ul class="facets__list list-unstyled" role="list">
+                  {%- for value in filter.values -%}
+                    <li class="list-menu__item facets__item">
+                      <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                        <input type="checkbox"
+                          name="{{ value.param_name }}"
+                          value="{{ value.value }}"
+                          id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                          {% if value.active %}checked{% endif %}
+                          {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                        >
+
+                        <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                          <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                        </svg>
+
+                        <svg class="icon icon-checkmark"
+                          width="1.1rem"
+                          height="0.7rem"
+                          viewBox="0 0 11 7"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+
+                          <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                            stroke="currentColor"
+                            stroke-width="1.75"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+
+                        {{ value.label | escape }} ({{ value.count }})
+                      </label>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+            {% when 'price_range' %}
+                {% liquid
+                  assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                  assign uses_comma_decimals = false
+                  if currencies_using_comma_decimals contains cart.currency.iso_code
+                    assign uses_comma_decimals = true
+                  endif
+                %}
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                  <summary class="facets__summary caption-large focus-offset text-sm">
+                    <div>
+                      <span class="font-medium text-sm text-gray-900">{{ filter.label | escape }}</span>
+                      {% render 'icon-caret' %}
+                    </div>
+                  </summary>
+                  <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
+                    <div class="facets__header">
+                      {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                      <span class="facets__selected">{{ "products.facets.max_price" | t: price: max_price_amount }}</span>
+                      <facet-remove>
+                        <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link" >
+                          {{ 'products.facets.reset' | t }}
+                        </a>
+                      </facet-remove>
+                    </div>
+                    <price-range class="facets__price">
+                      <span class="field-currency">{{ cart.currency.symbol }}</span>
+                      <div class="field">
+                        <input class="field__input"
+                          name="{{ filter.min_value.param_name }}"
+                          id="Filter-{{ filter.label | escape }}-GTE"
+                          {%- if filter.min_value.value -%}
+                            {%- if uses_comma_decimals -%}value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                          {%- endif -%}
+                          type="number"
+                          placeholder="0"
+                          min="0"
+                          {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}
+                        >
+                        <label class="field__label" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                      </div>
+                      <span class="field-currency">{{ cart.currency.symbol }}</span>
+                      <div class="field">
+                        <input class="field__input"
+                          name="{{ filter.max_value.param_name }}"
+                          id="Filter-{{ filter.label | escape }}-LTE"
+                          {%- if filter.max_value.value -%}{%- if uses_comma_decimals -%}value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                          {%- endif -%}
+                          type="number"
+                          min="0"
+                          {%- if uses_comma_decimals -%}
+                            placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                            max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                          {%- else -%}
+                            placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          {% endif %}
+                        >
+                        <label class="field__label" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                      </div>
+                    </price-range>
+                  </div>
+                </details>
+            {% endcase %}
+            {% endfor %}
             <h3 class="sr-only">Categories</h3>
             <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
               <li>
@@ -534,7 +712,8 @@
               </div>
             </div>
           </form>
-
+          </facet-filters-form>
+        </div>
           <!-- Product grid -->
           <div class="lg:col-span-3">
             <!-- Replace with your content -->
@@ -555,57 +734,58 @@
   }
   ```
 -->
-<div class="bg-white">
-  <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-    <h2 class="sr-only">Products</h2>
-    {%- paginate collection.products by section.settings.products_per_page -%}
+            <div class="bg-white">
+              <div id="ProductGridContainer" class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                <h2 class="sr-only">Products</h2>
+                {%- paginate collection.products by section.settings.products_per_page -%}
+                <div class="loading-overlay gradient"></div>
 
-    <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
-      {%- for product in collection.products -%}
+                <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" id="product-grid" data-id="{{ section.id }}">
+                  {%- for product in collection.products -%}
 
-      <div class="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
-        <div class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
-          <img
-              srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
-                {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
-                {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
-                {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
-                {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
-                {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w,{%- endif -%}
-                {{ product.featured_media | img_url: 'master' }} {{ product.featured_media.width }}w"
-              src="{{ product.featured_media | img_url: '533x' }}"
-              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-              alt="{{ product.featured_media.alt | escape }}"
-              loading="lazy"
-              class="motion-reduce w-full h-full object-center object-cover sm:w-full sm:h-full"
-              width="{{ product.featured_media.width }}"
-              height="{{ product.featured_media.height }}"
-            >
-        </div>
-        <div class="flex-1 p-4 space-y-2 flex flex-col">
-          <h3 class="text-sm font-medium text-gray-900">
-            <a href="{{ product.url | default: '#' }}">
-              <span aria-hidden="true" class="absolute inset-0"></span>
-              {{ product.title }}
-            </a>
-          </h3>
-          <p class="text-sm text-gray-500">{{ product.description | strip_html | truncate: 150 }}</p>
-          <div class="flex-1 flex flex-col justify-end">
-            <p class="text-base font-medium text-gray-900">{{ product.price | money }}</p>
-          </div>
-        </div>
-      </div>
+                  <div class="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
+                    <div class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
+                      <img
+                          srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
+                            {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
+                            {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+                            {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+                            {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+                            {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w,{%- endif -%}
+                            {{ product.featured_media | img_url: 'master' }} {{ product.featured_media.width }}w"
+                          src="{{ product.featured_media | img_url: '533x' }}"
+                          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                          alt="{{ product.featured_media.alt | escape }}"
+                          loading="lazy"
+                          class="motion-reduce w-full h-full object-center object-cover sm:w-full sm:h-full"
+                          width="{{ product.featured_media.width }}"
+                          height="{{ product.featured_media.height }}"
+                        >
+                    </div>
+                    <div class="flex-1 p-4 space-y-2 flex flex-col">
+                      <h3 class="text-sm font-medium text-gray-900">
+                        <a href="{{ product.url | default: '#' }}">
+                          <span aria-hidden="true" class="absolute inset-0"></span>
+                          {{ product.title }}
+                        </a>
+                      </h3>
+                      <p class="text-sm text-gray-500">{{ product.description | strip_html | truncate: 150 }}</p>
+                      <div class="flex-1 flex flex-col justify-end">
+                        <p class="text-base font-medium text-gray-900">{{ product.price | money }}</p>
+                      </div>
+                    </div>
+                  </div>
 
-      {% endfor %}
-      <!-- More products... -->
-    </div>
-    
-    {%- if paginate.pages > 1 -%}
-      {% render 'pagination', paginate: paginate, anchor: '' %}
-    {%- endif -%}
-    {% endpaginate %}
-  </div>
-</div>
+                  {% endfor %}
+                  <!-- More products... -->
+                </div>
+                
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate, anchor: '' %}
+                {%- endif -%}
+                {% endpaginate %}
+              </div>
+            </div>
 
             </div>
             <!-- /End replace -->
@@ -617,59 +797,14 @@
 </div>
 
 
+{%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
 
-<!-- {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-  {{ 'component-facets.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 
   <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
     {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
   </div>
-{%- endif -%} -->
+{%- endif -%}
 
-<!-- <div id="ProductGridContainer">
-  {%- paginate collection.products by section.settings.products_per_page -%}
-    {%- if collection.products.size == 0 -%}
-      <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
-        <div class="loading-overlay gradient"></div>
-        <div class="title-wrapper center">
-          <h2 class="title title--primary">
-            {{ 'sections.collection_template.empty' | t }}<br>
-            {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
-          </h2>
-        </div>
-      </div>
-    {%- else -%}
-      <div class="collection page-width">
-        <div class="loading-overlay gradient"></div>
-
-        <ul id="product-grid" data-id="{{ section.id }}" class="
-          grid grid--2-col negative-margin product-grid
-          {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
-            {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
-          {% endif %}">
-          {%- for product in collection.products -%}
-            <li class="grid__item">
-              {% render 'product-card',
-                product_card_product: product,
-                media_size: section.settings.image_ratio,
-                show_secondary_image: section.settings.show_secondary_image,
-                add_image_padding: section.settings.add_image_padding,
-                show_vendor: section.settings.show_vendor,
-                show_image_outline: section.settings.show_image_outline,
-                show_rating: section.settings.show_rating
-              %}
-            </li>
-          {%- endfor -%}
-        </ul>
-
-        {%- if paginate.pages > 1 -%}
-          {% render 'pagination', paginate: paginate, anchor: '' %}
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-  {%- endpaginate -%}
-</div> -->
 
 {% schema %}
 {

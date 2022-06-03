@@ -407,9 +407,7 @@
     @apply font-thin;
   }
 
-  select {
-    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='#AD5C6C' stroke-width='1.5' /></svg>");
-  }
+
 
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
@@ -577,4 +575,11 @@
       height: 45%;
     }
   }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
