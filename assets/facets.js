@@ -4,9 +4,11 @@ class FacetFiltersForm extends HTMLElement {
     this.onActiveFilterClick = this.onActiveFilterClick.bind(this);
 
     this.debouncedOnSubmit = debounce((event) => {
+      console.log(event.target.closest('form'))
       this.onSubmitHandler(event);
+    
     }, 500);
-
+    console.log(this.querySelector('form'));
     this.querySelector('form').addEventListener('input', this.debouncedOnSubmit.bind(this));
 
     const facetWrapper = this.querySelector('#FacetsWrapperDesktop');

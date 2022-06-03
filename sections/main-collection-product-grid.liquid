@@ -14,6 +14,17 @@
   }
   ```
 -->
+{%- liquid
+  assign sort_by = collection.sort_by | default: collection.default_sort_by
+  assign total_active_values = 0
+  if collection.url
+    assign collection_url = collection.url
+  else 
+    assign terms = collection.terms | escape
+    assign collection_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+-%}
+
 {{ 'component-facets.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 
@@ -35,9 +46,9 @@
           From: "opacity-100"
           To: "opacity-0"
       -->
-      <div class="fixed inset-0 bg-black bg-opacity-25 hidden"></div>
+      <div class="fixed inset-0 bg-black bg-opacity-25"></div>
 
-      <div class="fixed inset-0 flex z-40 hidden">
+      <mobile-filter class="fixed inset-0 flex z-40">
         <!--
           Off-canvas menu, show/hide based on off-canvas menu state.
 
@@ -48,7 +59,7 @@
             From: "translate-x-0"
             To: "translate-x-full"
         -->
-        <div class="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto hidden">
+        <div class="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
           <div class="px-4 flex items-center justify-between">
             <h2 class="text-lg font-medium text-gray-900">Filters</h2>
             <button type="button" class="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400">
@@ -264,534 +275,478 @@
             </div>
           </form>
         </div>
-      </div>
+      </mobile-filters>
     </div>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative z-10 flex items-baseline justify-between pt-24 pb-2 border-b-2 tw-border-solid border-gray-200">
-        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">{{ collection.title }}</h1>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="main-collection-filters" data-id="{{ section.id }}">
+      <facet-filters-form>
+        <form id="FacetFiltersForm">
+          
+          <div class="relative z-10 flex items-baseline justify-between pt-12 lg:pt-24 pb-2 border-b-2 tw-border-solid border-gray-200 flex-col md:flex-row">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">{{ collection.title }}</h1>
 
-        <div class="flex items-center">
-          <div class="relative inline-block text-left">
-            <!-- <div>
-              <button type="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" id="menu-button" aria-expanded="false" aria-haspopup="true">
-                Sort
-                <svg class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            <div class="flex items-center ml-auto">
+              <div class="relative inline-block text-left facet-filters sorting">
+              
+              
+                   
+
+                    <div class="facet-filters sorting caption">
+                      <div class="facet-filters__field">
+                    
+                        <div class="select">
+                          {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                          <select name="sort_by" class="facet-filters__sort select__select caption-large cursor-pointer mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 border-solid focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" id="SortBy" aria-describedby="a11y-refresh-page-message">
+                            {%- for option in collection.sort_options -%}
+                              <option class="text-gray-500 block px-4 py-2 text-sm cursor-pointer" value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                            {%- endfor -%}
+                          </select>
+                        </div>
+                      </div>
+          
+                      <noscript>
+                        <button type="submit" class="facets__button-no-js button button--tertiary">{{ 'products.facets.sort_button' | t }}</button>
+                      </noscript>
+                    </div>
+                
+
+                
+              </div>
+
+              <!-- <button type="button" class="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500">
+                <span class="sr-only">View grid</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+              </button> -->
+              <button type="button" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden">
+                <span class="sr-only">Filters</span>
+                <!-- Heroicon name: solid/filter -->
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
                 </svg>
               </button>
-            </div> -->
-
-            <!--
-              Dropdown menu, show/hide based on menu state.
-
-              Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-                
-            -->
-<!-- 
-            <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-              <div class="py-1" role="none">
-       
-                <a href="#" class="font-medium text-gray-900 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0"> Most Popular </a>
-
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1"> Best Rating </a>
-
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2"> Newest </a>
-
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3"> Price: Low to High </a>
-
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4"> Price: High to Low </a>
-              </div>
-            </div> -->
-            
-
-            <facet-filters-form>
-              <form>
-                <div class="facet-filters block">
-                  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-
-                  <!-- <label for="location" class="block text-sm font-medium text-gray-700">Location</label> -->
-                  <select id="SortBy" class="cursor-pointer mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 border-solid focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                  
-                    {%- for option in collection.sort_options -%}
-                        <option class="text-gray-500 block px-4 py-2 text-sm cursor-pointer" value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
-                    {%- endfor -%}
-                  </select>
-                </div>
-              </form>
-            </facet-filters-form>
-
-            
+            </div>
           </div>
-
-          <!-- <button type="button" class="p-2 -m-2 ml-5 sm:ml-7 text-gray-400 hover:text-gray-500">
-            <span class="sr-only">View grid</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-            </svg>
-          </button> -->
-          <button type="button" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden">
-            <span class="sr-only">Filters</span>
-            <!-- Heroicon name: solid/filter -->
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div>
-        <div class="active-facets active-facets-desktop border-gray-200 border-b-1 border-r-0 border-l-0 border-t-0 border-solid py-2">
-          {%- for filter in collection.filters -%}
-            {%- for value in filter.active_values -%}
-              <facet-remove>
-                <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
-                    {{ value.label | escape }}
-                    {% render 'icon-close-small' %}
-                    <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
-                  </span>
-                </a>
-              </facet-remove>
-            {%- endfor -%}
-            {% if filter.type == "price_range" %}
-              {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
-                <facet-remove>
-                  <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
-                      {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
-                      {% render 'icon-close-small' %}
-                      <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
-                    </span>
-                  </a>
-                </facet-remove>
-              {%- endif -%}
-            {% endif %}
-          {%- endfor -%}
-          <facet-remove class="active-facets__button-wrapper">
-            <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
-              <span class="text-sm">{{ 'products.facets.clear_all' | t }}</span>
-            </a>
-          </facet-remove>
-        </div>
-      </div>
-
-      <section aria-labelledby="products-heading" class="pt-6 pb-24">
-        <h2 id="products-heading" class="sr-only">Products</h2>
-
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
-          <!-- Filters -->
-          <div id="main-collection-filters" data-id="{{ section.id }}">
-            <facet-filters-form>
-          <form class="hidden lg:block facets__form space-y-4" id="FacetFiltersForm">
-           
-            {%- for filter in collection.filters -%}
-            {% case filter.type %}
-            {% when 'list' %}
-            <details id="Details-{{ forloop.index }}-{{ section.id }}" class="text-sm font-medium text-gray-900 border-b border-gray-200 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
-              <summary class="facets__summary caption-large focus-offset">
-                <div class="font-medium text-gray-900">
-                  <span class="text-sm">{{ filter.label | escape }}</span>
-                  {% render 'icon-caret' %}
-                </div>
-              </summary>
-              <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
-                <div class="facets__header">
-                  <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
+          <div>
+            <div class="active-facets active-facets-desktop border-gray-200 border-b-1 border-r-0 border-l-0 border-t-0 border-solid py-2">
+              {%- for filter in collection.filters -%}
+                {%- for value in filter.active_values -%}
                   <facet-remove>
-                    <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
-                      {{ 'products.facets.reset' | t }}
+                    <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
+                        {{ value.label | escape }}
+                        {% render 'icon-close-small' %}
+                        <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                      </span>
                     </a>
                   </facet-remove>
-                </div>
+                {%- endfor -%}
+                {% if filter.type == "price_range" %}
+                  {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                    <facet-remove>
+                      <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
+                          {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                          {% render 'icon-close-small' %}
+                          <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+                        </span>
+                      </a>
+                    </facet-remove>
+                  {%- endif -%}
+                {% endif %}
+              {%- endfor -%}
+              <facet-remove class="active-facets__button-wrapper">
+                <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
+                  <span class="text-sm">{{ 'products.facets.clear_all' | t }}</span>
+                </a>
+              </facet-remove>
+            </div>
+          </div>
 
-                <ul class="facets__list list-unstyled" role="list">
-                  {%- for value in filter.values -%}
-                    <li class="list-menu__item facets__item">
-                      <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
-                        <input type="checkbox"
-                          name="{{ value.param_name }}"
-                          value="{{ value.value }}"
-                          id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                          {% if value.active %}checked{% endif %}
-                          {% if value.count == 0 and value.active == false %}disabled{% endif %}
-                        >
+          <section aria-labelledby="products-heading" class="pt-6 pb-24">
+            <h2 id="products-heading" class="sr-only">Products</h2>
 
-                        <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-                          <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
-                        </svg>
-
-                        <svg class="icon icon-checkmark"
-                          width="1.1rem"
-                          height="0.7rem"
-                          viewBox="0 0 11 7"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-
-                          <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
-                            stroke="currentColor"
-                            stroke-width="1.75"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        </svg>
-
-                        {{ value.label | escape }} ({{ value.count }})
-                      </label>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-            </details>
-            {% when 'price_range' %}
-                {% liquid
-                  assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
-                  assign uses_comma_decimals = false
-                  if currencies_using_comma_decimals contains cart.currency.iso_code
-                    assign uses_comma_decimals = true
-                  endif
-                %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
-                  <summary class="facets__summary caption-large focus-offset text-sm">
-                    <div>
-                      <span class="font-medium text-sm text-gray-900">{{ filter.label | escape }}</span>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
+              <!-- Filters -->
+              <div>
+              <div class="hidden lg:block facets__form space-y-4">
+              
+                {%- for filter in collection.filters -%}
+                {% case filter.type %}
+                {% when 'list' %}
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="text-sm font-medium text-gray-900 border-b border-gray-200 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                  <summary class="facets__summary caption-large focus-offset">
+                    <div class="font-medium text-gray-900">
+                      <span class="text-sm">{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
                     </div>
                   </summary>
                   <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
                     <div class="facets__header">
-                      {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                      <span class="facets__selected">{{ "products.facets.max_price" | t: price: max_price_amount }}</span>
+                      <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
                       <facet-remove>
-                        <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link" >
+                        <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
                           {{ 'products.facets.reset' | t }}
                         </a>
                       </facet-remove>
                     </div>
-                    <price-range class="facets__price">
-                      <span class="field-currency">{{ cart.currency.symbol }}</span>
-                      <div class="field">
-                        <input class="field__input"
-                          name="{{ filter.min_value.param_name }}"
-                          id="Filter-{{ filter.label | escape }}-GTE"
-                          {%- if filter.min_value.value -%}
-                            {%- if uses_comma_decimals -%}value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
-                          {%- endif -%}
-                          type="number"
-                          placeholder="0"
-                          min="0"
-                          {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}
-                        >
-                        <label class="field__label" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
-                      </div>
-                      <span class="field-currency">{{ cart.currency.symbol }}</span>
-                      <div class="field">
-                        <input class="field__input"
-                          name="{{ filter.max_value.param_name }}"
-                          id="Filter-{{ filter.label | escape }}-LTE"
-                          {%- if filter.max_value.value -%}{%- if uses_comma_decimals -%}value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
-                          {%- endif -%}
-                          type="number"
-                          min="0"
-                          {%- if uses_comma_decimals -%}
-                            placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                            max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                          {%- else -%}
-                            placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                          {% endif %}
-                        >
-                        <label class="field__label" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
-                      </div>
-                    </price-range>
+
+                    <ul class="facets__list list-unstyled" role="list">
+                      {%- for value in filter.values -%}
+                        <li class="list-menu__item facets__item">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                            <input type="checkbox"
+                              name="{{ value.param_name }}"
+                              value="{{ value.value }}"
+                              id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                              {% if value.active %}checked{% endif %}
+                              {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                            >
+
+                            <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                              <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                            </svg>
+
+                            <svg class="icon icon-checkmark"
+                              width="1.1rem"
+                              height="0.7rem"
+                              viewBox="0 0 11 7"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+
+                              <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                                stroke="currentColor"
+                                stroke-width="1.75"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+
+                            {{ value.label | escape }} ({{ value.count }})
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
                   </div>
                 </details>
-            {% endcase %}
-            {% endfor %}
-            <h3 class="sr-only">Categories</h3>
-            <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
-              <li>
-                <a href="#"> Totes </a>
-              </li>
+                {% when 'price_range' %}
+                    {% liquid
+                      assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                      assign uses_comma_decimals = false
+                      if currencies_using_comma_decimals contains cart.currency.iso_code
+                        assign uses_comma_decimals = true
+                      endif
+                    %}
+                    <details id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                      <summary class="facets__summary caption-large focus-offset text-sm">
+                        <div>
+                          <span class="font-medium text-sm text-gray-900">{{ filter.label | escape }}</span>
+                          {% render 'icon-caret' %}
+                        </div>
+                      </summary>
+                      <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
+                        <div class="facets__header">
+                          {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                          <span class="facets__selected">{{ "products.facets.max_price" | t: price: max_price_amount }}</span>
+                          <facet-remove>
+                            <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link" >
+                              {{ 'products.facets.reset' | t }}
+                            </a>
+                          </facet-remove>
+                        </div>
+                        <price-range class="facets__price">
+                          <span class="field-currency">{{ cart.currency.symbol }}</span>
+                          <div class="field">
+                            <input class="field__input"
+                              name="{{ filter.min_value.param_name }}"
+                              id="Filter-{{ filter.label | escape }}-GTE"
+                              {%- if filter.min_value.value -%}
+                                {%- if uses_comma_decimals -%}value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                              {%- endif -%}
+                              type="number"
+                              placeholder="0"
+                              min="0"
+                              {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}
+                            >
+                            <label class="field__label" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                          </div>
+                          <span class="field-currency">{{ cart.currency.symbol }}</span>
+                          <div class="field">
+                            <input class="field__input"
+                              name="{{ filter.max_value.param_name }}"
+                              id="Filter-{{ filter.label | escape }}-LTE"
+                              {%- if filter.max_value.value -%}{%- if uses_comma_decimals -%}value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                              {%- endif -%}
+                              type="number"
+                              min="0"
+                              {%- if uses_comma_decimals -%}
+                                placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                              {%- else -%}
+                                placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                              {% endif %}
+                            >
+                            <label class="field__label" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                          </div>
+                        </price-range>
+                      </div>
+                    </details>
+                {% endcase %}
+                {% endfor %}
+                <h3 class="sr-only">Categories</h3>
+                <ul role="list" class="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
+                  <li>
+                    <a href="#"> Totes </a>
+                  </li>
 
-              <li>
-                <a href="#"> Backpacks </a>
-              </li>
+                  <li>
+                    <a href="#"> Backpacks </a>
+                  </li>
 
-              <li>
-                <a href="#"> Travel Bags </a>
-              </li>
+                  <li>
+                    <a href="#"> Travel Bags </a>
+                  </li>
 
-              <li>
-                <a href="#"> Hip Bags </a>
-              </li>
+                  <li>
+                    <a href="#"> Hip Bags </a>
+                  </li>
 
-              <li>
-                <a href="#"> Laptop Sleeves </a>
-              </li>
-            </ul>
+                  <li>
+                    <a href="#"> Laptop Sleeves </a>
+                  </li>
+                </ul>
 
-            <div class="border-b border-gray-200 py-6">
-              <h3 class="-my-3 flow-root">
-                <!-- Expand/collapse section button -->
-                <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-0" aria-expanded="false">
-                  <span class="font-medium text-gray-900"> Color </span>
-                  <span class="ml-6 flex items-center">
-                    <!--
-                      Expand icon, show/hide based on section open state.
+                <!-- <div class="border-b border-gray-200 py-6">
+                  <h3 class="-my-3 flow-root">
+                    <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-0" aria-expanded="false">
+                      <span class="font-medium text-gray-900"> Color </span>
+                      <span class="ml-6 flex items-center">
+                  
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div class="pt-6" id="filter-section-0">
+                    <div class="space-y-4">
+                      <div class="flex items-center">
+                        <input id="filter-color-0" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-color-0" class="ml-3 text-sm text-gray-600"> White </label>
+                      </div>
 
-                      Heroicon name: solid/plus-sm
-                    -->
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                    </svg>
-                    <!--
-                      Collapse icon, show/hide based on section open state.
+                      <div class="flex items-center">
+                        <input id="filter-color-1" name="color[]" value="beige" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-color-1" class="ml-3 text-sm text-gray-600"> Beige </label>
+                      </div>
 
-                      Heroicon name: solid/minus-sm
-                    -->
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <!-- Filter section, show/hide based on section state. -->
-              <div class="pt-6" id="filter-section-0">
-                <div class="space-y-4">
-                  <div class="flex items-center">
-                    <input id="filter-color-0" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-color-0" class="ml-3 text-sm text-gray-600"> White </label>
-                  </div>
+                      <div class="flex items-center">
+                        <input id="filter-color-2" name="color[]" value="blue" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-color-2" class="ml-3 text-sm text-gray-600"> Blue </label>
+                      </div>
 
-                  <div class="flex items-center">
-                    <input id="filter-color-1" name="color[]" value="beige" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-color-1" class="ml-3 text-sm text-gray-600"> Beige </label>
-                  </div>
+                      <div class="flex items-center">
+                        <input id="filter-color-3" name="color[]" value="brown" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-color-3" class="ml-3 text-sm text-gray-600"> Brown </label>
+                      </div>
 
-                  <div class="flex items-center">
-                    <input id="filter-color-2" name="color[]" value="blue" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-color-2" class="ml-3 text-sm text-gray-600"> Blue </label>
-                  </div>
+                      <div class="flex items-center">
+                        <input id="filter-color-4" name="color[]" value="green" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-color-4" class="ml-3 text-sm text-gray-600"> Green </label>
+                      </div>
 
-                  <div class="flex items-center">
-                    <input id="filter-color-3" name="color[]" value="brown" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-color-3" class="ml-3 text-sm text-gray-600"> Brown </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-color-4" name="color[]" value="green" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-color-4" class="ml-3 text-sm text-gray-600"> Green </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-color-5" name="color[]" value="purple" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-color-5" class="ml-3 text-sm text-gray-600"> Purple </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="border-b border-gray-200 py-6">
-              <h3 class="-my-3 flow-root">
-                <!-- Expand/collapse section button -->
-                <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-1" aria-expanded="false">
-                  <span class="font-medium text-gray-900"> Category </span>
-                  <span class="ml-6 flex items-center">
-                    <!--
-                      Expand icon, show/hide based on section open state.
-
-                      Heroicon name: solid/plus-sm
-                    -->
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                    </svg>
-                    <!--
-                      Collapse icon, show/hide based on section open state.
-
-                      Heroicon name: solid/minus-sm
-                    -->
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <!-- Filter section, show/hide based on section state. -->
-              <div class="pt-6" id="filter-section-1">
-                <div class="space-y-4">
-                  <div class="flex items-center">
-                    <input id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-category-0" class="ml-3 text-sm text-gray-600"> New Arrivals </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-category-1" name="category[]" value="sale" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-category-1" class="ml-3 text-sm text-gray-600"> Sale </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-category-2" name="category[]" value="travel" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-category-2" class="ml-3 text-sm text-gray-600"> Travel </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-category-3" name="category[]" value="organization" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-category-3" class="ml-3 text-sm text-gray-600"> Organization </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-category-4" name="category[]" value="accessories" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-category-4" class="ml-3 text-sm text-gray-600"> Accessories </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="border-b border-gray-200 py-6">
-              <h3 class="-my-3 flow-root">
-                <!-- Expand/collapse section button -->
-                <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-2" aria-expanded="false">
-                  <span class="font-medium text-gray-900"> Size </span>
-                  <span class="ml-6 flex items-center">
-                    <!--
-                      Expand icon, show/hide based on section open state.
-
-                      Heroicon name: solid/plus-sm
-                    -->
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                    </svg>
-                    <!--
-                      Collapse icon, show/hide based on section open state.
-
-                      Heroicon name: solid/minus-sm
-                    -->
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <!-- Filter section, show/hide based on section state. -->
-              <div class="pt-6" id="filter-section-2">
-                <div class="space-y-4">
-                  <div class="flex items-center">
-                    <input id="filter-size-0" name="size[]" value="2l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-size-0" class="ml-3 text-sm text-gray-600"> 2L </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-size-1" name="size[]" value="6l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-size-1" class="ml-3 text-sm text-gray-600"> 6L </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-size-2" name="size[]" value="12l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-size-2" class="ml-3 text-sm text-gray-600"> 12L </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-size-3" name="size[]" value="18l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-size-3" class="ml-3 text-sm text-gray-600"> 18L </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-size-4" name="size[]" value="20l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-size-4" class="ml-3 text-sm text-gray-600"> 20L </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <input id="filter-size-5" name="size[]" value="40l" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                    <label for="filter-size-5" class="ml-3 text-sm text-gray-600"> 40L </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-          </facet-filters-form>
-        </div>
-          <!-- Product grid -->
-          <div class="lg:col-span-3">
-            <!-- Replace with your content -->
-            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full">
-              <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
-            <div class="bg-white">
-              <div id="ProductGridContainer" class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-                <h2 class="sr-only">Products</h2>
-                {%- paginate collection.products by section.settings.products_per_page -%}
-                <div class="loading-overlay gradient"></div>
-
-                <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" id="product-grid" data-id="{{ section.id }}">
-                  {%- for product in collection.products -%}
-
-                  <div class="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
-                    <div class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
-                      <img
-                          srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
-                            {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
-                            {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
-                            {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
-                            {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
-                            {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w,{%- endif -%}
-                            {{ product.featured_media | img_url: 'master' }} {{ product.featured_media.width }}w"
-                          src="{{ product.featured_media | img_url: '533x' }}"
-                          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                          alt="{{ product.featured_media.alt | escape }}"
-                          loading="lazy"
-                          class="motion-reduce w-full h-full object-center object-cover sm:w-full sm:h-full"
-                          width="{{ product.featured_media.width }}"
-                          height="{{ product.featured_media.height }}"
-                        >
-                    </div>
-                    <div class="flex-1 p-4 space-y-2 flex flex-col">
-                      <h3 class="text-sm font-medium text-gray-900">
-                        <a href="{{ product.url | default: '#' }}">
-                          <span aria-hidden="true" class="absolute inset-0"></span>
-                          {{ product.title }}
-                        </a>
-                      </h3>
-                      <p class="text-sm text-gray-500">{{ product.description | strip_html | truncate: 150 }}</p>
-                      <div class="flex-1 flex flex-col justify-end">
-                        <p class="text-base font-medium text-gray-900">{{ product.price | money }}</p>
+                      <div class="flex items-center">
+                        <input id="filter-color-5" name="color[]" value="purple" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-color-5" class="ml-3 text-sm text-gray-600"> Purple </label>
                       </div>
                     </div>
                   </div>
-
-                  {% endfor %}
-                  <!-- More products... -->
                 </div>
-                
-                {%- if paginate.pages > 1 -%}
-                  {% render 'pagination', paginate: paginate, anchor: '' %}
-                {%- endif -%}
-                {% endpaginate %}
+
+                <div class="border-b border-gray-200 py-6">
+                  <h3 class="-my-3 flow-root">
+                    <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-1" aria-expanded="false">
+                      <span class="font-medium text-gray-900"> Category </span>
+                      <span class="ml-6 flex items-center">
+                    
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                  
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div class="pt-6" id="filter-section-1">
+                    <div class="space-y-4">
+                      <div class="flex items-center">
+                        <input id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-category-0" class="ml-3 text-sm text-gray-600"> New Arrivals </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-category-1" name="category[]" value="sale" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-category-1" class="ml-3 text-sm text-gray-600"> Sale </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-category-2" name="category[]" value="travel" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-category-2" class="ml-3 text-sm text-gray-600"> Travel </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-category-3" name="category[]" value="organization" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-category-3" class="ml-3 text-sm text-gray-600"> Organization </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-category-4" name="category[]" value="accessories" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-category-4" class="ml-3 text-sm text-gray-600"> Accessories </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-b border-gray-200 py-6">
+                  <h3 class="-my-3 flow-root">
+                    <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-2" aria-expanded="false">
+                      <span class="font-medium text-gray-900"> Size </span>
+                      <span class="ml-6 flex items-center">
+                  
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                      
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div class="pt-6" id="filter-section-2">
+                    <div class="space-y-4">
+                      <div class="flex items-center">
+                        <input id="filter-size-0" name="size[]" value="2l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-size-0" class="ml-3 text-sm text-gray-600"> 2L </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-size-1" name="size[]" value="6l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-size-1" class="ml-3 text-sm text-gray-600"> 6L </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-size-2" name="size[]" value="12l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-size-2" class="ml-3 text-sm text-gray-600"> 12L </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-size-3" name="size[]" value="18l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-size-3" class="ml-3 text-sm text-gray-600"> 18L </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-size-4" name="size[]" value="20l" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-size-4" class="ml-3 text-sm text-gray-600"> 20L </label>
+                      </div>
+
+                      <div class="flex items-center">
+                        <input id="filter-size-5" name="size[]" value="40l" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                        <label for="filter-size-5" class="ml-3 text-sm text-gray-600"> 40L </label>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
               </div>
             </div>
+              <!-- Product grid -->
+              <div class="lg:col-span-3">
+                <!-- Replace with your content -->
+                <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full">
+                  <!--
+      This example requires Tailwind CSS v2.0+ 
+      
+      This example requires some changes to your config:
+      
+      ```
+      // tailwind.config.js
+      module.exports = {
+        // ...
+        plugins: [
+          // ...
+          require('@tailwindcss/aspect-ratio'),
+        ],
+      }
+      ```
+    -->
+                <div class="bg-white">
+                  <div id="ProductGridContainer" class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                    <h2 class="sr-only">Products</h2>
+                    {%- paginate collection.products by section.settings.products_per_page -%}
+                    <div class="loading-overlay gradient"></div>
 
+                    <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" id="product-grid" data-id="{{ section.id }}">
+                      {%- for product in collection.products -%}
+
+                      <div class="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
+                        <div class="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
+                          <img
+                              srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
+                                {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
+                                {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+                                {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+                                {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+                                {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w,{%- endif -%}
+                                {{ product.featured_media | img_url: 'master' }} {{ product.featured_media.width }}w"
+                              src="{{ product.featured_media | img_url: '533x' }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                              alt="{{ product.featured_media.alt | escape }}"
+                              loading="lazy"
+                              class="motion-reduce w-full h-full object-center object-cover sm:w-full sm:h-full"
+                              width="{{ product.featured_media.width }}"
+                              height="{{ product.featured_media.height }}"
+                            >
+                        </div>
+                        <div class="flex-1 p-4 space-y-2 flex flex-col">
+                          <h3 class="text-sm font-medium text-gray-900">
+                            <a href="{{ product.url | default: '#' }}">
+                              <span aria-hidden="true" class="absolute inset-0"></span>
+                              {{ product.title }}
+                            </a>
+                          </h3>
+                          <p class="text-sm text-gray-500">{{ product.description | strip_html | truncate: 150 }}</p>
+                          <div class="flex-1 flex flex-col justify-end">
+                            <p class="text-base font-medium text-gray-900">{{ product.price | money }}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {% endfor %}
+                      <!-- More products... -->
+                    </div>
+                    
+                    {%- if paginate.pages > 1 -%}
+                      {% render 'pagination', paginate: paginate, anchor: '' %}
+                    {%- endif -%}
+                    {% endpaginate %}
+                  </div>
+                </div>
+
+                </div>
+                <!-- /End replace -->
+              </div>
             </div>
-            <!-- /End replace -->
-          </div>
-        </div>
-      </section>
+          </section>
+        </form>
+      </facet-filters-form>
+
     </main>
   </div>
 </div>
