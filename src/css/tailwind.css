@@ -16,9 +16,6 @@
     /* scroll-behavior: smooth; DISABLED WHILE MARKER.IO IS ENABLED */
   }
 
-  main {
-    @apply overflow-x-hidden;
-  }
 
 
 
@@ -56,10 +53,6 @@
     @apply text-2xl;
   }
 
-  h3,
-  .h3 {
-    @apply text-xl;
-  }
 
   h4,
   .h4 {
@@ -91,10 +84,6 @@
       @apply text-5xl;
     }
 
-    h3,
-    .h3 {
-      @apply text-4xl;
-    }
 
     h4,
     .h4 {

@@ -15,6 +15,21 @@ class FacetFiltersForm extends HTMLElement {
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
   }
 
+  connectedCallback() {
+    if (document.querySelector('#mobile-filter-open')) {
+      document.querySelector('#mobile-filter-open').addEventListener('click', () => {
+        document.querySelector('mobile-filters').classList.add('flex');
+        document.querySelector('mobile-filters').classList.remove('hidden');
+      });
+    }
+
+    document.querySelector('#mobile-filter-close').addEventListener('click', () => {
+      document.querySelector('mobile-filters').classList.remove('flex');
+      document.querySelector('mobile-filters').classList.add('hidden');
+    })
+  
+  }
+
   static setListeners() {
     const onHistoryChange = (event) => {
       const searchParams = event.state ? event.state.searchParams : FacetFiltersForm.searchParamsInitial;
@@ -63,7 +78,7 @@ class FacetFiltersForm extends HTMLElement {
         FacetFiltersForm.filterData = [...FacetFiltersForm.filterData, { html, url }];
         FacetFiltersForm.renderFilters(html, event);
         FacetFiltersForm.renderProductGridContainer(html);
-        FacetFiltersForm.renderProductCount(html);
+        // FacetFiltersForm.renderProductCount(html);
       });
   }
 
@@ -71,7 +86,7 @@ class FacetFiltersForm extends HTMLElement {
     const html = FacetFiltersForm.filterData.find(filterDataUrl).html;
     FacetFiltersForm.renderFilters(html, event);
     FacetFiltersForm.renderProductGridContainer(html);
-    FacetFiltersForm.renderProductCount(html);
+    // FacetFiltersForm.renderProductCount(html);
   }
 
   static renderProductGridContainer(html) {
@@ -132,7 +147,7 @@ class FacetFiltersForm extends HTMLElement {
       document.querySelector(selector).innerHTML = html.querySelector(selector).innerHTML;
     });
 
-    document.getElementById('FacetFiltersFormMobile').closest('menu-drawer').bindEvents();
+    // document.getElementById('FacetFiltersFormMobile').closest('menu-drawer').bindEvents();
   }
 
   static renderCounts(source, target) {

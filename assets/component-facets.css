@@ -117,9 +117,7 @@
   margin-left: auto;
 }
 
-.facets__disclosure {
-  margin-right: 3.5rem;
-}
+
 
 
 
@@ -246,7 +244,6 @@
 
 .facets__price {
   display: flex;
-  padding: 2rem;
 }
 
 .facets__price .field + .field-currency {
@@ -369,10 +366,6 @@ a.active-facets__button.focused .active-facets__button-inner,
   display: flex;
 }
 
-.mobile-facets__wrapper {
-  margin-left: 0;
-  display: flex;
-}
 
 .mobile-facets__wrapper .disclosure-has-popup[open] > summary::before {
   height: 100vh;
@@ -606,46 +599,7 @@ details.menu-opening .mobile-facets__close svg {
   position: relative;
 }
 
-input.mobile-facets__checkbox {
-  border: 0;
-  position: absolute;
-  width: 1.6rem;
-  height: 1.6rem;
-  position: absolute;
-  left: 2.1rem;
-  top: 1.2rem;
-  z-index: 0;
-  appearance: none;
-  -webkit-appearance: none;
-}
 
-.mobile-facets__label {
-  padding: 1.5rem 2rem 1.5rem 2.5rem;
-  width: 100%;
-  background-color: rgb(var(--color-background));
-  transition: background-color 0.2s ease;
-  word-break: break-word;
-  display: flex;
-}
-
-.mobile-facets__label > svg {
-  background-color: rgb(var(--color-background));
-  position: relative;
-  z-index: 2;
-  margin-right: 1.2rem;
-  flex-shrink: 0;
-}
-
-.mobile-facets__label .icon-checkmark {
-  position: absolute;
-  top: 1.9rem;
-  left: 2.8rem;
-  visibility: hidden;
-}
-
-.mobile-facets__label > input[type='checkbox']:checked ~ .icon-checkmark {
-  visibility: visible;
-}
 
 .mobile-facets__arrow,
 .mobile-facets__summary .icon-caret {
