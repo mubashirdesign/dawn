@@ -29,11 +29,29 @@
             "image": "shopify:\/\/shop_images\/custom_resized_a20cc55e-88a5-41bb-adf9-ce8020b9ec9f.jpg",
             "url": "shopify:\/\/collections\/headers-gm-b-body-1994-1996"
           }
+        },
+        "55ec8e6b-3fb5-4c6a-8b02-6e1f949da328": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Drivetrain",
+            "image": "shopify:\/\/shop_images\/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg",
+            "url": "shopify:\/\/collections\/drivetrain"
+          }
+        },
+        "0c88fd24-6972-428a-96b0-20cf248a6dd1": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Crossmembers",
+            "image": "shopify:\/\/shop_images\/custom_resized_93a6a15f-2713-4411-8007-9e1173fa2085.jpg",
+            "url": "shopify:\/\/collections\/cross-members"
+          }
         }
       },
       "block_order": [
         "4ee20fc9-995a-4644-b44a-57d68c07a6cc",
-        "bdd74411-b8ec-450b-836a-aad57a6a97a1"
+        "bdd74411-b8ec-450b-836a-aad57a6a97a1",
+        "55ec8e6b-3fb5-4c6a-8b02-6e1f949da328",
+        "0c88fd24-6972-428a-96b0-20cf248a6dd1"
       ],
       "settings": {
         "title": "Featured products",
