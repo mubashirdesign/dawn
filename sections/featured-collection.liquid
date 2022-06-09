@@ -97,7 +97,7 @@
           sizes="100vw"
           src="{{ block.settings.image | img_url: '1500x' }}"
           loading="lazy"
-          class="max-h-16 w-auto"
+          class="h-auto w-[175px]"
           alt="{{ block.settings.image.alt | escape }}"
           width="{{ block.settings.image.width }}"
           height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}"
@@ -107,47 +107,7 @@
        
         </div>
       {% endfor %}
-      <div class="col-span-1 flex justify-around items-center py-16 px-4 bg-gray-50">
-        <div>
-          <h3 class="font-bold text-xl pb-0">GM B-Body</h3>
-          <p class="text-xs">1994 - 1996</p>
-          <a href="#" class="inline-block bg-lightPrimaryBlue border border-transparent py-1.5 px-4 text-sm font-medium text-white hover:bg-gray-900">SHOP NOW</a>
-        </div>
-        <img class="max-h-16" src="https://cdn.shopify.com/s/files/1/0612/9644/3607/files/chevy_impala.jpg?v=1653530287" alt="Workcation">
-      </div>
-      <div class="col-span-1 flex justify-around items-center py-16 px-8 bg-white">
-        <div>
-          <h3 class="font-bold text-xl pb-0">Chevy Silverado</h3>
-          <p class="text-xs">1950 - Present</p>
-          <a href="#" class="inline-block bg-lightPrimaryBlue border border-transparent py-1.5 px-4 text-sm font-medium text-white hover:bg-gray-900">SHOP NOW</a>
-        </div>
-        <img class="max-h-16" src="https://cdn.shopify.com/s/files/1/0612/9644/3607/files/chevy_silverado.jpg?v=1653581553" alt="Workcation">
-      </div>
-      <div class="col-span-1 flex justify-around items-center py-16 px-8 bg-gray-50">
-        <div>
-          <h3 class="font-bold text-xl pb-0">Pontiac Solistice / Saturn Sky</h3>
-          <p class="text-xs">2005 - 2010</p>
-          <a href="#" class="inline-block bg-lightPrimaryBlue border border-transparent py-1.5 px-4 text-sm font-medium text-white hover:bg-gray-900">SHOP NOW</a>
-        </div>
-        <img class="max-h-16" src="https://cdn.shopify.com/s/files/1/0612/9644/3607/files/car.png?v=1653491209" alt="Workcation">
-      </div>
-      <div class="col-span-1 flex justify-around items-center py-16 px-8 bg-white">
-        <div>
-          <h3 class="font-bold text-xl pb-0">Ford Bronco</h3>
-          <p class="text-xs">1962 - 1972</p>
-          <a href="#" class="inline-block bg-lightPrimaryBlue border border-transparent py-1.5 px-4 text-sm font-medium text-white hover:bg-gray-900">SHOP NOW</a>
-        </div>
-        <img class="max-h-16" src="https://cdn.shopify.com/s/files/1/0612/9644/3607/files/car.png?v=1653491209" alt="Workcation">
-      </div>
-      <div class="col-span-1 flex justify-around items-center py-16 px-8 bg-gray-50">
-        <div>
-          <h3 class="font-bold text-xl pb-0">International Scout</h3>
-          <p class="text-xs">1961 - 1980</p>
-          <a href="#" class="inline-block bg-lightPrimaryBlue border border-transparent py-1.5 px-4 text-sm font-medium text-white hover:bg-gray-900">SHOP NOW</a>
-        </div>
-        <img class="max-h-16" src="https://cdn.shopify.com/s/files/1/0612/9644/3607/files/car.png?v=1653491209" alt="Workcation">
-      </div>
-    
+   
     </div>
   </div>
 </div>
