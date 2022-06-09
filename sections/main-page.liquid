@@ -1,16 +1,54 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-indigo-800">
   <div class="absolute inset-0">
-    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100" alt="">
+    <img
+      srcset="{%- if page.metafields.my_fields.banner.width >= 375 -%}{{ page.metafields.my_fields.banner | img_url: '375x' }} 375w,{%- endif -%}
+        {%- if page.metafields.my_fields.banner.width >= 750 -%}{{ page.metafields.my_fields.banner | img_url: '750x' }} 750w,{%- endif -%}
+        {%- if page.metafields.my_fields.banner.width >= 1100 -%}{{ page.metafields.my_fields.banner | img_url: '1100x' }} 1100w,{%- endif -%}
+        {%- if page.metafields.my_fields.banner.width >= 1500 -%}{{ page.metafields.my_fields.banner | img_url: '1500x' }} 1500w,{%- endif -%}
+        {%- if page.metafields.my_fields.banner.width >= 1780 -%}{{ page.metafields.my_fields.banner | img_url: '1780x' }} 1780w,{%- endif -%}
+        {%- if page.metafields.my_fields.banner.width >= 2000 -%}{{ page.metafields.my_fields.banner | img_url: '2000x' }} 2000w,{%- endif -%}
+        {%- if page.metafields.my_fields.banner.width >= 3000 -%}{{ page.metafields.my_fields.banner | img_url: '3000x' }} 3000w,{%- endif -%}
+        {%- if page.metafields.my_fields.banner.width >= 3840 -%}{{ page.metafields.my_fields.banner | img_url: '3840x' }} 3840w,{%- endif -%}
+        {{ page.metafields.my_fields.banner | img_url: 'master' }} {{ page.metafields.my_fields.banner.width }}w"
+      sizes="100vw"
+      src="{{ page.metafields.my_fields.banner | img_url: '1500x' }}"
+      loading="lazy"
+      class="w-full h-full object-cover"
+      alt="{{ page.metafields.my_fields.banner.alt | escape }}"
+      width="{{ page.metafields.my_fields.banner.width }}"
+      height="{{ page.metafields.my_fields.banner.width | divided_by: page.metafields.my_fields.banner.aspect_ratio }}"
+    >
+
     <div class="absolute inset-0 bg-indigo-800 mix-blend-multiply" aria-hidden="true"></div>
   </div>
   <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
     <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">{{ page.title }}</h1>
-    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.</p>
+  </div>
+</div>
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/typography'),
+    ],
+  }
+  ```
+-->
+<div class="relative max-w-7xl m-auto px-4 md:px-16 py-16 bg-white overflow-hidden">
+
+  <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
+    {{page.content}}
   </div>
 </div>
 
-</div>
 {% schema %}
 {
   "name": "t:sections.main-page.name",
