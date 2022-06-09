@@ -284,7 +284,7 @@
                       id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
                       {% if value.active %}checked{% endif %}
                       {% if value.count == 0 and value.active == false %}disabled{% endif %}>                      
-                      <label for="filter-color-2" class="ml-3 text-sm text-gray-600">
+                      <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="ml-3 text-sm text-gray-600">
                         {{ value.label | escape }} ({{ value.count }})
                       </label>
                     </div>
