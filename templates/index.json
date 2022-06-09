@@ -13,8 +13,22 @@
     },
     "featured_products": {
       "type": "featured-collection",
+      "blocks": {
+        "4ee20fc9-995a-4644-b44a-57d68c07a6cc": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Cat-Back Systems",
+            "image": "shopify:\/\/shop_images\/custom_resized_7ce66d78-395d-4ce9-be5b-4b2ef73d50d9.jpg",
+            "url": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
+          }
+        }
+      },
+      "block_order": [
+        "4ee20fc9-995a-4644-b44a-57d68c07a6cc"
+      ],
       "settings": {
         "title": "Featured products",
+        "sub_title": "Featured collection Sub Title",
         "style": "circle"
       }
     },
@@ -22,6 +36,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Featured collection",
+        "sub_title": "Featured collection Sub Title",
         "style": "grid"
       }
     },
