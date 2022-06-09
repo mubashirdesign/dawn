@@ -18,36 +18,97 @@
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-      <div class="grid grid-cols-1 gap-8 xl:col-span-2">
-        <div class="sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-8">
-          {% for link in linklists[section.settings.menu].links %}
-          {% if link.links != blank %}
-              <div class="mt-12 md:mt-0">
-                <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">{{ link.title }}</h3>
-                <ul role="list" class="mt-4 space-y-4">
-                  {% for childlink in link.links %}
-                  <li>
-                    <a href="{{ childlink.url }}" class="text-base text-gray-300 hover:text-white"> {{ childlink.title }} </a>
-                  </li>
+      <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Solutions</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Marketing </a>
+              </li>
 
-                  {% endfor %}
-                </ul>
-              
-              </div>
-          {% endif %}
-          {% endfor %}
-          
-          
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Analytics </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Commerce </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Insights </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Support</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Pricing </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Documentation </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Guides </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> API Status </a>
+              </li>
+            </ul>
+          </div>
         </div>
-     
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> About </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Blog </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Jobs </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Press </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Partners </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Claim </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Privacy </a>
+              </li>
+
+              <li>
+                <a href="#" class="text-base text-gray-300 hover:text-white"> Terms </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      {% if section.settings.newsletter_enable == true %}
       <div class="mt-8 xl:mt-0">
         <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Subscribe to our newsletter</h3>
         <p class="mt-4 text-base text-gray-300">The latest news, articles, and resources, sent to your inbox weekly.</p>
         
       </div>
-      {% endif %}
     </div>
     
   </div>
@@ -69,12 +130,115 @@
 {% schema %}
 {
   "name": "t:sections.footer.name",
-  "settings": [
+  "blocks": [
     {
       "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label",
+          "info": "t:sections.footer.blocks.link_list.settings.heading.info"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.footer.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "t:sections.footer.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "subtext",
+          "default": "<p>Share store details, promotions, or brand content with your customers.</p>",
+          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "label": "Image width",
+          "default": 100
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Image alignment on large screen",
+          "options": [
+            {
+              "value": "",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.footer.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.footer.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.footer.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.footer.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.footer.settings.color_scheme.options__5.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.footer.settings.color_scheme.label"
     },
     {
       "type": "header",
@@ -92,7 +256,60 @@
       "id": "newsletter_heading",
       "default": "Subscribe to our emails",
       "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__2.content",
+      "info": "t:sections.footer.settings.header__2.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": false,
+      "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__3.content",
+      "info": "t:sections.footer.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__5.content",
+      "info": "t:sections.footer.settings.header__6.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "t:sections.footer.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__7.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_enable.label"
     }
-  ]
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "text"
+      }
+    ]
+  }
 }
 {% endschema %}
