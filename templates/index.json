@@ -71,44 +71,44 @@
           "settings": {
             "title": "GM B-Body",
             "sub_title": "1994 - 1996",
-            "image": "shopify:\/\/shop_images\/croppedcaprice.jpg",
-            "url": ""
+            "image": "shopify:\/\/shop_images\/TAISSOcar.png",
+            "url": "shopify:\/\/collections\/impala-ss-caprice-94-96-gm-b-body"
           }
         },
         "df11e8e3-8693-4ab4-abaf-ea09a1c728f2": {
           "type": "featured-item",
           "settings": {
             "title": "Chevy Silverado",
-            "sub_title": "Featured Sub Title",
+            "sub_title": "2007 - 2015",
             "image": "shopify:\/\/shop_images\/1592e5d2-96d8-4b6c-afae-e78b84a306ac.webp",
-            "url": ""
+            "url": "shopify:\/\/collections\/chevrolet-silverado-2007-2015"
           }
         },
         "d9ba3f8e-f085-4724-869a-5ebc6a03a31e": {
           "type": "featured-item",
           "settings": {
             "title": "Pontiac Solistice \/ Saturn Sky",
-            "sub_title": "Featured Sub Title",
+            "sub_title": "",
             "image": "shopify:\/\/shop_images\/2008PON005a_640_01.webp",
-            "url": ""
+            "url": "shopify:\/\/collections\/pontiac-solstice-2005-2010"
           }
         },
         "650a5a09-d725-4540-8f7c-b9e77e0e7032": {
           "type": "featured-item",
           "settings": {
             "title": "Ford Bronco",
-            "sub_title": "Featured Sub Title",
+            "sub_title": "1965 - 1977",
             "image": "shopify:\/\/shop_images\/Ford-Bronco-PNG-Images-HD.png",
-            "url": ""
+            "url": "shopify:\/\/collections\/ford-bronco-1965-1977"
           }
         },
         "863ecca6-41c5-40cb-a568-59d2ff3f9cf2": {
           "type": "featured-item",
           "settings": {
             "title": "International Scout",
-            "sub_title": "Featured Sub Title",
+            "sub_title": "1961- 1980",
             "image": "shopify:\/\/shop_images\/custom_resized_279f728e-3677-4a8e-8620-9d856baab5b7.png",
-            "url": ""
+            "url": "shopify:\/\/collections\/international-scout-1961-1980"
           }
         }
       },
