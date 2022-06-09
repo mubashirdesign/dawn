@@ -71,13 +71,23 @@
           "settings": {
             "title": "GM B-Body",
             "sub_title": "1994 - 1996",
-            "image": "shopify:\/\/shop_images\/custom_resized_7ce66d78-395d-4ce9-be5b-4b2ef73d50d9.jpg",
+            "image": "shopify:\/\/shop_images\/croppedcaprice.jpg",
+            "url": ""
+          }
+        },
+        "df11e8e3-8693-4ab4-abaf-ea09a1c728f2": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Chevy Silverado",
+            "sub_title": "Featured Sub Title",
+            "image": "shopify:\/\/shop_images\/1592e5d2-96d8-4b6c-afae-e78b84a306ac.webp",
             "url": ""
           }
         }
       },
       "block_order": [
-        "95bc08f2-191d-40da-9074-180834bfd94c"
+        "95bc08f2-191d-40da-9074-180834bfd94c",
+        "df11e8e3-8693-4ab4-abaf-ea09a1c728f2"
       ],
       "settings": {
         "title": "SHOP BY VEHICLE",
