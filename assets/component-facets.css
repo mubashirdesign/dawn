@@ -121,24 +121,6 @@
 
 
 
-.facets__disclosure[open] .facets__summary,
-.facets__summary:hover {
-  color: rgb(var(--color-foreground));
-}
-
-.facets__disclosure[open] .facets__display {
-  animation: animateMenuOpen var(--duration-default) ease;
-}
-
-.facets__summary span {
-  transition: text-decoration var(--duration-short) ease;
-}
-
-.facets__summary:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-}
-
 
 
 .facets__summary > span {

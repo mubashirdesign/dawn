@@ -266,7 +266,7 @@
                 {%- for filter in collection.filters -%}
                 {% case filter.type %}
                 {% when 'list' %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="text-sm font-medium text-gray-900 border-b border-gray-200 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="py-3 text-sm font-medium text-gray-900 border-b-1 border-r-0 border-t-0 border-l-0 border-solid border-gray-100 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
                   <summary class="facets__summary caption-large focus-offset">
                     <div class="font-medium text-gray-900">
                       <span class="text-sm">{{ filter.label | escape }}</span>
@@ -302,7 +302,7 @@
                         assign uses_comma_decimals = true
                       endif
                     %}
-                    <details id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                    <details id="Details-{{ forloop.index }}-{{ section.id }}" class=" border-b-1 border-r-0 border-t-0 border-l-0 border-solid border-gray-100 pb-3 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
                       <summary class="facets__summary caption-large focus-offset text-sm">
                         <div>
                           <span class="font-medium text-sm text-gray-900">{{ filter.label | escape }}</span>
@@ -323,7 +323,7 @@
                             min="0"
                             {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}
                           >
-                          <label class="field__label" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                          <label class="field__label block text-sm font-medium text-gray-700" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
                         </div>
                         <span class="field-currency">{{ cart.currency.symbol }}</span>
                         <div class="field">
@@ -342,7 +342,7 @@
                               max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                             {% endif %}
                           >
-                          <label class="field__label" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                          <label class="field__label block text-sm font-medium text-gray-700" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
                         </div>
                       </price-range>
 
