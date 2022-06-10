@@ -9,18 +9,10 @@
       "type": "support-section",
       "settings": {
       }
-    },
-    "1653735009cd1a091f": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured collection",
-        "style": "circle"
-      }
     }
   },
   "order": [
     "main",
-    "165373500621f045e2",
-    "1653735009cd1a091f"
+    "165373500621f045e2"
   ]
 }
