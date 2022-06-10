@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
       }
     },
@@ -18,20 +19,11 @@
       "type": "support-section",
       "settings": {
       }
-    },
-    "16537350869256ac99": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured collection",
-        "sub_title": "Featured collection Sub Title",
-        "style": "circle"
-      }
     }
   },
   "order": [
     "main",
     "form",
-    "1653735084358125bf",
-    "16537350869256ac99"
+    "1653735084358125bf"
   ]
 }
