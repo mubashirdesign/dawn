@@ -97,12 +97,22 @@
             "image": "shopify:\/\/shop_images\/custom_resized_a20cc55e-88a5-41bb-adf9-ce8020b9ec9f.jpg",
             "url": "shopify:\/\/collections\/headers-gm-b-body-1994-1996"
           }
+        },
+        "7daa54d6-49d6-41aa-850e-2a5b5d266ba8": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Crossmembers",
+            "sub_title": "Featured Sub Title",
+            "image": "shopify:\/\/shop_images\/custom_resized_93a6a15f-2713-4411-8007-9e1173fa2085.jpg",
+            "url": "shopify:\/\/collections\/cross-members"
+          }
         }
       },
       "block_order": [
         "2e75ad7f-ea81-4efd-b54c-213e57fb0206",
         "563218e0-018a-4373-ac11-2dfadd191093",
-        "064ecc75-215f-41d1-8dc1-62c213979186"
+        "064ecc75-215f-41d1-8dc1-62c213979186",
+        "7daa54d6-49d6-41aa-850e-2a5b5d266ba8"
       ],
       "settings": {
         "title": "Our Featured B-Body Parts",
