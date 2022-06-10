@@ -12,8 +12,43 @@
     },
     "1653735009cd1a091f": {
       "type": "featured-collection",
+      "blocks": {
+        "5ab878a8-ef64-4ce9-90ff-37000df4c4c8": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Headers",
+            "sub_title": "Featured Sub Title",
+            "image": "shopify:\/\/shop_images\/custom_resized_a20cc55e-88a5-41bb-adf9-ce8020b9ec9f.jpg",
+            "url": "shopify:\/\/collections\/headers-gm-b-body-1994-1996"
+          }
+        },
+        "67565b1c-7287-463c-94e1-04edde743ea4": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Drivetrain",
+            "sub_title": "Featured Sub Title",
+            "image": "shopify:\/\/shop_images\/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg",
+            "url": "shopify:\/\/collections\/drivetrain"
+          }
+        },
+        "07713726-7ab6-4dfd-afd3-138829115001": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Exhaust Systems",
+            "sub_title": "Featured Sub Title",
+            "image": "shopify:\/\/shop_images\/custom_resized_7ce66d78-395d-4ce9-be5b-4b2ef73d50d9.jpg",
+            "url": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
+          }
+        }
+      },
+      "block_order": [
+        "5ab878a8-ef64-4ce9-90ff-37000df4c4c8",
+        "67565b1c-7287-463c-94e1-04edde743ea4",
+        "07713726-7ab6-4dfd-afd3-138829115001"
+      ],
       "settings": {
         "title": "Featured collection",
+        "sub_title": "Featured collection Sub Title",
         "style": "circle"
       }
     }
