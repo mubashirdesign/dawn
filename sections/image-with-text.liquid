@@ -46,12 +46,9 @@
   </div>
   <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
     <div class="md:ml-auto md:w-1/2 md:pl-10">
-      <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">Need support?{{section.settings.lead}}</h2>
-      <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">We’re here to help{{section.settings.title}}</p>
-      <p class="mt-3 text-lg text-gray-300">{{section.settings.text}}Whether it's questions on our parts, installation help or any other general inquiries call me at 425.251.0329. I would be happy to follow-up with a phone conversation with you.
-        <br>
-        <br>Or visit our help center page below.
-
+      <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">{{section.settings.lead}}</h2>
+      <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">{{section.settings.title}}</p>
+      <p class="mt-3 text-lg text-gray-300">{{section.settings.text | replace: '&lt;', '<' | replace: '&gt;', '>' }}
       </p>
       <div class="mt-8">
         <div class="inline-flex rounded-md shadow">
