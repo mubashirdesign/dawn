@@ -19,17 +19,10 @@
             "settings": {
               "text": "Center Air Dam's Coming Soon!"
             }
-          },
-          "announcement-bar-0": {
-            "type": "announcement",
-            "settings": {
-              "text": "Free Shipping Over $100!"
-            }
           }
         },
         "block_order": [
-          "2dbf561b-9526-4dd8-a635-76efc20ae275",
-          "announcement-bar-0"
+          "2dbf561b-9526-4dd8-a635-76efc20ae275"
         ],
         "settings": {
           "bg_color": "#0066ff",
