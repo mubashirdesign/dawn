@@ -137,36 +137,13 @@
     },
     "16535287530956fd10": {
       "type": "image-with-text",
-      "blocks": {
-        "1653528753407e5fb0-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text"
-          }
-        },
-        "1653528753407e5fb0-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
-          }
-        },
-        "1653528753407e5fb0-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "1653528753407e5fb0-0",
-        "1653528753407e5fb0-1",
-        "1653528753407e5fb0-2"
-      ],
       "settings": {
-        "height": "small",
-        "color_scheme": "background-1",
-        "layout": "image_first"
+        "image": "shopify:\/\/shop_images\/custom_resized_4a684484-9180-4bed-86ce-29e295aff376.jpg",
+        "lead": "Need support?",
+        "title": "We’re here to help",
+        "text": "Whether it's questions on our parts, installation help or any other general inquiries call me at 425.251.0329. I would be happy to follow-up with a phone conversation with you. Or visit our help center page below.",
+        "button_label": "Visit the help center",
+        "button_link": ""
       }
     },
     "16535283086797c94c": {
