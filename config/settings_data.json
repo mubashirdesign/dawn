@@ -33,7 +33,7 @@
         ],
         "settings": {
           "bg_color": "#0066ff",
-          "text_color": "#fff"
+          "text_color": "#ffffff"
         }
       },
       "header": {
@@ -47,7 +47,8 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "newsletter_enable": true,
+          "menu": "footer",
+          "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails"
         }
       }
