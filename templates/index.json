@@ -19,6 +19,7 @@
           "settings": {
             "title": "Cat-Back Systems",
             "sub_title": "Featured Sub Title",
+            "image": "shopify:\/\/shop_images\/custom_resized_0d5ae17b-a501-40be-ad48-b20eeb7555b8.jpg",
             "url": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
           }
         },
@@ -27,6 +28,7 @@
           "settings": {
             "title": "Headers",
             "sub_title": "Featured Sub Title",
+            "image": "shopify:\/\/shop_images\/custom_resized_a20cc55e-88a5-41bb-adf9-ce8020b9ec9f.jpg",
             "url": "shopify:\/\/collections\/headers-gm-b-body-1994-1996"
           }
         },
@@ -35,7 +37,8 @@
           "settings": {
             "title": "Drivetrain",
             "sub_title": "Featured Sub Title",
-            "url": "shopify:\/\/collections\/drivetrain"
+            "image": "shopify:\/\/shop_images\/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg",
+            "url": "shopify:\/\/collections\/drivetrain-gm-b-body-1994-1996"
           }
         },
         "0c88fd24-6972-428a-96b0-20cf248a6dd1": {
@@ -43,7 +46,8 @@
           "settings": {
             "title": "Crossmembers",
             "sub_title": "Featured Sub Title",
-            "url": "shopify:\/\/collections\/cross-members"
+            "image": "shopify:\/\/shop_images\/custom_resized_73838e57-e1a1-4299-9348-7f4ab3a25074.jpg",
+            "url": "shopify:\/\/collections\/transmission-crossmembers-gm-b-body-1994-1996"
           }
         }
       },
