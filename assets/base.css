@@ -1918,3 +1918,7 @@ details-disclosure > details {
     stroke: CanvasText;
   }
 }
+
+.swiper-pagination {
+  z-index: 0 !important;
+}
