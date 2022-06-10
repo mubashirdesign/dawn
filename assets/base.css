@@ -1237,23 +1237,6 @@ input[type='checkbox'] {
   align-self: start;
 }
 
-.form-status {
-  margin: 0;
-  font-size: 1.6rem;
-}
-
-.form-status-list {
-  padding: 0;
-  margin: 2rem 0 4rem;
-}
-
-.form-status-list li {
-  list-style-position: inside;
-}
-
-.form-status-list .link::first-letter {
-  text-transform: capitalize;
-}
 
 /* component-quantity */
 .quantity {
