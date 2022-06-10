@@ -28,12 +28,6 @@
 
 
 
-@media screen and (min-width: 990px) {
-  .facet-filters {
-    padding-left: 3rem;
-  }
-}
-
 
 .facet-filters__summary {
   display: flex;
@@ -52,12 +46,6 @@
   position: static;
 }
 
-.facet-filters__field {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-end;
-}
 
 .facet-filters__field .select {
   width: auto;
