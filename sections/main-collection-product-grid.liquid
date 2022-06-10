@@ -266,7 +266,7 @@
                 {%- for filter in collection.filters -%}
                 {% case filter.type %}
                 {% when 'list' %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="py-3 text-sm font-medium text-gray-900 border-b-1 border-r-0 border-t-0 border-l-0 border-solid border-gray-100 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="text-sm font-medium text-gray-900 border-b-1 border-r-0 border-t-0 border-l-0 border-solid border-gray-100 disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
                   <summary class="facets__summary caption-large focus-offset">
                     <div class="font-medium text-gray-900">
                       <span class="text-sm">{{ filter.label | escape }}</span>
