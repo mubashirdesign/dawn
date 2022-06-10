@@ -141,9 +141,9 @@
         "image": "shopify:\/\/shop_images\/custom_resized_4a684484-9180-4bed-86ce-29e295aff376.jpg",
         "lead": "Need support?",
         "title": "We’re here to help",
-        "text": "Whether it's questions on our parts, installation help or any other general inquiries call me at <a href=\"tel:425.251.0329\">425.251.0329.<\/a> I would be happy to follow-up with a phone conversation with you. <br> <br>Or visit our help center page below.",
-        "button_label": "Visit the help center",
-        "button_link": ""
+        "text": "Whether it's questions on our parts, installation help or any other general inquiries call me at <a href=\"tel:425.251.0329\">425.251.0329.<\/a> I would be happy to follow-up with a phone conversation with you. <br> <br>Or contact us through our form below.",
+        "button_label": "Contact Us",
+        "button_link": "shopify:\/\/pages\/contact"
       }
     },
     "16535283086797c94c": {
