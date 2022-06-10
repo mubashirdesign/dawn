@@ -3,10 +3,9 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/PXL_20220418_123502480-compressed.jpg",
-        "image_2": "shopify:\/\/shop_images\/PXL_20220418_123514366-compressed.jpg",
+        "image": "shopify:\/\/shop_images\/custom_resized_7f6f6e5c-7f81-4eb6-ad77-142df5ec2dc5.jpg",
         "heading": "The Ultimate B-Body Header's & Exhaust Systems",
-        "subheading": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!",
+        "subheading": "Now Introducing The GEN II TRI-Y Header For The 94 - 96 Impala SS!",
         "button_label": "SHOP NOW",
         "button_link": "shopify:\/\/products\/gen-ii-tri-y-headers"
       }
@@ -19,7 +18,6 @@
           "settings": {
             "title": "Cat-Back Systems",
             "sub_title": "Featured Sub Title",
-            "image": "shopify:\/\/shop_images\/custom_resized_7ce66d78-395d-4ce9-be5b-4b2ef73d50d9.jpg",
             "url": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
           }
         },
@@ -28,7 +26,6 @@
           "settings": {
             "title": "Headers",
             "sub_title": "Featured Sub Title",
-            "image": "shopify:\/\/shop_images\/custom_resized_a20cc55e-88a5-41bb-adf9-ce8020b9ec9f.jpg",
             "url": "shopify:\/\/collections\/headers-gm-b-body-1994-1996"
           }
         },
@@ -37,7 +34,6 @@
           "settings": {
             "title": "Drivetrain",
             "sub_title": "Featured Sub Title",
-            "image": "shopify:\/\/shop_images\/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg",
             "url": "shopify:\/\/collections\/drivetrain"
           }
         },
@@ -46,7 +42,6 @@
           "settings": {
             "title": "Crossmembers",
             "sub_title": "Featured Sub Title",
-            "image": "shopify:\/\/shop_images\/custom_resized_93a6a15f-2713-4411-8007-9e1173fa2085.jpg",
             "url": "shopify:\/\/collections\/cross-members"
           }
         }
@@ -71,7 +66,6 @@
           "settings": {
             "title": "GM B-Body",
             "sub_title": "1994 - 1996",
-            "image": "shopify:\/\/shop_images\/TAISSOcar.png",
             "url": "shopify:\/\/collections\/impala-ss-caprice-gm-b-body-1994-1996"
           }
         },
@@ -80,7 +74,6 @@
           "settings": {
             "title": "Chevy Silverado",
             "sub_title": "2007 - 2015",
-            "image": "shopify:\/\/shop_images\/1592e5d2-96d8-4b6c-afae-e78b84a306ac.webp",
             "url": "shopify:\/\/collections\/chevrolet-silverado-2007-2015"
           }
         },
@@ -89,7 +82,6 @@
           "settings": {
             "title": "Pontiac Solistice \/ Saturn Sky",
             "sub_title": "",
-            "image": "shopify:\/\/shop_images\/2008PON005a_640_01.webp",
             "url": "shopify:\/\/collections\/pontiac-solstice-2005-2010"
           }
         },
@@ -98,7 +90,6 @@
           "settings": {
             "title": "Ford Bronco",
             "sub_title": "1965 - 1977",
-            "image": "shopify:\/\/shop_images\/Ford-Bronco-PNG-Images-HD.png",
             "url": "shopify:\/\/collections\/ford-bronco-1965-1977"
           }
         },
@@ -107,7 +98,6 @@
           "settings": {
             "title": "International Scout",
             "sub_title": "1961- 1980",
-            "image": "shopify:\/\/shop_images\/custom_resized_279f728e-3677-4a8e-8620-9d856baab5b7.png",
             "url": "shopify:\/\/collections\/international-scout-1961-1980"
           }
         }
