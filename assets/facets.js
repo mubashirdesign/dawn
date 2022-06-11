@@ -15,20 +15,6 @@ class FacetFiltersForm extends HTMLElement {
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
   }
 
-  connectedCallback() {
-    if (document.querySelector('#mobile-filter-open')) {
-      document.querySelector('#mobile-filter-open').addEventListener('click', () => {
-        document.querySelector('mobile-filters').classList.add('flex');
-        document.querySelector('mobile-filters').classList.remove('hidden');
-      });
-    }
-
-    document.querySelector('#mobile-filter-close').addEventListener('click', () => {
-      document.querySelector('mobile-filters').classList.remove('flex');
-      document.querySelector('mobile-filters').classList.add('hidden');
-    })
-  
-  }
 
   static setListeners() {
     const onHistoryChange = (event) => {
