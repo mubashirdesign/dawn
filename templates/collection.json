@@ -26,19 +26,11 @@
       "type": "support-section",
       "settings": {
       }
-    },
-    "1653734308e39bc998": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured collection",
-        "style": "circle"
-      }
     }
   },
   "order": [
     "banner",
     "product-grid",
-    "1653734306c757962d",
-    "1653734308e39bc998"
+    "1653734306c757962d"
   ]
 }
