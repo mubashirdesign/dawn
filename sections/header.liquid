@@ -34,9 +34,9 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
-    <div class="fixed inset-0 bg-black bg-opacity-25 hidden"></div>
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-25 hidden"></div>
 
-    <div class="fixed inset-0 hidden" id="mobile-menu">
+    <mobile-menu class="fixed inset-0 hidden">
       <!--
         Off-canvas menu, show/hide based on off-canvas menu state.
 
@@ -66,10 +66,10 @@
               <span class="h2">{{ shop.name }}</span>
             {%- endif -%}
           </a>
-          <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-lightPrimaryBlue" id="mobile-menu-button-close">
+          <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-lightPrimaryBlue">
             <span class="sr-only">Close menu</span>
             <!-- Heroicon name: outline/x -->
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <svg id="mobile-menu-button-close" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -128,7 +128,7 @@
 
        
       </div>
-    </div>
+    </mobile-menu>
   </div>
 
   <header class="relative">
@@ -326,16 +326,6 @@ class Header extends HTMLElement {
 
     });
     
-    document.querySelector('#mobile-menu-button-close').addEventListener('click', () => {
-      document.querySelector('#mobile-menu').classList.add('hidden');
-      document.querySelector('#mobile-menu').classList.remove('flex');
-    });
-
-
-    document.querySelector('#mobile-menu-button').addEventListener('click', () => {
-      document.querySelector('#mobile-menu').classList.add('flex');
-      document.querySelector('#mobile-menu').classList.remove('hidden');
-    });
 
     this.addEventListener('mouseleave', e => {
       this.querySelectorAll("[meganav_index]").forEach(element => {
