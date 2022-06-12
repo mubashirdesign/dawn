@@ -44,7 +44,7 @@
                 {%- if block.settings.image.width >= 3840 -%}{{ block.settings.image | img_url: '3840x' }} 3840w,{%- endif -%}
                 {{ block.settings.image | img_url: 'master' }} {{ block.settings.image.width }}w"
               sizes="100vw"
-              src="{{ block.settings.image | img_url: '1500x' }}"
+              src="{{ block.settings.image | img_url: '500x' }}"
               loading="lazy"
               class="w-full h-full object-center object-cover group-hover:opacity-75"
               alt="{{ block.settings.image.alt | escape }}"
