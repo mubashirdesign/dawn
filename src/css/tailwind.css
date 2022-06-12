@@ -124,27 +124,16 @@
     }
   }
 
-  main ol {
-    @apply pb-3;
-    @apply pl-5;
-    @apply list-none;
 
-    counter-reset: li;
-
-    ol {
-      @apply mt-2;
-      @apply pb-0;
-    }
-  }
 
   ul,
   ol {
     @apply mb-2;
     @apply leading-none;
+    list-style-type: none;
 
     li {
       list-style-type: none;
-      @apply mb-2;
     }
   }
 
@@ -152,17 +141,7 @@
     counter-increment: li;
   }
 
-  main ol li::before {
-    @apply text-primary2;
-    @apply inline-block;
-    @apply -ml-5;
-    @apply mr-1;
-    @apply text-right;
 
-    content: '.'counter(li);
-    width: 1em;
-    direction: rtl;
-  }
 
   .lead {
     @apply text-lg;
