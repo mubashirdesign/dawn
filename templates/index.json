@@ -88,15 +88,15 @@
         "style": "grid"
       }
     },
-    "16535287530956fd10": {
-      "type": "image-with-text",
+    "1655304223ca223247": {
+      "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/custom_resized_855acda0-c801-47ec-a9c3-e340c149fc2e_1.jpg",
-        "lead": "Need support?",
-        "title": "We’re here to help",
-        "text": "Whether it's questions on our parts, installation help or any other general inquiries call me at <a href=\"tel:425.251.0329\">425.251.0329.<\/a> I would be happy to follow-up with a phone conversation with you. <br> <br>Or contact us through our form below.",
-        "button_label": "Contact Us",
-        "button_link": "shopify:\/\/pages\/contact"
+        "image": "shopify:\/\/shop_images\/288150409_10220601349523593_2216429861448207771_n.jpg",
+        "image_2": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
+        "heading": "The Ultimate B-Body Header's & Exhaust Systems",
+        "subheading": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!",
+        "button_label": "SHOP NOW",
+        "button_link": "shopify:\/\/products\/gen-ii-tri-y-headers"
       }
     },
     "featured_products": {
@@ -151,6 +151,17 @@
         "style": "circle"
       }
     },
+    "16535287530956fd10": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/custom_resized_855acda0-c801-47ec-a9c3-e340c149fc2e_1.jpg",
+        "lead": "Need support?",
+        "title": "We’re here to help",
+        "text": "Whether it's questions on our parts, installation help or any other general inquiries call me at <a href=\"tel:425.251.0329\">425.251.0329.<\/a> I would be happy to follow-up with a phone conversation with you. <br> <br>Or contact us through our form below.",
+        "button_label": "Contact Us",
+        "button_link": "shopify:\/\/pages\/contact"
+      }
+    },
     "165370467974bc36f1": {
       "type": "support-section",
       "settings": {
@@ -161,8 +172,9 @@
     "16552578850ec57e85",
     "16553006713e549e71",
     "16535287556bef1f16",
-    "16535287530956fd10",
+    "1655304223ca223247",
     "featured_products",
+    "16535287530956fd10",
     "165370467974bc36f1"
   ]
 }
