@@ -45,6 +45,11 @@
           "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails"
         }
+      },
+      "dans-banner": {
+        "type": "dans-banner",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
