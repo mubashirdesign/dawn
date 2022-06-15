@@ -19,47 +19,62 @@
 
 
 
-<div class="bg-white max-w-7xl m-auto">
-  <div class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+<div class="max-w-7xl m-auto">
+  <div class="mx-auto py-2">
     <h2 class="sr-only">Products</h2>
-    <div class="relative mb-10">
-      <h2 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{section.settings.title}}</h2>
-      <p class="mt-4 max-w-3xl mx-auto text-center text-base text-gray-500">
+    <div class="max-w-2xl mx-auto relative py-10  lg:max-w-7xl bg-lightPrimaryBlue">
+      <h2 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">{{section.settings.title}}</h2>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-base text-white ">
         {{ section.settings.sub_title }}
       </p>
     </div>
-    <div class="grid max-w-3xl lg:max-w-5xl m-auto gap-y-10 grid-cols-2 gap-x-12 lg:grid-cols-4 xl:gap-x-16">
-
+    <div class="min-h-full grid grid-rows-2 grid-cols-1 lg:grid-rows-1 md:grid-cols-3 max-w-7xl mx-auto gap-0.5">
       {% for block in section.blocks %}
-        <a href="{{block.settings.url}}" class="group text-center">
-          <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-full overflow-hidden">
-            <img
-              srcset="{%- if block.settings.image.width >= 375 -%}{{ block.settings.image | img_url: '375x' }} 375w,{%- endif -%}
-                {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | img_url: '750x' }} 750w,{%- endif -%}
-                {%- if block.settings.image.width >= 1100 -%}{{ block.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
-                {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
-                {%- if block.settings.image.width >= 1780 -%}{{ block.settings.image | img_url: '1780x' }} 1780w,{%- endif -%}
-                {%- if block.settings.image.width >= 2000 -%}{{ block.settings.image | img_url: '2000x' }} 2000w,{%- endif -%}
-                {%- if block.settings.image.width >= 3000 -%}{{ block.settings.image | img_url: '3000x' }} 3000w,{%- endif -%}
-                {%- if block.settings.image.width >= 3840 -%}{{ block.settings.image | img_url: '3840x' }} 3840w,{%- endif -%}
-                {{ block.settings.image | img_url: 'master' }} {{ block.settings.image.width }}w"
-              sizes="100vw"
-              src="{{ block.settings.image | img_url: '500x' }}"
-              loading="lazy"
-              class="w-full h-full object-center object-cover group-hover:opacity-75"
-              alt="{{ block.settings.image.alt | escape }}"
-              width="{{ block.settings.image.width }}"
-              height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}"
-            >
-          </div>
-          <h3 class="mt-4 font-bold text-lg pb-0">{{block.settings.title}}</h3>
-        </a>
+    
+      <div class="relative flex">
+        <img
+          srcset="{%- if block.settings.image.width >= 375 -%}{{ block.settings.image | img_url: '375x' }} 375w,{%- endif -%}
+            {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | img_url: '750x' }} 750w,{%- endif -%}
+            {%- if block.settings.image.width >= 1100 -%}{{ block.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
+            {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
+            {%- if block.settings.image.width >= 1780 -%}{{ block.settings.image | img_url: '1780x' }} 1780w,{%- endif -%}
+            {%- if block.settings.image.width >= 2000 -%}{{ block.settings.image | img_url: '2000x' }} 2000w,{%- endif -%}
+            {%- if block.settings.image.width >= 3000 -%}{{ block.settings.image | img_url: '3000x' }} 3000w,{%- endif -%}
+            {%- if block.settings.image.width >= 3840 -%}{{ block.settings.image | img_url: '3840x' }} 3840w,{%- endif -%}
+            {{ block.settings.image | img_url: 'master' }} {{ block.settings.image.width }}w"
+          sizes="100vw"
+          src="{{ block.settings.image | img_url: '1000x' }}"
+          loading="lazy"
+          class="absolute inset-0 w-full h-full object-center object-cover"
+          alt="{{ block.settings.image.alt | escape }}"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}"
+        >
+        <div class="relative w-full flex flex-col items-start justify-end bg-black bg-opacity-40 p-8 sm:p-12 h-125 lg:h-[650px]">
+          <h2 class="text-lg font-medium text-white text-opacity-75">{{block.settings.sub_title}}</h2>
+          <p class="mt-1 text-2xl font-medium text-white">{{block.settings.title}}</p>
+          <a href="{{block.settings.url}}" class="mt-4 text-sm font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50">SHOP NOW</a>
+        </div>
+      </div>
+    
       {% endfor %}
- 
-      <!-- More products... -->
+    
+    
     </div>
   </div>
 </div>
+
+<!-- This example requires Tailwind CSS v2.0+ -->
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-50">
+  <body class="h-full">
+  ```
+-->
+
+
 
 {% else %}
 
@@ -111,6 +126,9 @@
     </div>
   </div>
 </div>
+
+
+
 {% endif %}
 
 
