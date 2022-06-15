@@ -161,11 +161,6 @@
         "button_label": "Contact Us",
         "button_link": "shopify:\/\/pages\/contact"
       }
-    },
-    "165370467974bc36f1": {
-      "type": "support-section",
-      "settings": {
-      }
     }
   },
   "order": [
@@ -174,7 +169,6 @@
     "16535287556bef1f16",
     "1655304223ca223247",
     "featured_products",
-    "16535287530956fd10",
-    "165370467974bc36f1"
+    "16535287530956fd10"
   ]
 }
