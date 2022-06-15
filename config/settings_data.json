@@ -16,6 +16,7 @@
         "blocks": {
           "1d2c6204-65c9-48c3-9fc3-6ef148206b0d": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Center Air Dams Coming Soon!"
             }
