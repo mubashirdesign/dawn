@@ -1,10 +1,5 @@
 {
   "sections": {
-    "16552578850ec57e85": {
-      "type": "dans-banner",
-      "settings": {
-      }
-    },
     "16553006713e549e71": {
       "type": "featured-collections-two",
       "settings": {
@@ -164,7 +159,6 @@
     }
   },
   "order": [
-    "16552578850ec57e85",
     "16553006713e549e71",
     "16535287556bef1f16",
     "1655304223ca223247",
