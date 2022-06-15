@@ -13,6 +13,17 @@
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
+        "blocks": {
+          "1d2c6204-65c9-48c3-9fc3-6ef148206b0d": {
+            "type": "announcement",
+            "settings": {
+              "text": "Center Air Dams Coming Soon!"
+            }
+          }
+        },
+        "block_order": [
+          "1d2c6204-65c9-48c3-9fc3-6ef148206b0d"
+        ],
         "settings": {
           "bg_color": "#0066ff",
           "text_color": "#ffffff"
@@ -21,7 +32,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/Capture.jpg",
+          "logo": "shopify:\/\/shop_images\/cia7.png",
           "logo_width": 100,
           "menu": "main-menu"
         }
