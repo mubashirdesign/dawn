@@ -181,7 +181,7 @@
                                   <ul role="list" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                                     {% for grandchildlink in childlink.links %}
                                     <li class="flex">
-                                      <a href="{{ grandchildlink.url }}" class="font-bold hover:text-lightPrimaryBlue">{{ grandchildlink.title }}</a>
+                                      <a href="{{ grandchildlink.url }}" class="font-bold hover:text-gray-100">{{ grandchildlink.title }}</a>
                                     </li>
                                     {% endfor %}
                                   </ul>
@@ -198,7 +198,7 @@
                     </div>
 
                     {% else %}
-                      <a href="{{ link.url }}" class="flex items-center uppercase text-sm font-bold text-white hover:text-lightPrimaryBlue">{{ link.title }}</a>
+                      <a href="{{ link.url }}" class="flex items-center uppercase text-sm font-bold text-white hover:text-gray-100">{{ link.title }}</a>
                     {% endif %}
                     {% endfor %}
                   </div>

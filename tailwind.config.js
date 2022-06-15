@@ -56,6 +56,7 @@ module.exports = {
 			'black': '#000',
 			'blue': '#0066ff',
 			'lightPrimaryBlue': '#0066ff',
+			'navy': '#0c2e63',
 			'white': '#fff',
 			'brown': '#fefefe',
 			'lightBorder': '#E3E3E3',

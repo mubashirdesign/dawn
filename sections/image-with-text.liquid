@@ -21,7 +21,7 @@
      
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-gray-800 max-w-7xl m-auto">
+<div class="relative bg-gray-100 max-w-7xl m-auto">
   <div class="h-56 bg-gray-800 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
     <img
       srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
@@ -45,13 +45,13 @@
   </div>
   <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
     <div class="md:ml-auto md:w-1/2 md:pl-10">
-      <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">{{section.settings.lead}}</h2>
-      <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">{{section.settings.title}}</p>
-      <p class="mt-3 text-lg text-gray-300">{{section.settings.text | replace: '&lt;', '<' | replace: '&gt;', '>' }}
+      <h2 class="text-base font-semibold uppercase tracking-wider text-gray-800">{{section.settings.lead}}</h2>
+      <p class="mt-2 text-navy text-3xl font-extrabold tracking-tight sm:text-4xl">{{section.settings.title}}</p>
+      <p class="mt-3 text-lg text-gray-800">{{section.settings.text | replace: '&lt;', '<' | replace: '&gt;', '>' }}
       </p>
       <div class="mt-8">
         <div class="inline-flex rounded-md shadow">
-          <a href="{{section.settings.button_link}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-lightPrimaryBlue hover:bg-gray-900">
+          <a href="{{section.settings.button_link}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-lightPrimaryBlue hover:bg-navy">
             {{section.settings.button_label}}
             <!-- Heroicon name: solid/external-link -->
             <svg class="-mr-1 ml-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
