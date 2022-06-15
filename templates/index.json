@@ -1,14 +1,8 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "16552578850ec57e85": {
+      "type": "dans-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/custom_resized_7f6f6e5c-7f81-4eb6-ad77-142df5ec2dc5.jpg",
-        "image_2": "shopify:\/\/shop_images\/custom_resized_d8ec5273-018f-42b7-9a6d-ad76c62aa137.jpg",
-        "heading": "The Ultimate B-Body Header's & Exhaust Systems",
-        "subheading": "Now Introducing The GEN II TRI-Y Header",
-        "button_label": "SHOP NOW",
-        "button_link": "shopify:\/\/products\/gen-ii-tri-y-headers"
       }
     },
     "featured_products": {
@@ -153,7 +147,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "16552578850ec57e85",
     "featured_products",
     "16535287556bef1f16",
     "16535287530956fd10",
