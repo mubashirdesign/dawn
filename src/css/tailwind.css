@@ -111,9 +111,6 @@
     @apply font-semibold;
   }
 
-  main p {
-    @apply pb-3;
-  }
 
   main ul {
     @apply pb-3;
