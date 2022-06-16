@@ -48,9 +48,20 @@
         "55ec8e6b-3fb5-4c6a-8b02-6e1f949da328"
       ],
       "settings": {
-        "title": "SHOP OUR FEATURED PRODUCTS",
+        "title": "ALL YOUR B-BODY PARTs",
         "sub_title": "Our vision is to be recognized as the best provider of headers, exhaust and intake systems in the country, to serve loyal car owners globally, to increase our line of products and markets and to continue to be the leading provider in header development.",
         "style": "circle"
+      }
+    },
+    "1655304223ca223247": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/288150409_10220601349523593_2216429861448207771_n.jpg",
+        "image_2": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
+        "heading": "The Ultimate B-Body Header's & Exhaust Systems",
+        "subheading": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!",
+        "button_label": "SHOP NOW",
+        "button_link": "shopify:\/\/products\/gen-ii-tri-y-headers"
       }
     },
     "16535287556bef1f16": {
@@ -120,20 +131,9 @@
         "3932f7e8-40ce-4d89-a110-8936903dee6d"
       ],
       "settings": {
-        "title": "THE BEST IN THE BUSINESS",
-        "sub_title": "Welcome to Clear Image Automotive - your online stop for everything related to high performance exhaust systems and high performance exhaust parts.",
+        "title": "SHOP BY VEHICLE",
+        "sub_title": "We also build premium exhaust systems for other models!",
         "style": "grid"
-      }
-    },
-    "1655304223ca223247": {
-      "type": "image-banner",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/288150409_10220601349523593_2216429861448207771_n.jpg",
-        "image_2": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
-        "heading": "The Ultimate B-Body Header's & Exhaust Systems",
-        "subheading": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!",
-        "button_label": "SHOP NOW",
-        "button_link": "shopify:\/\/products\/gen-ii-tri-y-headers"
       }
     },
     "16535287530956fd10": {
@@ -151,8 +151,8 @@
   "order": [
     "16553006713e549e71",
     "featured_products",
-    "16535287556bef1f16",
     "1655304223ca223247",
+    "16535287556bef1f16",
     "16535287530956fd10"
   ]
 }
