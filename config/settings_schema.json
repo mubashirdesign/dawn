@@ -331,6 +331,16 @@
     ]
   },
   {
+    "name": "Theme background Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image for theme"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.currency_format.name",
     "settings": [
       {

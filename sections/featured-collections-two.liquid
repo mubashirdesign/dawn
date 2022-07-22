@@ -4,7 +4,25 @@
   
       <div class="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-2">
         <div class="group aspect-w-2 aspect-h-1 overflow-hidden sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
-          <img src="https://cdn.shopify.com/s/files/1/0648/7297/2535/files/288327217_5103900889724369_3504347273913733195_n.jpg?v=1655297175" alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee." class="object-center object-cover group-hover:opacity-90">
+          <img
+          srcset="{%- if section.settings.image_one.width >= 375 -%}{{ section.settings.image_one | img_url: '375x' }} 375w,{%- endif -%}
+            {%- if section.settings.image_one.width >= 750 -%}{{ section.settings.image_one | img_url: '750x' }} 750w,{%- endif -%}
+            {%- if section.settings.image_one.width >= 1100 -%}{{ section.settings.image_one | img_url: '1100x' }} 1100w,{%- endif -%}
+            {%- if section.settings.image_one.width >= 1500 -%}{{ section.settings.image_one | img_url: '1500x' }} 1500w,{%- endif -%}
+            {%- if section.settings.image_one.width >= 1780 -%}{{ section.settings.image_one | img_url: '1780x' }} 1780w,{%- endif -%}
+            {%- if section.settings.image_one.width >= 2000 -%}{{ section.settings.image_one | img_url: '2000x' }} 2000w,{%- endif -%}
+            {%- if section.settings.image_one.width >= 3000 -%}{{ section.settings.image_one | img_url: '3000x' }} 3000w,{%- endif -%}
+            {%- if section.settings.image_one.width >= 3840 -%}{{ section.settings.image_one | img_url: '3840x' }} 3840w,{%- endif -%}
+            {{ section.settings.image_one | img_url: 'master' }} {{ section.settings.image_one.width }}w"
+            sizes="100vw"
+            src="{{ section.settings.image_one | img_url: '1000x' }}"
+            loading="lazy"
+            class="object-center object-cover group-hover:opacity-90"
+            alt="{{ section.settings.image_one.alt | escape }}"
+            width="{{ section.settings.image_one.width }}"
+            height="{{ section.settings.image_one.width | divided_by: section.settings.image_one.aspect_ratio }}"
+          >
+          
           <div aria-hidden="true" class="bg-gradient-to-b from-transparent to-black opacity-50"></div>
           <div class="p-6 flex items-end">
             <div>
@@ -19,7 +37,25 @@
           </div>
         </div>
         <div class="group aspect-w-2 aspect-h-1 overflow-hidden sm:relative sm:aspect-none sm:h-full">
-          <img src="https://cdn.shopify.com/s/files/1/0648/7297/2535/files/288230446_10220601340123358_2148946164370180577_n.jpg?v=1655298272" alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters." class="object-center object-cover group-hover:opacity-90 sm:absolute sm:inset-0 sm:w-full sm:h-full">
+          <img
+          srcset="{%- if section.settings.image_two.width >= 375 -%}{{ section.settings.image_two | img_url: '375x' }} 375w,{%- endif -%}
+            {%- if section.settings.image_two.width >= 750 -%}{{ section.settings.image_two | img_url: '750x' }} 750w,{%- endif -%}
+            {%- if section.settings.image_two.width >= 1100 -%}{{ section.settings.image_two | img_url: '1100x' }} 1100w,{%- endif -%}
+            {%- if section.settings.image_two.width >= 1500 -%}{{ section.settings.image_two | img_url: '1500x' }} 1500w,{%- endif -%}
+            {%- if section.settings.image_two.width >= 1780 -%}{{ section.settings.image_two | img_url: '1780x' }} 1780w,{%- endif -%}
+            {%- if section.settings.image_two.width >= 2000 -%}{{ section.settings.image_two | img_url: '2000x' }} 2000w,{%- endif -%}
+            {%- if section.settings.image_two.width >= 3000 -%}{{ section.settings.image_two | img_url: '3000x' }} 3000w,{%- endif -%}
+            {%- if section.settings.image_two.width >= 3840 -%}{{ section.settings.image_two | img_url: '3840x' }} 3840w,{%- endif -%}
+            {{ section.settings.image_two | img_url: 'master' }} {{ section.settings.image_two.width }}w"
+            sizes="100vw"
+            src="{{ section.settings.image_two | img_url: '1000x' }}"
+            loading="lazy"
+            class="object-center object-cover group-hover:opacity-90 sm:absolute sm:inset-0 sm:w-full sm:h-full"
+            alt="{{ section.settings.image_two.alt | escape }}"
+            width="{{ section.settings.image_two.width }}"
+            height="{{ section.settings.image_two.width | divided_by: section.settings.image_two.aspect_ratio }}"
+          >
+          
           <div aria-hidden="true" class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
           <div class="p-6 flex items-end sm:absolute sm:inset-0">
             <div>
@@ -34,7 +70,25 @@
           </div>
         </div>
         <div class="group aspect-w-2 aspect-h-1 overflow-hidden sm:relative sm:aspect-none sm:h-full">
-          <img src="https://cdn.shopify.com/s/files/1/0648/7297/2535/files/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg?v=1654859289" alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk." class="object-center object-cover group-hover:opacity-90 sm:absolute sm:inset-0 sm:w-full sm:h-full">
+          <img
+          srcset="{%- if section.settings.image_three.width >= 375 -%}{{ section.settings.image_three | img_url: '375x' }} 375w,{%- endif -%}
+            {%- if section.settings.image_three.width >= 750 -%}{{ section.settings.image_three | img_url: '750x' }} 750w,{%- endif -%}
+            {%- if section.settings.image_three.width >= 1100 -%}{{ section.settings.image_three | img_url: '1100x' }} 1100w,{%- endif -%}
+            {%- if section.settings.image_three.width >= 1500 -%}{{ section.settings.image_three | img_url: '1500x' }} 1500w,{%- endif -%}
+            {%- if section.settings.image_three.width >= 1780 -%}{{ section.settings.image_three | img_url: '1780x' }} 1780w,{%- endif -%}
+            {%- if section.settings.image_three.width >= 2000 -%}{{ section.settings.image_three | img_url: '2000x' }} 2000w,{%- endif -%}
+            {%- if section.settings.image_three.width >= 3000 -%}{{ section.settings.image_three | img_url: '3000x' }} 3000w,{%- endif -%}
+            {%- if section.settings.image_three.width >= 3840 -%}{{ section.settings.image_three | img_url: '3840x' }} 3840w,{%- endif -%}
+            {{ section.settings.image_three | img_url: 'master' }} {{ section.settings.image_three.width }}w"
+            sizes="100vw"
+            src="{{ section.settings.image_three | img_url: '1000x' }}"
+            loading="lazy"
+            class="object-center object-cover group-hover:opacity-90 sm:absolute sm:inset-0 sm:w-full sm:h-full"
+            alt="{{ section.settings.image_three.alt | escape }}"
+            width="{{ section.settings.image_three.width }}"
+            height="{{ section.settings.image_three.width | divided_by: section.settings.image_one.aspect_ratio }}"
+          >
+          
           <div aria-hidden="true" class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
           <div class="p-6 flex items-end sm:absolute sm:inset-0">
             <div>
