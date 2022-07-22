@@ -94,6 +94,17 @@
       
       }
 
+      #body-bg__image {
+        background-image: url({{settings.background_image | img_url: '1200x', format: 'pjpg'}});
+      }
+
+      @media (min-resolution: 192dpi) and (min-width: 600px) {
+
+        #body-bg__image {
+          background-image: url({{settings.background_image | img_url: '1600x', format: 'pjpg'}});
+        }
+      }
+
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -113,7 +124,7 @@
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   </head>
 
-  <body class="bg-fixed bg-cover bg-no-repeat gradient" style="background-image: url({{settings.background_image | img_url: '50x', format: 'pjpg'}});" data-sizes="auto" data-bgset="{% include 'bgset', image: settings.background_image %}">
+  <body id="body-bg__image" class="bg-fixed bg-cover bg-no-repeat gradient">
     <a class="skip-to-content-link button hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
