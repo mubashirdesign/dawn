@@ -3,10 +3,13 @@
     "16553006713e549e71": {
       "type": "featured-collections-two",
       "settings": {
+        "image_one": "shopify:\/\/shop_images\/288327217_5103900889724369_3504347273913733195_n.jpg",
         "button_label_one": "GM B-BODY PARTS",
         "button_link_one": "shopify:\/\/collections\/impala-ss-caprice-gm-b-body-1994-1996",
+        "image_two": "shopify:\/\/shop_images\/288230446_10220601340123358_2148946164370180577_n.jpg",
         "button_label_two": "HEADERS",
         "button_link_two": "shopify:\/\/collections\/headers-gm-b-body-1994-1996",
+        "image_three": "shopify:\/\/shop_images\/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg",
         "button_label_three": "DRIVETRAIN",
         "button_link_three": "shopify:\/\/collections\/drivetrain-gm-b-body-1994-1996"
       }
