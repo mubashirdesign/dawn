@@ -1,0 +1,120 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
+      }
+    },
+    "1653734384d1162371": {
+      "type": "support-section",
+      "settings": {
+      }
+    },
+    "165373437104a45665": {
+      "type": "featured-collection",
+      "blocks": {
+        "2e75ad7f-ea81-4efd-b54c-213e57fb0206": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Exhaust Systems",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/custom_resized_0d5ae17b-a501-40be-ad48-b20eeb7555b8.jpg",
+            "url": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
+          }
+        },
+        "563218e0-018a-4373-ac11-2dfadd191093": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Drivetrain",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg",
+            "url": "shopify:\/\/collections\/drivetrain-gm-b-body-1994-1996"
+          }
+        },
+        "064ecc75-215f-41d1-8dc1-62c213979186": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Headers",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/custom_resized_a20cc55e-88a5-41bb-adf9-ce8020b9ec9f.jpg",
+            "url": "shopify:\/\/collections\/headers-gm-b-body-1994-1996"
+          }
+        }
+      },
+      "block_order": [
+        "2e75ad7f-ea81-4efd-b54c-213e57fb0206",
+        "563218e0-018a-4373-ac11-2dfadd191093",
+        "064ecc75-215f-41d1-8dc1-62c213979186"
+      ],
+      "settings": {
+        "title": "Our Featured B-Body Parts",
+        "sub_title": "1994 - 1996",
+        "style": "circle"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations",
+    "1653734384d1162371",
+    "165373437104a45665"
+  ]
+}
