@@ -12,7 +12,7 @@
     "deploy:new": "run-s webpack:build && shopify theme push --unpublished --nodelete",
     "webpack:watch": "cross-env NODE_ENV=development BROWSERSLIST_ENV=development BROWSERSLIST_CONFIG=.browserslistrc webpack --config webpack.config.js --watch --progress",
     "webpack:build": "cross-env NODE_ENV=production BROWSERSLIST_ENV=production BROWSERSLIST_CONFIG=.browserslistrc webpack --config webpack.config.js --progress",
-    "shopify:serve": "shopify theme serve",
+    "shopify:serve": "shopify theme dev --store=clearimageautomotive.myshopify.com",
     "shopify:login": "shopify logout && shopify login --store clearimageautomotive.myshopify.com",
     "shopify:pull": "shopify theme pull --nodelete",
     "lint": "run-s -c lint:*",

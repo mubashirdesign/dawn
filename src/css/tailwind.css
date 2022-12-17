@@ -4,10 +4,10 @@
 @tailwind components;
 
 @layer base {
-
   html,
   body {
     @apply font-sans;
+    font-display: swap;
     @apply text-base;
     @apply leading-normal;
     @apply text-secondary;
@@ -15,9 +15,6 @@
 
     /* scroll-behavior: smooth; DISABLED WHILE MARKER.IO IS ENABLED */
   }
-
-
-
 
   h1,
   h2,
@@ -53,7 +50,6 @@
     @apply text-2xl;
   }
 
-
   h4,
   .h4 {
     @apply text-lg;
@@ -84,7 +80,6 @@
       @apply text-5xl;
     }
 
-
     h4,
     .h4 {
       @apply text-3xl;
@@ -111,7 +106,6 @@
     @apply font-semibold;
   }
 
-
   main ul {
     @apply pb-3;
 
@@ -120,8 +114,6 @@
       @apply pb-0;
     }
   }
-
-
 
   ul,
   ol {
@@ -138,13 +130,9 @@
     counter-increment: li;
   }
 
-
-
   .lead {
     @apply text-lg;
   }
-
- 
 
   blockquote p {
     @apply relative;
@@ -153,7 +141,7 @@
     @apply leading-snug;
     @apply text-primary2;
     @apply pb-8;
-    quotes: '“''”''‘''’';
+    quotes: '“' '”' '‘' '’';
   }
 
   blockquote p::before {
@@ -181,12 +169,9 @@
     @apply leading-5;
     @apply text-secondary;
   }
-
-
 }
 
 @layer components {
-
   button {
     @apply font-sans;
   }
@@ -236,8 +221,6 @@
     @apply px-7;
   }
 
- 
-
   .button--secondary:active {
     @apply bg-tertiary2;
     @apply text-primary;
@@ -247,15 +230,15 @@
   .btn--disabled {
     border-color: rgba(217, 217, 217, 0.64) !important;
     background: rgba(217, 217, 217, 0.64) !important;
-    color: #AD5C6C7d !important;
+    color: #ad5c6c7d !important;
     cursor: not-allowed !important;
   }
 
-.button--secondary:disabled {
-  color: white;
-  background-color: #cbcbcb;
-  @apply border-button-bg-disabled;
-  cursor: not-allowed;
+  .button--secondary:disabled {
+    color: white;
+    background-color: #cbcbcb;
+    @apply border-button-bg-disabled;
+    cursor: not-allowed;
   }
 
   .product-form__submit[disabled] {
@@ -270,7 +253,6 @@
     background-color: #cbcbcb;
     cursor: not-allowed;
   }
-
 
   .button--secondary[disabled]:hover {
     color: white;
@@ -296,7 +278,7 @@
   .add-to-cart-button:disabled {
     border-color: rgba(217, 217, 217, 0.64) !important;
     background: rgba(217, 217, 217, 0.64) !important;
-    color: #AD5C6C7d !important;
+    color: #ad5c6c7d !important;
     cursor: not-allowed !important;
   }
 
@@ -318,10 +300,10 @@
   .link:focus {
     @apply text-primary;
     @apply border-primary;
-  }  
+  }
 
   .badge {
-    @apply uppercase;    
+    @apply uppercase;
     @apply tracking-wider;
     @apply font-semibold;
     @apply py-1.5;
@@ -331,10 +313,10 @@
     @apply uppercase;
     @apply leading-none;
 
-    font-size: .625rem;
+    font-size: 0.625rem;
   }
 
-  @screen lg { 
+  @screen lg {
     .badge {
       @apply py-2;
       @apply px-4;
@@ -371,8 +353,6 @@
     @apply p-4;
     @apply font-thin;
   }
-
-
 
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
@@ -421,7 +401,7 @@
   }
 
   /** Accordions */
-  details[open]>summary .accordion-icon {
+  details[open] > summary .accordion-icon {
     transform: rotate(180deg);
   }
 
@@ -437,11 +417,11 @@
     display: none;
   }
 
-  details[open]>summary .accordion__icon--open {
+  details[open] > summary .accordion__icon--open {
     display: block;
   }
 
-  details[open]>summary .accordion__icon--closed {
+  details[open] > summary .accordion__icon--closed {
     display: none;
   }
 

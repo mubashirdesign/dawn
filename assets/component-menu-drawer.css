@@ -191,6 +191,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   background-color: transparent;
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
+  font-display: swap;
 }
 
 .no-js .menu-drawer__close-button {

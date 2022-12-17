@@ -293,7 +293,6 @@ body,
   list-style: none;
 }
 
-
 .visually-hidden {
   position: absolute !important;
   overflow: hidden;
@@ -337,8 +336,6 @@ body,
   background-color: rgba(var(--color-foreground), 0.2);
 }
 
-
-
 blockquote {
   font-style: italic;
   color: rgba(var(--color-foreground), 0.75);
@@ -371,8 +368,6 @@ blockquote {
   text-transform: uppercase;
 }
 
-
-
 .color-foreground {
   color: rgb(var(--color-foreground));
 }
@@ -391,7 +386,6 @@ table:not([class]) th {
   padding: 1em;
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
 }
-
 
 @media screen and (max-width: 749px) {
   .small-hide {
@@ -439,6 +433,7 @@ table:not([class]) th {
   background-color: transparent;
   font-size: 1.4rem;
   font-family: inherit;
+  font-display: swap;
 }
 
 .link--text {
@@ -464,7 +459,7 @@ table:not([class]) th {
   margin-left: 1rem;
 }
 
-.link[role="link"]:not([href]) {
+.link[role='link']:not([href]) {
   cursor: not-allowed;
 }
 
@@ -567,7 +562,6 @@ summary {
   position: relative;
 }
 
-
 summary::-webkit-details-marker {
   display: none;
 }
@@ -575,9 +569,6 @@ summary::-webkit-details-marker {
 .disclosure-has-popup {
   position: relative;
 }
-
-
-
 
 /* base-focus */
 /*
@@ -761,8 +752,6 @@ summary::-webkit-details-marker {
   color: rgba(var(--color-foreground), 0.7);
 }
 
-
-
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .slider--tablet.grid--peek .grid__item {
     width: calc(25% - 4rem * 3 / 4);
@@ -868,8 +857,6 @@ deferred-media {
 /* component-button */
 /* Button - default */
 
-
-
 .button:focus-visible {
   box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)),
     0 0 0 0.3rem rgb(var(--color-background)),
@@ -891,9 +878,6 @@ deferred-media {
 .customer button::selection {
   background-color: rgba(var(--color-button-text), 0.3);
 }
-
-
-
 
 /* Button - hover */
 
@@ -1049,9 +1033,6 @@ details[open] > .share-button__fallback {
   display: none;
 }
 
-
-
-
 .text-area,
 .select {
   display: inline-block;
@@ -1173,6 +1154,7 @@ details[open] > .share-button__fallback {
 
 .text-area {
   font-family: var(--font-body-family);
+  font-display: swap;
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   padding: 1.2rem;
@@ -1192,8 +1174,6 @@ input[type='checkbox'] {
 }
 
 /* Form global */
-
-
 
 .form__message {
   align-items: center;
@@ -1231,7 +1211,6 @@ input[type='checkbox'] {
   align-self: start;
 }
 
-
 /* component-quantity */
 .quantity {
   border: 0.1rem solid rgba(var(--color-base-text), 0.08);
@@ -1240,8 +1219,6 @@ input[type='checkbox'] {
   width: 8rem;
   display: flex;
 }
-
-
 
 .quantity__input {
   color: currentColor;
@@ -1367,8 +1344,6 @@ input[type='checkbox'] {
 .cart-count-bubble:empty {
   display: none;
 }
-
-
 
 /* section-announcement-bar */
 #shopify-section-announcement-bar {
