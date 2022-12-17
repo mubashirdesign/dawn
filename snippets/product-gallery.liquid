@@ -4,7 +4,25 @@
       <!-- Tab panel, show/hide based on tab state. -->
       <div class="swiper-wrapper">
         {% for image in product.images %}
-            <img src="{{ image | image_url: width: 1200 }}" alt="Angled front view with bag zipped and handles upright." class="swiper-slide w-full h-full object-center object-cover sm:rounded-lg">
+          <img
+            srcset="{%- if image.width >= 375 -%}{{ image | img_url: '375x' }} 375w,{%- endif -%}
+              {%- if image.width >= 750 -%}{{ image | img_url: '750x' }} 750w,{%- endif -%}
+              {%- if image.width >= 1100 -%}{{ image | img_url: '1100x' }} 1100w,{%- endif -%}
+              {%- if image.width >= 1500 -%}{{ image | img_url: '1500x' }} 1500w,{%- endif -%}
+              {%- if image.width >= 1780 -%}{{ image | img_url: '1780x' }} 1780w,{%- endif -%}
+              {%- if image.width >= 2000 -%}{{ image | img_url: '2000x' }} 2000w,{%- endif -%}
+              {%- if image.width >= 3000 -%}{{ image | img_url: '3000x' }} 3000w,{%- endif -%}
+              {%- if image.width >= 3840 -%}{{ image | img_url: '3840x' }} 3840w,{%- endif -%}
+              {{ image | img_url: 'master' }} {{ image.width }}w"
+            sizes="100vw"
+            src="{{ image | img_url: '1500x' }}"
+            loading="lazy"
+            class="swiper-slide w-full h-full object-center object-cover sm:rounded-lg"
+            alt="{{ image.alt | escape }}"
+            width="{{ image.width }}"
+            height="{{ image.width | divided_by: image.aspect_ratio }}"
+          >
+      
         {% endfor %}
       </div>
       <div style="bottom: auto" class="swiper-pagination sm:hidden"></div>
@@ -18,7 +36,25 @@
         {% for image in product.images %}
            
             <div class="swiper-slide relative bg-white h-24 w-[25%] rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50">
-                <img src="{{ image | image_url: width: 300 }}" alt="" class="w-full h-full object-center object-cover">
+                <img
+                  srcset="{%- if image.width >= 375 -%}{{ image | img_url: '375x' }} 375w,{%- endif -%}
+                    {%- if image.width >= 750 -%}{{ image | img_url: '750x' }} 750w,{%- endif -%}
+                    {%- if image.width >= 1100 -%}{{ image | img_url: '1100x' }} 1100w,{%- endif -%}
+                    {%- if image.width >= 1500 -%}{{ image | img_url: '1500x' }} 1500w,{%- endif -%}
+                    {%- if image.width >= 1780 -%}{{ image | img_url: '1780x' }} 1780w,{%- endif -%}
+                    {%- if image.width >= 2000 -%}{{ image | img_url: '2000x' }} 2000w,{%- endif -%}
+                    {%- if image.width >= 3000 -%}{{ image | img_url: '3000x' }} 3000w,{%- endif -%}
+                    {%- if image.width >= 3840 -%}{{ image | img_url: '3840x' }} 3840w,{%- endif -%}
+                    {{ image | img_url: 'master' }} {{ image.width }}w"
+                  sizes="100vw"
+                  src="{{ image | img_url: '300x' }}"
+                  loading="lazy"
+                  class="w-full h-full object-center object-cover"
+                  alt="{{ image.alt | escape }}"
+                  width="{{ image.width }}"
+                  height="{{ image.width | divided_by: image.aspect_ratio }}"
+                >
+            
               <!-- Selected: "ring-indigo-500", Not Selected: "ring-transparent" -->
             </div>
         {% endfor %}
