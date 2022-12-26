@@ -31,22 +31,6 @@
 
  
 
-    {% style %}
- 
-
-      #body-bg__image {
-        background-image: url({{settings.background_image | img_url: '1200x', format: 'pjpg'}});
-      }
-
-      @media (min-resolution: 192dpi) and (min-width: 600px) {
-
-        #body-bg__image {
-          background-image: url({{settings.background_image | img_url: '1600x', format: 'pjpg'}});
-        }
-      }
-
-    {% endstyle %}
-
     {{ 'app.css' | asset_url | stylesheet_tag }}
  
 
@@ -65,7 +49,6 @@
     {% section 'announcement-bar' %}
     {% section 'header' %}
     </div>
-    {% section 'dans-banner' %}
 
     <main id="MainContent" class="content-for-layout focus-none block" role="main" tabindex="-1">
       {{ content_for_layout }}
