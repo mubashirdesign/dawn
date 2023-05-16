@@ -44,6 +44,56 @@
         "enable_video_looping": false
       }
     },
+    "052f6069-0189-49d2-8470-900edf036c0c": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our customers love it!",
+            "text_color": "#000000",
+            "heading_size": "h4",
+            "font_weight": "font-bold",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Watch Terry Kehne in his beast LeadSSLED show of his 3 inch Clear Image Automotive catback system<\/p>",
+            "text_color": "#000000",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0",
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 16,
+        "desktop_padding_bottom": 16,
+        "mobile_padding_top": 16,
+        "mobile_padding_bottom": 16
+      }
+    },
+    "05b2aa7f-2896-4239-889d-e0f56c09bf60": {
+      "type": "featured-youtube",
+      "settings": {
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "video_id": "ZwzE9VAsJEg",
+        "cover_image": "shopify:\/\/shop_images\/288150409_10220601349523593_2216429861448207771_n.jpg",
+        "enable_modal": false
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "disabled": true,
@@ -107,6 +157,8 @@
   },
   "order": [
     "main",
+    "052f6069-0189-49d2-8470-900edf036c0c",
+    "05b2aa7f-2896-4239-889d-e0f56c09bf60",
     "product-recommendations",
     "1653734384d1162371",
     "165373437104a45665"
