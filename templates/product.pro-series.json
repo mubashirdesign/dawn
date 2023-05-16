@@ -27,6 +27,7 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
           }
         }
@@ -42,6 +43,43 @@
         "enable_sticky_info": true,
         "hide_variants": false,
         "enable_video_looping": false
+      }
+    },
+    "06ba22ba-2ae9-4d00-b119-e709fe205fea": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16754850267383__06ba22ba-2ae9-4d00-b119-e709fe205fea-16842088829c434925-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Looking for the ultimate header for your big cam, ported, high-revving, normally aspirated, supercharged or nitrous injected stroker? ",
+            "text_color": "#000000",
+            "heading_size": "h5",
+            "font_weight": "font-bold",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16754850267383__06ba22ba-2ae9-4d00-b119-e709fe205fea-16842088829c434925-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To meet the increasing demand from owners looking to make BIG power with the LT1 engine, we have designed our new \"Pro Series\" headers. These are Clear Image Automotive exclusives and use proprietary property designed flanges. Copyright 2010 Clear Image Automotive.<\/p><p>&lt;br&gt;<\/p><p>In order to offer primary tubes of this size we needed to create a new flange design which allows installation to the stock GM heads using the stock GM bolt pattern. No \"adapter flanges\" are required. We took a different approach with this new design. There are less bends than any other header available for this application as well as less degree per bend.<\/p><p>&lt;\/br&gt;<\/p><p>What does this mean and why does it matter? Less bends and more gradual degrees equals smoother flow and more power. These headers will NOT bolt to the factory cat-back exhaust. Optional hi-flow catalytic converters will be available but a custom exhaust will be required. Both primary size headers end at 3\" and use formed merge collectors with internal velocity cones.<\/p><p>&lt;\/br&gt;<\/p><p>We also provide aircraft style V-band flanges. The 1 7\/8\" headers are built with a megaphone for maximum power while still ending at 3\".  The 2\" will be built without the megaphone when ending in 3\". In order to increase flow in the 2\" headers, a megaphone could be used but would require and ending of 3 1\/2\".<\/p><p>&lt;br&gt;<\/p><p>Our \"Pro Series\" headers are available in 100% 304 stainless steel ONLY at this time.<\/p><p>Amazingly enough, the \"Pro Series\" headers install just as easy as any of our smaller tube headers and actually clear better than any other headers available. This is due to the design approach we took.<\/p><p>&lt;\/br&gt;<\/p>",
+            "text_color": "#000000",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16754850267383__06ba22ba-2ae9-4d00-b119-e709fe205fea-16842088829c434925-0",
+        "template--16754850267383__06ba22ba-2ae9-4d00-b119-e709fe205fea-16842088829c434925-1"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 0
       }
     },
     "90fffdff-6d36-4930-8556-eb160de12b7a": {
@@ -84,11 +122,11 @@
         "template--16754850267383__90fffdff-6d36-4930-8556-eb160de12b7a-1684208086d6968fa0-2"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
-        "desktop_padding_top": 32,
+        "desktop_padding_top": 0,
         "desktop_padding_bottom": 16,
-        "mobile_padding_top": 32,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 16
       }
     },
@@ -111,7 +149,7 @@
         "1c111ab6-6ef3-4490-b00c-e3fef894e773": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/download_1.webp",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/download_1.webp",
@@ -135,7 +173,7 @@
         "84575469-3110-433c-99ab-5680c642238c": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/download_6.webp",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/download_6.webp",
@@ -159,7 +197,7 @@
         "5a28ad7c-0d23-4d8f-a5e4-99283ebfae85": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/download_3.webp",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/download_3.webp",
@@ -183,7 +221,7 @@
         "cf744413-95c5-4b72-a112-99c9749805ff": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/download_2.webp",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/download_2.webp",
@@ -212,7 +250,7 @@
         "cf744413-95c5-4b72-a112-99c9749805ff"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 0,
         "desktop_padding_bottom": 32,
@@ -280,6 +318,7 @@
   },
   "order": [
     "main",
+    "06ba22ba-2ae9-4d00-b119-e709fe205fea",
     "90fffdff-6d36-4930-8556-eb160de12b7a",
     "product-recommendations",
     "978e853e-bd59-4bb4-b61b-3f2bcabf99cc",
