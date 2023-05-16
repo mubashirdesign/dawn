@@ -52,7 +52,7 @@
           "settings": {
             "heading": "We love it when our customers show the process",
             "text_color": "#000000",
-            "heading_size": "h5",
+            "heading_size": "h4",
             "font_weight": "font-bold",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
