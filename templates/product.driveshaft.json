@@ -52,7 +52,7 @@
           "settings": {
             "heading": "Big Power?",
             "text_color": "#000000",
-            "heading_size": "h3",
+            "heading_size": "h4",
             "font_weight": "font-bold",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
@@ -61,7 +61,7 @@
         "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-1": {
           "type": "text",
           "settings": {
-            "text": "<p><br\/>With Big Power... comes great responsibility to put it down, and your stock steel driveshaft just can't do the job.<br\/>Upgrade now to a 3.5 inch dennys driveshaft to enjoy a vibration free drive without wrecking your drivetrain.<\/p>",
+            "text": "<p>With Big Power... comes great responsibility to put it down, and your stock steel driveshaft just can't do the job.<br\/>Upgrade now to a 3.5 inch dennys driveshaft to enjoy a vibration free drive without wrecking your drivetrain.<\/p>",
             "text_color": "#000000",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
@@ -73,7 +73,7 @@
         "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-1"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
         "desktop_padding_bottom": 32,
@@ -87,7 +87,7 @@
         "d3ceb2b1-604e-4545-be63-1d1eba92f96c": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/PXL_20220224_134633324.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/PXL_20220224_134633324.jpg",
@@ -111,7 +111,7 @@
         "ed6954e1-5010-4141-bd64-133a7d946880": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/PXL_20220217_011419871.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/PXL_20220217_011419871.jpg",
@@ -138,13 +138,13 @@
         "ed6954e1-5010-4141-bd64-133a7d946880"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
+        "desktop_padding_bottom": 24,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 24,
-        "mobile_padding_x": 0,
+        "mobile_padding_x": 24,
         "mobile_card_padding_x": 0,
         "border_radius": 0,
         "extra_wide_desktop_grid_columns": 2,
