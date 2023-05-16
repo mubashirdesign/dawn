@@ -64,7 +64,7 @@
           "type": "heading",
           "settings": {
             "heading": "SEE IT IN ACTION!",
-            "text_color": "#0066ff",
+            "text_color": "#000000",
             "heading_size": "h4",
             "font_weight": "font-bold",
             "mobile_alignment": "text-left",
