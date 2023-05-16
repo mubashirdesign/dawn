@@ -154,8 +154,8 @@
       "settings": {
         "background_color": "#0066ff",
         "desktop_max_width": "max-w-medium",
-        "desktop_padding_top": 32,
-        "desktop_padding_bottom": 32,
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 32,
         "mobile_padding_bottom": 24,
         "mobile_padding_x": 24,
@@ -166,7 +166,7 @@
         "mobile_grid_columns": 1,
         "desktop_row_gap": 40,
         "mobile_row_gap": 0,
-        "desktop_column_gap": 16,
+        "desktop_column_gap": 40,
         "mobile_column_gap": 16
       }
     },
