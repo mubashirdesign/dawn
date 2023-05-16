@@ -19,11 +19,6 @@
             "picker_type": "dropdown"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -40,7 +35,6 @@
         "title",
         "price",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
         "description"
       ],
