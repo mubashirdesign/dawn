@@ -100,13 +100,13 @@
         "2e175d46-0ee8-40fc-b9ae-3ebeac37f77e": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#0066ff",
             "image": "shopify:\/\/shop_images\/288199053_10220601334443216_8432919799074955784_n.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/288199053_10220601334443216_8432919799074955784_n.jpg",
             "mobile_image_max_width": 0,
             "heading": "High-clearance tips.",
-            "text_color": "#0066ff",
+            "text_color": "#ffffff",
             "heading_alignment": "text-left",
             "font_weight": "font-bold",
             "heading_size": "h6",
@@ -124,13 +124,13 @@
         "19ca37e9-975f-4321-a52e-9c847c650491": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#0066ff",
             "image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
             "mobile_image_max_width": 0,
             "heading": "CIA 3\" header-back exhaust system",
-            "text_color": "#0066ff",
+            "text_color": "#ffffff",
             "heading_alignment": "text-left",
             "font_weight": "font-bold",
             "heading_size": "h6",
@@ -151,7 +151,7 @@
         "19ca37e9-975f-4321-a52e-9c847c650491"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#0066ff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
         "desktop_padding_bottom": 32,
