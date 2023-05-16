@@ -57,6 +57,116 @@
         "show_rating": false
       }
     },
+    "b68d5e27-f5c9-4abf-b4cd-4fb068e790af": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "SEE IT IN ACTION!",
+            "text_color": "#0066ff",
+            "heading_size": "h4",
+            "font_weight": "font-bold",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Check out Tom Bauman's Gen 2 Tri-Ys in Glacial Black <\/p>",
+            "text_color": "#000000",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-0",
+        "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-1"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 16,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 16
+      }
+    },
+    "9b7aca22-e777-4126-b782-16ac5d7e44e5": {
+      "type": "featured-cards",
+      "blocks": {
+        "626315eb-ad01-4adc-b9d0-347790ab6907": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "image": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image_max_width": 0,
+            "heading": "",
+            "text_color": "#000000",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h4",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
+        },
+        "c7ec8852-49af-457b-8dfa-9cfe70f874a7": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "image": "shopify:\/\/shop_images\/288638411_5103810359733422_5750362637136540092_n.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image_max_width": 0,
+            "heading": "",
+            "text_color": "#000000",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h4",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
+        }
+      },
+      "block_order": [
+        "626315eb-ad01-4adc-b9d0-347790ab6907",
+        "c7ec8852-49af-457b-8dfa-9cfe70f874a7"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 96,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 32,
+        "mobile_padding_x": 24,
+        "mobile_card_padding_x": 0,
+        "border_radius": 0,
+        "extra_wide_desktop_grid_columns": 2,
+        "desktop_grid_columns": 2,
+        "mobile_grid_columns": 1,
+        "desktop_row_gap": 40,
+        "mobile_row_gap": 40,
+        "desktop_column_gap": 16,
+        "mobile_column_gap": 16
+      }
+    },
     "1653734384d1162371": {
       "type": "support-section",
       "settings": {
@@ -108,6 +218,8 @@
   "order": [
     "main",
     "product-recommendations",
+    "b68d5e27-f5c9-4abf-b4cd-4fb068e790af",
+    "9b7aca22-e777-4126-b782-16ac5d7e44e5",
     "1653734384d1162371",
     "165373437104a45665"
   ]
