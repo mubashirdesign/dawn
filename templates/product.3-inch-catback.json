@@ -165,7 +165,7 @@
         "desktop_grid_columns": 2,
         "mobile_grid_columns": 1,
         "desktop_row_gap": 40,
-        "mobile_row_gap": 40,
+        "mobile_row_gap": 0,
         "desktop_column_gap": 16,
         "mobile_column_gap": 16
       }
