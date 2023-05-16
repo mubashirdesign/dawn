@@ -44,6 +44,54 @@
         "enable_video_looping": false
       }
     },
+    "90fffdff-6d36-4930-8556-eb160de12b7a": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16754850267383__90fffdff-6d36-4930-8556-eb160de12b7a-1684208086d6968fa0-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "We love it when our customers show the process",
+            "text_color": "#000000",
+            "heading_size": "h5",
+            "font_weight": "font-bold",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16754850267383__90fffdff-6d36-4930-8556-eb160de12b7a-1684208086d6968fa0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Shout out to Impala 95 on the impalassforums for walking us through his install on his sweet SS<\/p>",
+            "text_color": "#000000",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16754850267383__90fffdff-6d36-4930-8556-eb160de12b7a-1684208086d6968fa0-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "View Article",
+            "button_link": "https:\/\/www.impalassforum.com\/threads\/clear-image-pro-series-headers.1321314\/",
+            "button_style": "button-primary",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16754850267383__90fffdff-6d36-4930-8556-eb160de12b7a-1684208086d6968fa0-0",
+        "template--16754850267383__90fffdff-6d36-4930-8556-eb160de12b7a-1684208086d6968fa0-1",
+        "template--16754850267383__90fffdff-6d36-4930-8556-eb160de12b7a-1684208086d6968fa0-2"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 96,
+        "desktop_padding_bottom": 96,
+        "mobile_padding_top": 64,
+        "mobile_padding_bottom": 64
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "disabled": true,
@@ -107,6 +155,7 @@
   },
   "order": [
     "main",
+    "90fffdff-6d36-4930-8556-eb160de12b7a",
     "product-recommendations",
     "1653734384d1162371",
     "165373437104a45665"
