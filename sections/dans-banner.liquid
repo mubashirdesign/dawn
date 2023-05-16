@@ -2,13 +2,13 @@
 <style>
  
 
-  #shopify-section-{{section.id}} {
+  #shopify-section-{{section.id}} .main-section {
     padding-top:{{section.settings.desktop_padding_top}}px;
     padding-bottom: {{section.settings.desktop_padding_bottom}}px
   }
 
   @media screen and (max-width: 768px) {
-    #shopify-section-{{section.id}} {
+    #shopify-section-{{section.id}} .main-section {
 
     padding-top:{{section.settings.mobile_padding_top}}px;
     padding-bottom: {{section.settings.mobile_padding_bottom}}px
@@ -20,7 +20,7 @@
 <div class="bg-transparent relative">
     
 
-    <div class="{{ section.settings.desktop_max_width }} mx-auto w-full relative">
+    <div class="{{ section.settings.desktop_max_width }} mx-auto w-full relative main-section">
         <div class=" mx-auto left-0 right-0 w-full bg-gradient-to-br from-lightPrimaryBlue via-blue to-gray-900 bg-opacity-90  shadow-xl overflow-hidden grid grid-cols-1 gap-4">
             <div class="px-6 pt-0 sm:px-8 lg:pr-0 sm:pt-8 py-8 xl:px-20">
               <div class="flex flex-col-reverse sm:flex-col lg:self-center">
