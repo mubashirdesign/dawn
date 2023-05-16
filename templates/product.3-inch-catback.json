@@ -84,6 +84,7 @@
     "05b2aa7f-2896-4239-889d-e0f56c09bf60": {
       "type": "featured-youtube",
       "settings": {
+        "background_color": "#0066ff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 0,
         "desktop_padding_bottom": 0,
