@@ -50,7 +50,7 @@
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0": {
           "type": "heading",
           "settings": {
-            "heading": "Our customers love it!",
+            "heading": "HEAR IT IN ACTION!",
             "text_color": "#000000",
             "heading_size": "h4",
             "font_weight": "font-bold",
@@ -75,10 +75,10 @@
       "settings": {
         "background_color": "#FFFFFF",
         "desktop_max_width": "max-w-medium",
-        "desktop_padding_top": 16,
-        "desktop_padding_bottom": 16,
-        "mobile_padding_top": 16,
-        "mobile_padding_bottom": 16
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 32
       }
     },
     "05b2aa7f-2896-4239-889d-e0f56c09bf60": {
