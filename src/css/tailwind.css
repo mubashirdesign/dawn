@@ -499,6 +499,13 @@
 @tailwind utilities;
 
 @layer utilities {
+  @media screen and (min-width: 768px) {
+    .px-16-desktop {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
   @variants responsive {
     .pb-half {
       padding-bottom: 50%;
