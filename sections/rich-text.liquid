@@ -1,25 +1,60 @@
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
+<style>
+  #shopify-section-{{section.id}} {
+    background-color: {{section.settings.background_color}};
+  }
 
-<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+  #shopify-section-{{section.id}} {
+    padding-top:{{section.settings.desktop_padding_top}}px;
+    padding-bottom: {{section.settings.desktop_padding_bottom}}px
+  }
 
-<div class="{% unless section.settings.full_width %}page-width{% endunless %}">
-  <div class="rich-text color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width{% endif %}">
-    <div class="rich-text__blocks">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'heading' -%}
-            <h2 class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
-          {%- when 'text' -%}
-            <div class="rich-text__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-          {%- when 'button' -%}
-            <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}" {{ block.shopify_attributes }}>
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{section.id}} {
+
+    padding-top:{{section.settings.mobile_padding_top}}px;
+    padding-bottom: {{section.settings.mobile_padding_bottom}}px
+  }
+  }
+</style>
+
+<div
+  class='{{ section.settings.desktop_max_width }} mx-auto'
+>
+  <div class='flex flex-col justify-center'>
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          <h2
+            style='color: {{block.settings.text_color}}'
+            class='{{ block.settings.heading_size }} {{block.settings.font_weight}} {{block.settings.mobile_alignment}} md:{{block.settings.desktop_alignment}} pb-3'
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.heading | replace: '&lt;', '<' | replace: '&gt;', '>' }}
+          </h2>
+        {%- when 'text' -%}
+          <div
+            style='color: {{block.settings.text_color}}'
+            class='pb-3 {{block.settings.mobile_alignment}} md:{{block.settings.desktop_alignment}} text-base'
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.text | replace: '&lt;', '<' | replace: '&gt;', '>' }}
+          </div>
+        {%- when 'button' -%}
+          <div class='{{block.settings.mobile_alignment}} md:{{block.settings.desktop_alignment}} block'>
+            <a
+              {% if block.settings.button_link == blank %}
+                role='link' aria-disabled='true'
+              {% else %}
+                href='{{ block.settings.button_link }}'
+              {% endif %}
+              class='{{block.settings.button_style}} inline-block relative'
+              {{ block.shopify_attributes }}
+            >
               {{ block.settings.button_label | escape }}
             </a>
-        {%- endcase -%}
-      {%- endfor -%}
-    </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
   </div>
 </div>
 
@@ -27,41 +62,61 @@
 {
   "name": "t:sections.rich-text.name",
   "tag": "section",
-  "class": "spaced-section spaced-section--full-width",
+  "class": "px-6 px-16-desktop",
   "settings": [
     {
-      "type": "select",
-      "id": "color_scheme",
-      "options": [
-        {
-          "value": "accent-1",
-          "label": "t:sections.rich-text.settings.color_scheme.options__1.label"
-        },
-        {
-          "value": "accent-2",
-          "label": "t:sections.rich-text.settings.color_scheme.options__2.label"
-        },
-        {
-          "value": "background-1",
-          "label": "t:sections.rich-text.settings.color_scheme.options__3.label"
-        },
-        {
-          "value": "background-2",
-          "label": "t:sections.rich-text.settings.color_scheme.options__4.label"
-        },
-        {
-          "value": "inverse",
-          "label": "t:sections.rich-text.settings.color_scheme.options__5.label"
-        }
-      ],
-      "default": "background-1",
-      "label": "t:sections.rich-text.settings.color_scheme.label"
+      "type": "header",
+      "content": "Global Section Settings"
     },
     {
-      "type": "checkbox",
-      "id": "full_width",
-      "default": true,
-      "label": "t:sections.rich-text.settings.full_width.label"
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color of section",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "desktop_max_width",
+      "options": [
+        {
+          "value": "max-w-medium",
+          "label": "Medium Width Desktop"
+        },
+        {
+          "value": "max-w-small",
+          "label": "Small Width Desktop"
+        },
+        {
+          "value": "max-w-full",
+          "label": "Full Width Desktop"
+        }
+      ],
+      "default": "max-w-medium",
+      "label": "Medium Width Desktop"
+    },
+    {
+      "type": "number",
+      "default": 96,
+      "label": "Desktop Section Top Padding",
+      "id": "desktop_padding_top"
+    },
+    {
+      "type": "number",
+      "default": 96,
+      "label": "Desktop Section Bottom Padding",
+      "id": "desktop_padding_bottom"
+    },
+    {
+      "type": "number",
+      "default": 64,
+      "label": "Mobile Section Top Padding",
+      "id": "mobile_padding_top"
+    },
+    {
+      "type": "number",
+      "default": 64,
+      "label": "Mobile Section Bottom Padding",
+      "id": "mobile_padding_bottom"
     }
   ],
   "blocks": [
@@ -77,24 +132,104 @@
           "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
         },
         {
+          "type": "color",
+          "id": "text_color",
+          "label": "Color of text",
+          "default": "#000000"
+        },
+        {
           "type": "select",
           "id": "heading_size",
           "options": [
             {
-              "value": "h2",
-              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
-            },
-            {
               "value": "h1",
-              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+              "label": "H1"
             },
             {
-              "value": "h0",
-              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
             }
           ],
           "default": "h1",
-          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
+          "label": "Heading Size"
+        },
+        {
+          "type": "select",
+          "id": "font_weight",
+          "options": [
+            {
+              "value": "font-bold",
+              "label": "Bold"
+            },
+            {
+              "value": "font-semibold",
+              "label": "Semibold"
+            },
+            {
+              "value": "font-normal",
+              "label": "Normal"
+            }
+          ],
+          "default": "font-bold",
+          "label": "Bold"
+        },
+        {
+          "type": "select",
+          "id": "mobile_alignment",
+          "label": "Mobile Alignment",
+          "options": [
+            {
+              "value": "text-center",
+              "label": "Text Center"
+            },
+            {
+              "value": "text-right",
+              "label": "Text Right"
+            },
+            {
+              "value": "text-left",
+              "label": "Text Left"
+            }
+          ],
+          "default": "text-left",
+          "label": "Mobile Alignment"
+        },
+        {
+          "type": "select",
+          "id": "desktop_alignment",
+          "label": "Desktop Alignment",
+          "options": [
+            {
+              "value": "text-center",
+              "label": "Text Center"
+            },
+            {
+              "value": "text-right",
+              "label": "Text Right"
+            },
+            {
+              "value": "text-left",
+              "label": "Text Left"
+            }
+          ],
+          "default": "text-left",
+          "label": "Desktop Alignment"
         }
       ]
     },
@@ -108,6 +243,54 @@
           "id": "text",
           "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
           "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Color of text",
+          "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "mobile_alignment",
+          "label": "Mobile Alignment",
+          "options": [
+            {
+              "value": "text-center",
+              "label": "Text Center"
+            },
+            {
+              "value": "text-right",
+              "label": "Text Right"
+            },
+            {
+              "value": "text-left",
+              "label": "Text Left"
+            }
+          ],
+          "default": "text-left",
+          "label": "Mobile Alignment"
+        },
+        {
+          "type": "select",
+          "id": "desktop_alignment",
+          "label": "Desktop Alignment",
+          "options": [
+            {
+              "value": "text-center",
+              "label": "Text Center"
+            },
+            {
+              "value": "text-right",
+              "label": "Text Right"
+            },
+            {
+              "value": "text-left",
+              "label": "Text Left"
+            }
+          ],
+          "default": "text-left",
+          "label": "Desktop Alignment"
         }
       ]
     },
@@ -128,10 +311,74 @@
           "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
         },
         {
-          "type": "checkbox",
-          "id": "button_style_secondary",
-          "default": false,
-          "label": "t:sections.rich-text.blocks.button.settings.button_style_secondary.label"
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "button-primary",
+              "label": "Button Primary"
+            },
+            {
+              "value": "button-secondary",
+              "label": "Button Secondary"
+            },
+            {
+              "value": "button-white",
+              "label": "Button White"
+            },
+            {
+              "value": "button-small",
+              "label": "Button Small"
+            },
+            {
+              "value": "button-link",
+              "label": "Button Link"
+            }
+          ],
+          "default": "button-white",
+          "label": "Button Style"
+        },
+        {
+          "type": "select",
+          "id": "mobile_alignment",
+          "label": "Mobile Alignment",
+          "options": [
+            {
+              "value": "text-center",
+              "label": "Text Center"
+            },
+            {
+              "value": "text-right",
+              "label": "Text Right"
+            },
+            {
+              "value": "text-left",
+              "label": "Text Left"
+            }
+          ],
+          "default": "text-left",
+          "label": "Mobile Alignment"
+        },
+        {
+          "type": "select",
+          "id": "desktop_alignment",
+          "label": "Desktop Alignment",
+          "options": [
+            {
+              "value": "text-center",
+              "label": "Text Center"
+            },
+            {
+              "value": "text-right",
+              "label": "Text Right"
+            },
+            {
+              "value": "text-left",
+              "label": "Text Left"
+            }
+          ],
+          "default": "text-left",
+          "label": "Desktop Alignment"
         }
       ]
     }

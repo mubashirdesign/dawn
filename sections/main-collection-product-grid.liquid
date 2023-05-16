@@ -174,7 +174,7 @@
       </mobile-filters>
     </div>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white my-2" style="background-color: white" id="main-collection-filters" data-id="{{ section.id }}">
+    <main class="max-w-medium mx-auto px-4 sm:px-6 lg:px-8 bg-white my-2" style="background-color: white" id="main-collection-filters" data-id="{{ section.id }}">
       <facet-filters-form>
         <form id="FacetFiltersForm">
           
@@ -360,7 +360,7 @@
                 <div class="border-1 border-dashed border-gray-200 rounded-lg h-full">
 
                 <div class="bg-white">
-                  <div id="ProductGridContainer" class="max-w-7xl mx-auto py-4 px-4">
+                  <div id="ProductGridContainer" class="max-w-medium mx-auto py-4 px-4">
                     <h2 class="sr-only">Products</h2>
                     {%- paginate collection.products by section.settings.products_per_page -%}
                     <div class="loading-overlay gradient"></div>

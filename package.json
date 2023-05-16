@@ -27,7 +27,8 @@
     "cssnano": "^5.0.6",
     "swiper": "^8.1.6",
     "tailwindcss": "^3.0.13",
-    "vanilla-lazyload": "^17.4.0"
+    "vanilla-lazyload": "^17.4.0",
+    "youtube-player": "^5.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

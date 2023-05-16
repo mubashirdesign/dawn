@@ -21,7 +21,7 @@
      
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-gray-100 max-w-7xl m-auto mt-2">
+<div class="relative bg-gray-100 max-w-medium m-auto mt-2">
   <div class="h-56 bg-gray-800 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
     <img
       srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
@@ -43,7 +43,7 @@
     >
 
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+  <div class="relative max-w-medium mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
     <div class="md:ml-auto md:w-1/2 md:pl-10">
       <h2 class="text-base font-semibold uppercase tracking-wider text-gray-800">{{section.settings.lead}}</h2>
       <p class="mt-2 text-gray-900 text-3xl font-extrabold tracking-tight sm:text-4xl">{{section.settings.title}}</p>
