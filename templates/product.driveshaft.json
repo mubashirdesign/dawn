@@ -44,6 +44,118 @@
         "enable_video_looping": false
       }
     },
+    "06f9b168-ea25-4e1f-a5be-b4a6bf478456": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Big Power?",
+            "text_color": "#000000",
+            "heading_size": "h3",
+            "font_weight": "font-bold",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br\/>With Big Power... comes great responsibility to put it down, and your stock steel driveshaft just can't do the job.<br\/>Upgrade now to a 3.5 inch dennys driveshaft to enjoy a vibration free drive without wrecking your drivetrain.<\/p>",
+            "text_color": "#000000",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-0",
+        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-1"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 32
+      }
+    },
+    "630f46c3-371b-4ff2-b5c9-ce5e9a529d47": {
+      "type": "featured-cards",
+      "blocks": {
+        "d3ceb2b1-604e-4545-be63-1d1eba92f96c": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "image": "shopify:\/\/shop_images\/PXL_20220224_134633324.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image": "shopify:\/\/shop_images\/PXL_20220224_134633324.jpg",
+            "mobile_image_max_width": 0,
+            "heading": "",
+            "text_color": "#000000",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h4",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
+        },
+        "ed6954e1-5010-4141-bd64-133a7d946880": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "image": "shopify:\/\/shop_images\/PXL_20220217_011419871.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image": "shopify:\/\/shop_images\/PXL_20220217_011419871.jpg",
+            "mobile_image_max_width": 0,
+            "heading": "",
+            "text_color": "#000000",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h4",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
+        }
+      },
+      "block_order": [
+        "d3ceb2b1-604e-4545-be63-1d1eba92f96c",
+        "ed6954e1-5010-4141-bd64-133a7d946880"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 24,
+        "mobile_padding_x": 0,
+        "mobile_card_padding_x": 0,
+        "border_radius": 0,
+        "extra_wide_desktop_grid_columns": 2,
+        "desktop_grid_columns": 2,
+        "mobile_grid_columns": 1,
+        "desktop_row_gap": 40,
+        "mobile_row_gap": 40,
+        "desktop_column_gap": 16,
+        "mobile_column_gap": 16
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "disabled": true,
@@ -107,6 +219,8 @@
   },
   "order": [
     "main",
+    "06f9b168-ea25-4e1f-a5be-b4a6bf478456",
+    "630f46c3-371b-4ff2-b5c9-ce5e9a529d47",
     "product-recommendations",
     "1653734384d1162371",
     "165373437104a45665"
