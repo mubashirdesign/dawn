@@ -51,7 +51,7 @@
           "type": "heading",
           "settings": {
             "heading": "SEE IT IN ACTION!",
-            "text_color": "#0066ff",
+            "text_color": "#ffffff",
             "heading_size": "h4",
             "font_weight": "font-bold",
             "mobile_alignment": "text-left",
@@ -62,7 +62,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Watch Terry Kehne in his beast LeadSSLED show of his 3 inch Clear Image Automotive catback system<\/p>",
-            "text_color": "#000000",
+            "text_color": "#ffffff",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
           }
@@ -73,7 +73,7 @@
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1"
       ],
       "settings": {
-        "background_color": "#ffffff",
+        "background_color": "#0066ff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
         "desktop_padding_bottom": 0,
