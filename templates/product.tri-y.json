@@ -215,7 +215,7 @@
         "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
-        "desktop_padding_bottom": 96,
+        "desktop_padding_bottom": 0,
         "mobile_padding_top": 32,
         "mobile_padding_bottom": 32,
         "mobile_padding_x": 24,
