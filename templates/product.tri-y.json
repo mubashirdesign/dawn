@@ -63,7 +63,7 @@
         "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-0": {
           "type": "heading",
           "settings": {
-            "heading": "SEE IT IN ACTION!",
+            "heading": "We love it when our customers show the process",
             "text_color": "#000000",
             "heading_size": "h4",
             "font_weight": "font-bold",
@@ -86,7 +86,7 @@
         "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-1"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
         "desktop_padding_bottom": 16,
@@ -100,7 +100,7 @@
         "626315eb-ad01-4adc-b9d0-347790ab6907": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
@@ -124,7 +124,7 @@
         "c7ec8852-49af-457b-8dfa-9cfe70f874a7": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/288638411_5103810359733422_5750362637136540092_n.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/288638411_5103810359733422_5750362637136540092_n.jpg",
@@ -151,7 +151,7 @@
         "c7ec8852-49af-457b-8dfa-9cfe70f874a7"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 0,
         "desktop_padding_bottom": 96,
