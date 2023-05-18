@@ -27,6 +27,7 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
           }
         }
@@ -55,6 +56,54 @@
         "show_image_outline": true,
         "show_vendor": false,
         "show_rating": false
+      }
+    },
+    "6237582d-b489-4b6b-9d8b-615d6ee82fd4": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16658362728695__6237582d-b489-4b6b-9d8b-615d6ee82fd4-16843704786411548e-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "SOME SAID IT COULDN'T BE DONE. SOME SAID IT SHOULDN'T BE DONE. ",
+            "text_color": "#000000",
+            "heading_size": "h6",
+            "font_weight": "font-bold",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16658362728695__6237582d-b489-4b6b-9d8b-615d6ee82fd4-16843704786411548e-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>The ultimate street header for the 94 - 96 Impala SS!<\/strong><\/p><p>We have re-designed our famous TRI-Y headers for the 94 - 96 Impala SS! Accepted as the best fit, finish, workmanship and easiest to install header available for the B-body.<br\/>&lt;br&gt;<\/p><p>- Now with a more symmetrical look<\/p><p>- Longer primary tubes<\/p><p>- Less welds<\/p><p>- Over-all, a much cleaner, stronger and better looking header!<br\/>&lt;br&gt;Now offered in stainless steel!<\/p><p><strong>Shown with both hi-flow catalytic converters and extended hook-up pipes.  <br\/><\/strong><\/p>",
+            "text_color": "#000000",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16658362728695__6237582d-b489-4b6b-9d8b-615d6ee82fd4-16843704786411548e-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Installation Instructions",
+            "button_link": "https:\/\/clearimageautomotive.myshopify.com\/pages\/b-body-header-installation-tips",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16658362728695__6237582d-b489-4b6b-9d8b-615d6ee82fd4-16843704786411548e-0",
+        "template--16658362728695__6237582d-b489-4b6b-9d8b-615d6ee82fd4-16843704786411548e-1",
+        "template--16658362728695__6237582d-b489-4b6b-9d8b-615d6ee82fd4-16843704786411548e-2"
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 64,
+        "mobile_padding_bottom": 64
       }
     },
     "b68d5e27-f5c9-4abf-b4cd-4fb068e790af": {
@@ -281,6 +330,7 @@
   "order": [
     "main",
     "product-recommendations",
+    "6237582d-b489-4b6b-9d8b-615d6ee82fd4",
     "b68d5e27-f5c9-4abf-b4cd-4fb068e790af",
     "9b7aca22-e777-4126-b782-16ac5d7e44e5",
     "1653734384d1162371",
