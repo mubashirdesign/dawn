@@ -64,7 +64,7 @@
           "type": "heading",
           "settings": {
             "heading": "We love it when our customers show the process",
-            "text_color": "#000000",
+            "text_color": "#ffffff",
             "heading_size": "h4",
             "font_weight": "font-bold",
             "mobile_alignment": "text-left",
@@ -75,7 +75,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Shout out to Impala 95 on the impalassforums for walking us through his install on his sweet SS<\/p>",
-            "text_color": "#000000",
+            "text_color": "#ffffff",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
           }
@@ -97,7 +97,7 @@
         "904a6cb4-9084-44e2-883b-a44f541a2c6a"
       ],
       "settings": {
-        "background_color": "#ffffff",
+        "background_color": "#0066ff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
         "desktop_padding_bottom": 16,
@@ -112,7 +112,7 @@
           "type": "featured-item",
           "settings": {
             "background_color": "#ffffff",
-            "image": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
+            "image": "shopify:\/\/shop_images\/20180120_182928-01.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
             "mobile_image_max_width": 0,
@@ -136,7 +136,7 @@
           "type": "featured-item",
           "settings": {
             "background_color": "#ffffff",
-            "image": "shopify:\/\/shop_images\/288638411_5103810359733422_5750362637136540092_n.jpg",
+            "image": "shopify:\/\/shop_images\/20180123_190243-01.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/288638411_5103810359733422_5750362637136540092_n.jpg",
             "mobile_image_max_width": 0,
@@ -155,18 +155,68 @@
             "desktop_alignment": "text-left",
             "external_url": false
           }
+        },
+        "c71a9ef6-cb65-46e3-8676-ff34e954e516": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "image": "shopify:\/\/shop_images\/20180118_121908-01.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image": "shopify:\/\/shop_images\/20180118_121908-01.jpg",
+            "mobile_image_max_width": 0,
+            "heading": "",
+            "text_color": "#000000",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h1",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
+        },
+        "1628fec6-343c-42c9-810c-9060e0e65d6e": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "image": "shopify:\/\/shop_images\/20180118_120127-01.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image": "shopify:\/\/shop_images\/20180118_120127-01.jpg",
+            "mobile_image_max_width": 0,
+            "heading": "",
+            "text_color": "#000000",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h1",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
         }
       },
       "block_order": [
         "626315eb-ad01-4adc-b9d0-347790ab6907",
-        "c7ec8852-49af-457b-8dfa-9cfe70f874a7"
+        "c7ec8852-49af-457b-8dfa-9cfe70f874a7",
+        "c71a9ef6-cb65-46e3-8676-ff34e954e516",
+        "1628fec6-343c-42c9-810c-9060e0e65d6e"
       ],
       "settings": {
         "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 0,
         "desktop_padding_bottom": 96,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 32,
         "mobile_padding_bottom": 32,
         "mobile_padding_x": 24,
         "mobile_card_padding_x": 0,
@@ -176,7 +226,7 @@
         "mobile_grid_columns": 1,
         "desktop_row_gap": 40,
         "mobile_row_gap": 20,
-        "desktop_column_gap": 16,
+        "desktop_column_gap": 40,
         "mobile_column_gap": 16
       }
     },
