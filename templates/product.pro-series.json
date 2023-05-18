@@ -125,8 +125,8 @@
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
         "desktop_padding_bottom": 32,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 16
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 32
       }
     },
     "product-recommendations": {
@@ -253,7 +253,7 @@
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 40,
         "desktop_padding_bottom": 40,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 24,
         "mobile_padding_bottom": 24,
         "mobile_padding_x": 24,
         "mobile_card_padding_x": 0,
