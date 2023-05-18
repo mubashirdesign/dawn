@@ -74,8 +74,18 @@
         "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Check out Tom Bauman's Gen 2 Tri-Ys in Glacial Black <\/p>",
+            "text": "<p>Shout out to Impala 95 on the impalassforums for walking us through his install on his sweet SS<\/p>",
             "text_color": "#000000",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "904a6cb4-9084-44e2-883b-a44f541a2c6a": {
+          "type": "button",
+          "settings": {
+            "button_label": "View Article",
+            "button_link": "https:\/\/www.impalassforum.com\/threads\/clear-image-automotive-tri-y-headers.1315894\/#post-12100962",
+            "button_style": "button-white",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
           }
@@ -83,7 +93,8 @@
       },
       "block_order": [
         "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-0",
-        "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-1"
+        "template--16658362728695__b68d5e27-f5c9-4abf-b4cd-4fb068e790af-1684207068c644c435-1",
+        "904a6cb4-9084-44e2-883b-a44f541a2c6a"
       ],
       "settings": {
         "background_color": "#ffffff",
