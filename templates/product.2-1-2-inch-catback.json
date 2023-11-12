@@ -49,6 +49,7 @@
       "blocks": {
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "SEE IT IN ACTION!",
             "text_color": "#ffffff",
@@ -61,7 +62,7 @@
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Watch Terry Kehne in his beast LeadSSLED show of his 3 inch Clear Image Automotive catback system<\/p>",
+            "text": "<p>Watch Peter Duerr Show Us his <\/p>",
             "text_color": "#ffffff",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
@@ -72,6 +73,7 @@
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0",
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1"
       ],
+      "disabled": true,
       "settings": {
         "background_color": "#0066ff",
         "desktop_max_width": "max-w-medium",
@@ -83,6 +85,7 @@
     },
     "05b2aa7f-2896-4239-889d-e0f56c09bf60": {
       "type": "featured-youtube",
+      "disabled": true,
       "settings": {
         "background_color": "#0066ff",
         "desktop_max_width": "max-w-medium",
@@ -90,7 +93,7 @@
         "desktop_padding_bottom": 0,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0,
-        "video_id": "ZwzE9VAsJEg",
+        "video_id": "rozQ90X4L-k",
         "cover_image": "shopify:\/\/shop_images\/233594975_10159898477114026_3001837312878773094_n.jpg",
         "enable_modal": false
       }
@@ -130,7 +133,7 @@
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
             "mobile_image_max_width": 0,
-            "heading": "CIA 3\" header-back exhaust system",
+            "heading": "CIA 2.5\" header-back exhaust system",
             "text_color": "#ffffff",
             "heading_alignment": "text-left",
             "font_weight": "font-bold",
