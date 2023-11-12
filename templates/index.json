@@ -1,5 +1,16 @@
 {
   "sections": {
+    "1655304223ca223247": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/36819807_10160707274850360_4885012634723680256_n.jpg",
+        "image_2": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
+        "heading": "The Ultimate B-Body Header's & Exhaust Systems",
+        "subheading": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!",
+        "button_label": "SHOP NOW",
+        "button_link": "shopify:\/\/products\/gen-ii-tri-y-headers"
+      }
+    },
     "16553006713e549e71": {
       "type": "featured-collections-two",
       "settings": {
@@ -10,8 +21,8 @@
         "button_label_two": "HEADERS",
         "button_link_two": "shopify:\/\/collections\/headers-gm-b-body-1994-1996",
         "image_three": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n_60e1743b-d94b-40ba-a4db-b4b4f992d0bd.jpg",
-        "button_label_three": "DRIVETRAIN",
-        "button_link_three": "shopify:\/\/collections\/drivetrain-gm-b-body-1994-1996"
+        "button_label_three": "Cat-Back Exhaust Systems",
+        "button_link_three": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
       }
     },
     "featured_products": {
@@ -54,17 +65,6 @@
         "title": "OUR MOST POPULAR PRODUCTS",
         "sub_title": "Our vision is to be recognized as the best provider of headers, exhaust and intake systems in the country, to serve loyal car owners globally, to increase our line of products and markets and to continue to be the leading provider in header development.",
         "style": "circle"
-      }
-    },
-    "1655304223ca223247": {
-      "type": "image-banner",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/36819807_10160707274850360_4885012634723680256_n.jpg",
-        "image_2": "shopify:\/\/shop_images\/288641255_5103803146400810_3606557074309264035_n.jpg",
-        "heading": "The Ultimate B-Body Header's & Exhaust Systems",
-        "subheading": "Now Introducing The GEN II Street Header For The 94 - 96 Impala SS!",
-        "button_label": "SHOP NOW",
-        "button_link": "shopify:\/\/products\/gen-ii-tri-y-headers"
       }
     },
     "16535287556bef1f16": {
@@ -152,9 +152,9 @@
     }
   },
   "order": [
+    "1655304223ca223247",
     "16553006713e549e71",
     "featured_products",
-    "1655304223ca223247",
     "16535287556bef1f16",
     "16535287530956fd10"
   ]
