@@ -1,0 +1,243 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "052f6069-0189-49d2-8470-900edf036c0c": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "SEE IT IN ACTION!",
+            "text_color": "#ffffff",
+            "heading_size": "h4",
+            "font_weight": "font-bold",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        },
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Watch Terry Kehne in his beast LeadSSLED show of his 3 inch Clear Image Automotive catback system<\/p>",
+            "text_color": "#ffffff",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0",
+        "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1"
+      ],
+      "settings": {
+        "background_color": "#0066ff",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "05b2aa7f-2896-4239-889d-e0f56c09bf60": {
+      "type": "featured-youtube",
+      "settings": {
+        "background_color": "#0066ff",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "video_id": "ZwzE9VAsJEg",
+        "cover_image": "shopify:\/\/shop_images\/233594975_10159898477114026_3001837312878773094_n.jpg",
+        "enable_modal": false
+      }
+    },
+    "17ad0798-6ff6-4e17-9ad6-a191086190a3": {
+      "type": "featured-cards",
+      "blocks": {
+        "2e175d46-0ee8-40fc-b9ae-3ebeac37f77e": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#0066ff",
+            "image": "shopify:\/\/shop_images\/288199053_10220601334443216_8432919799074955784_n.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image": "shopify:\/\/shop_images\/288199053_10220601334443216_8432919799074955784_n.jpg",
+            "mobile_image_max_width": 0,
+            "heading": "High-clearance tips.",
+            "text_color": "#ffffff",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h6",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
+        },
+        "19ca37e9-975f-4321-a52e-9c847c650491": {
+          "type": "featured-item",
+          "settings": {
+            "background_color": "#0066ff",
+            "image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
+            "desktop_image_max_width": 0,
+            "mobile_image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
+            "mobile_image_max_width": 0,
+            "heading": "CIA 3\" header-back exhaust system",
+            "text_color": "#ffffff",
+            "heading_alignment": "text-left",
+            "font_weight": "font-bold",
+            "heading_size": "h6",
+            "description": "",
+            "description_alignment": "text-left",
+            "url": "",
+            "display_button": false,
+            "button_label": "Button label",
+            "button_style": "button-white",
+            "mobile_alignment": "text-left",
+            "desktop_alignment": "text-left",
+            "external_url": false
+          }
+        }
+      },
+      "block_order": [
+        "2e175d46-0ee8-40fc-b9ae-3ebeac37f77e",
+        "19ca37e9-975f-4321-a52e-9c847c650491"
+      ],
+      "settings": {
+        "background_color": "#0066ff",
+        "desktop_max_width": "max-w-medium",
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 24,
+        "mobile_padding_x": 24,
+        "mobile_card_padding_x": 0,
+        "border_radius": 0,
+        "extra_wide_desktop_grid_columns": 2,
+        "desktop_grid_columns": 2,
+        "mobile_grid_columns": 1,
+        "desktop_row_gap": 40,
+        "mobile_row_gap": 0,
+        "desktop_column_gap": 40,
+        "mobile_column_gap": 16
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
+      }
+    },
+    "1653734384d1162371": {
+      "type": "support-section",
+      "settings": {
+      }
+    },
+    "165373437104a45665": {
+      "type": "featured-collection",
+      "blocks": {
+        "2e75ad7f-ea81-4efd-b54c-213e57fb0206": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Exhaust Systems",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/custom_resized_0d5ae17b-a501-40be-ad48-b20eeb7555b8.jpg",
+            "url": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
+          }
+        },
+        "563218e0-018a-4373-ac11-2dfadd191093": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Drivetrain",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/custom_resized_2e50b817-1bac-474c-b66f-4e00c75bd4e6.jpg",
+            "url": "shopify:\/\/collections\/drivetrain-gm-b-body-1994-1996"
+          }
+        },
+        "064ecc75-215f-41d1-8dc1-62c213979186": {
+          "type": "featured-item",
+          "settings": {
+            "title": "Headers",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/custom_resized_a20cc55e-88a5-41bb-adf9-ce8020b9ec9f.jpg",
+            "url": "shopify:\/\/collections\/headers-gm-b-body-1994-1996"
+          }
+        }
+      },
+      "block_order": [
+        "2e75ad7f-ea81-4efd-b54c-213e57fb0206",
+        "563218e0-018a-4373-ac11-2dfadd191093",
+        "064ecc75-215f-41d1-8dc1-62c213979186"
+      ],
+      "settings": {
+        "title": "Our Featured B-Body Parts",
+        "sub_title": "1994 - 1996",
+        "style": "circle"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "052f6069-0189-49d2-8470-900edf036c0c",
+    "05b2aa7f-2896-4239-889d-e0f56c09bf60",
+    "17ad0798-6ff6-4e17-9ad6-a191086190a3",
+    "product-recommendations",
+    "1653734384d1162371",
+    "165373437104a45665"
+  ]
+}
