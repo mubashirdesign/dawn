@@ -1,6 +1,5 @@
-
 <style>
- 
+
 
   #shopify-section-{{section.id}} .main-section {
     padding-top:{{section.settings.desktop_padding_top}}px;
@@ -16,51 +15,54 @@
   }
 </style>
 
-
-<div class="bg-transparent relative">
-    
-
-    <div class="{{ section.settings.desktop_max_width }} mx-auto w-full relative main-section">
-        <div class=" mx-auto left-0 right-0 w-full bg-gradient-to-br from-lightPrimaryBlue via-blue to-gray-900 bg-opacity-90  shadow-xl overflow-hidden grid grid-cols-1 gap-4">
-            <div class="px-6 pt-0 sm:px-8 lg:pr-0 sm:pt-8 py-8 px-16-desktop">
-              <div class="flex flex-col-reverse sm:flex-col lg:self-center">
-                <div class="flex sm:flex-row">
-                    <img class="h-16 w-max m-0 hidden sm:block" src="https://cdn.shopify.com/s/files/1/0648/7297/2535/files/Capture.jpg?v=1655257993" alt="App screenshot">
-
-                    <p class="sm:ml-4 mt-3 text-left text-sm sm:text-left sm:mt-1 sm:text-lg leading-6 text-indigo-200">
-                        <span class="block">Open Monday - Friday, 9:00 AM to 5:00 PM</span>
-                        <span class="block">Spanaway, Washington</span>    
-                    </p>
-                
-                </div>
-                <h2 class="mt-4 z-[1] text-lg text-left md:text-left font-extrabold text-white md:text-lg lg:text-xl" style="text-shadow: 1px 4px black;">
-                  <span class="block">Our High Performance Exhaust Systems will make You Feel Great</span>
-                  <span class="block">in a More Powerful, Better Sounding, Fuel Efficient Car!</span>
-                </h2>
-                
-              </div>
-            </div>
-            <h2 class="absolute left-[1.5rem] sm:right-[6rem] md:right-[8rem] lg:right-[11rem] sm:left-auto bottom-0 md:bottom-[30px] top-auto text-sm font-extrabold text-white z-[1] md:text-lg xl:text-xl">
-                <span class="hidden md:block">Call Dan Ferraro</span>
-                <span class="hidden md:block">425.251.0329</span>
-                <span class="block md:hidden">Call Dan Ferraro: 425.251.0329</span>
-
-              </h2>
-            <div class="absolute right-0 bottom-0">
-              <img class="w-[100px] md:w-[150px] lg:w-auto" src="https://cdn.shopify.com/s/files/1/0648/7297/2535/files/dan.png?v=1655254486" alt="App screenshot">
-            </div>
-          </div>    
-
-    
+<div class='bg-transparent relative'>
+  <div class='{{ section.settings.desktop_max_width }} mx-auto w-full relative main-section'>
+    <div class=' mx-auto left-0 right-0 w-full bg-gradient-to-br from-lightPrimaryBlue via-blue to-gray-900 bg-opacity-90  shadow-xl overflow-hidden grid grid-cols-1 gap-4'>
+      <div class='px-6 pt-0 sm:px-8 lg:pr-0 sm:pt-8 py-8 px-16-desktop'>
+        <div class='flex flex-col-reverse sm:flex-col lg:self-center'>
+          <div class='flex sm:flex-row'>
+            <a href='/'>
+              <img
+                class='h-16 w-max m-0 hidden sm:block'
+                src='https://cdn.shopify.com/s/files/1/0648/7297/2535/files/Capture.jpg?v=1655257993'
+                alt='App screenshot'
+              >
+            </a>
+            <p class='sm:ml-4 mt-3 text-left text-sm sm:text-left sm:mt-1 sm:text-lg leading-6 text-indigo-200'>
+              <span class='block'>Open Monday - Friday, 9:00 AM to 5:00 PM</span>
+              <span class='block'>Spanaway, Washington</span>
+            </p>
+          </div>
+          <h2
+            class='mt-4 z-[1] text-lg text-left md:text-left font-extrabold text-white md:text-lg lg:text-xl'
+            style='text-shadow: 1px 4px black;'
+          >
+            <span class='block'>Our High Performance Exhaust Systems will make You Feel Great</span>
+            <span class='block'>in a More Powerful, Better Sounding, Fuel Efficient Car!</span>
+          </h2>
+        </div>
+      </div>
+      <h2 class='absolute left-[1.5rem] sm:right-[6rem] md:right-[8rem] lg:right-[11rem] sm:left-auto bottom-0 md:bottom-[30px] top-auto text-sm font-extrabold text-white z-[1] md:text-lg xl:text-xl'>
+        <span class='hidden md:block'>Call Dan Ferraro</span>
+        <span class='hidden md:block'>425.251.0329</span>
+        <span class='block md:hidden'>Call Dan Ferraro: 425.251.0329</span>
+      </h2>
+      <div class='absolute right-0 bottom-0'>
+        <img
+          class='w-[100px] md:w-[150px] lg:w-auto'
+          src='https://cdn.shopify.com/s/files/1/0648/7297/2535/files/dan.png?v=1655254486'
+          alt='App screenshot'
+        >
+      </div>
     </div>
-    
   </div>
+</div>
 
-  <!--
-  This example requires Tailwind CSS v2.0+ 
-  
+<!--
+  This example requires Tailwind CSS v2.0+
+
   This example requires some changes to your config:
-  
+
   ```
   // tailwind.config.js
   module.exports = {
@@ -72,8 +74,6 @@
   }
   ```
 -->
-
-  
 
 {% schema %}
 {
