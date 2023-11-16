@@ -9,7 +9,7 @@
     "colors_background_2": "#F3F3F3",
     "type_header_font": "assistant_n4",
     "type_body_font": "assistant_n4",
-    "background_image": "shopify:\/\/shop_images\/355875238_7070025489677575_8127635575967541144_n.jpg",
+    "background_image": "shopify:\/\/shop_images\/36844793_10160707274340360_1670670517830418432_n.jpg",
     "currency_code_enabled": false,
     "sections": {
       "announcement-bar": {
@@ -50,7 +50,7 @@
       "dans-banner": {
         "type": "dans-banner",
         "settings": {
-          "background_color": "#FFFFFF",
+          "background_color": "#ffffff",
           "desktop_max_width": "max-w-medium",
           "desktop_padding_top": 0,
           "desktop_padding_bottom": 0,
