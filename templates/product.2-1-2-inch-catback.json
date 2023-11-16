@@ -50,7 +50,7 @@
         "3957c4bf-e875-4461-97ff-d3a7a94f5155": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "desktop_image_max_width": 0,
             "mobile_image_max_width": 0,
             "heading": "Exhaust Perfection",
@@ -72,7 +72,7 @@
         "ddbb6a7e-9095-4631-9877-e9dd74b39511": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/402177774_1551790218983793_3461827605095834862_n.jpg",
             "desktop_image_max_width": 0,
             "mobile_image_max_width": 0,
@@ -98,7 +98,7 @@
         "ddbb6a7e-9095-4631-9877-e9dd74b39511"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 40,
         "desktop_padding_bottom": 40,
@@ -176,9 +176,9 @@
         "template--16964739203319__50b85fdb-7c10-41f5-aee3-ec84944cbfe5-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "Choose Your Muffler!",
+            "heading": "ALL THE RIGHT NOISES",
             "text_color": "#000000",
-            "heading_size": "h1",
+            "heading_size": "h4",
             "font_weight": "font-bold",
             "mobile_alignment": "text-center",
             "desktop_alignment": "text-center"
@@ -199,7 +199,7 @@
         "template--16964739203319__50b85fdb-7c10-41f5-aee3-ec84944cbfe5-text-1"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 96,
         "desktop_padding_bottom": 0,
@@ -213,17 +213,17 @@
         "286c8f59-58e3-4747-9676-60910e0812ba": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/6221_front__62401.1474412654.1280.1280__43924.jpg",
             "desktop_image_max_width": 0,
             "mobile_image_max_width": 0,
-            "heading": "",
+            "heading": "PRO STREET MUFFLERS",
             "text_color": "#000000",
-            "heading_alignment": "text-left",
+            "heading_alignment": "text-center",
             "font_weight": "font-bold",
-            "heading_size": "h1",
+            "heading_size": "h6",
             "description": "Pro Street mufflers",
-            "description_alignment": "text-left",
+            "description_alignment": "text-center",
             "url": "",
             "display_button": false,
             "button_label": "Button label",
@@ -236,17 +236,17 @@
         "bcd0e470-e455-48dc-a75e-20f10b0c22e6": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/3000__92308.jpg",
             "desktop_image_max_width": 0,
             "mobile_image_max_width": 0,
-            "heading": "",
+            "heading": "SPORTSMAN STREET XL MUFFLERS",
             "text_color": "#000000",
-            "heading_alignment": "text-left",
+            "heading_alignment": "text-center",
             "font_weight": "font-bold",
-            "heading_size": "h1",
+            "heading_size": "h6",
             "description": "Sportsman Street XL mufflers",
-            "description_alignment": "text-left",
+            "description_alignment": "text-center",
             "url": "",
             "display_button": false,
             "button_label": "Button label",
@@ -262,7 +262,7 @@
         "bcd0e470-e455-48dc-a75e-20f10b0c22e6"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 0,
         "desktop_padding_bottom": 96,
