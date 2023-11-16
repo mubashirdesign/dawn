@@ -97,6 +97,9 @@
         "3957c4bf-e875-4461-97ff-d3a7a94f5155",
         "ddbb6a7e-9095-4631-9877-e9dd74b39511"
       ],
+      "custom_css": [
+        ".featured-card {justify-content: center;}"
+      ],
       "settings": {
         "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
