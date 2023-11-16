@@ -57,8 +57,8 @@
             "text_color": "#000000",
             "heading_alignment": "text-left",
             "font_weight": "font-bold",
-            "heading_size": "h3",
-            "description": "We designed our  2 1\/2\" system with center in\/center out so the customer can use any muffler on the market if they choose. However we offer the choice of either the Sportsman Street XL mufflers or Pro Street mufflers as part of the standard kit.",
+            "heading_size": "h4",
+            "description": "We designed our  2 1\/2\" system with center in\/center out so the customer can use any muffler on the market if they choose. However we offer the choice of either the Sportsman Street XL mufflers or Pro Street mufflers as part of the standard kit.\n<br><br>\nWe offer these complete kits with SpinTech mufflers exclusively. They have been a great company to work with and we have always loved the sound. Choice of Pro Shootout (Race mufflers), Pro Street or Street XL (street mufflers).",
             "description_alignment": "text-left",
             "url": "",
             "display_button": false,
@@ -171,43 +171,6 @@
         "video_id": "rozQ90X4L-k",
         "cover_image": "shopify:\/\/shop_images\/233594975_10159898477114026_3001837312878773094_n.jpg",
         "enable_modal": false
-      }
-    },
-    "50b85fdb-7c10-41f5-aee3-ec84944cbfe5": {
-      "type": "rich-text",
-      "blocks": {
-        "template--16964739203319__50b85fdb-7c10-41f5-aee3-ec84944cbfe5-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "ALL THE RIGHT NOISES",
-            "text_color": "#000000",
-            "heading_size": "h4",
-            "font_weight": "font-bold",
-            "mobile_alignment": "text-center",
-            "desktop_alignment": "text-center"
-          }
-        },
-        "template--16964739203319__50b85fdb-7c10-41f5-aee3-ec84944cbfe5-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We offer these complete kits with SpinTech mufflers exclusively. They have been a great company to work with and we have always loved the sound. Choice of Pro Shootout (Race mufflers), Pro Street or Street XL (street mufflers).<\/p>",
-            "text_color": "#000000",
-            "mobile_alignment": "text-center",
-            "desktop_alignment": "text-center"
-          }
-        }
-      },
-      "block_order": [
-        "template--16964739203319__50b85fdb-7c10-41f5-aee3-ec84944cbfe5-heading-1",
-        "template--16964739203319__50b85fdb-7c10-41f5-aee3-ec84944cbfe5-text-1"
-      ],
-      "settings": {
-        "background_color": "#ffffff",
-        "desktop_max_width": "max-w-medium",
-        "desktop_padding_top": 40,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
       }
     },
     "a0088663-b508-43ea-9b98-6c22667cefcf": {
@@ -424,7 +387,6 @@
     "fe9bc3e9-eb6e-491e-8be6-dca90885282d",
     "052f6069-0189-49d2-8470-900edf036c0c",
     "05b2aa7f-2896-4239-889d-e0f56c09bf60",
-    "50b85fdb-7c10-41f5-aee3-ec84944cbfe5",
     "a0088663-b508-43ea-9b98-6c22667cefcf",
     "17ad0798-6ff6-4e17-9ad6-a191086190a3",
     "product-recommendations",
