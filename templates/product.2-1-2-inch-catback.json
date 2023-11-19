@@ -75,6 +75,7 @@
             "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/402177774_1551790218983793_3461827605095834862_n.jpg",
             "desktop_image_max_width": 0,
+            "mobile_image": "shopify:\/\/shop_images\/402177774_1551790218983793_3461827605095834862_n.jpg",
             "mobile_image_max_width": 0,
             "heading": "",
             "text_color": "#000000",
@@ -108,13 +109,13 @@
         "mobile_padding_top": 32,
         "mobile_padding_bottom": 32,
         "mobile_padding_x": 0,
-        "mobile_card_padding_x": 0,
+        "mobile_card_padding_x": 24,
         "border_radius": 0,
         "extra_wide_desktop_grid_columns": 2,
         "desktop_grid_columns": 2,
         "mobile_grid_columns": 1,
         "desktop_row_gap": 40,
-        "mobile_row_gap": 40,
+        "mobile_row_gap": 0,
         "desktop_column_gap": 16,
         "mobile_column_gap": 16
       }
