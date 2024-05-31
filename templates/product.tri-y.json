@@ -13,6 +13,13 @@
           "settings": {
           }
         },
+        "text_V8aGfH": {
+          "type": "text",
+          "settings": {
+            "text": "<i>Military and First Responder discount available<\/i>",
+            "text_style": "body"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -35,6 +42,7 @@
       "block_order": [
         "title",
         "price",
+        "text_V8aGfH",
         "variant_picker",
         "buy_buttons",
         "description"
@@ -98,7 +106,7 @@
         "template--16658362728695__6237582d-b489-4b6b-9d8b-615d6ee82fd4-16843704786411548e-2"
       ],
       "settings": {
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
         "desktop_padding_top": 32,
         "desktop_padding_bottom": 32,
@@ -208,7 +216,7 @@
         "c71a9ef6-cb65-46e3-8676-ff34e954e516": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/20180118_121908-01.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/20180118_121908-01.jpg",
@@ -232,7 +240,7 @@
         "1628fec6-343c-42c9-810c-9060e0e65d6e": {
           "type": "featured-item",
           "settings": {
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "image": "shopify:\/\/shop_images\/20180118_120127-01.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/20180118_120127-01.jpg",
