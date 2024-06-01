@@ -1,0 +1,64 @@
+<div class='flex megamenu-wrap pt-4'>
+  <div class='w-[230px] min-w-[230px] bg-[#f5f5f5]'>
+    {% for block in section.blocks %}
+      {% if block.settings.products != blank %}
+        <div
+          class='px-6 h-20 flex megamenu-link justify-between font-medium items-center text-base cursor-pointer capitalize hover:bg-[#FCE200] {% if forloop.first %}active{% endif %}'
+          data-handle='{{block.settings.title |  handleize}}'
+        >
+          {{ block.settings.title }}
+          <svg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17' fill='none'>
+            <path d="M5.40223 14.5L11.3634 8.51947L5.3634 2.5" stroke="#003DA6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      {% else %}
+        <div class='p-6'>
+          <a href='{{block.settings.link}}' class='w-full capitalize'>
+            {% render 'button', text: block.settings.title, bgColor: '#003DA5', textColor: '#ffffff' %}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class='w-full'>
+    {% for block in section.blocks %}
+      {% if block.settings.products != blank %}
+        {% assign link_downcase = block.settings.title | downcase %}
+        {% assign is_variety = false %}
+        {% if link_downcase contains 'variety' %}
+          {% assign is_variety = true %}
+        {% endif %}
+
+        <div
+          class='p-10 {% if is_variety %} pl-20 flex space-x-[20px] {% else %} grid grid-cols-4 gap-[20px] {% endif %} megamenu-products {% unless forloop.first %} hidden {% endunless %}'
+          data-handle='{{block.settings.title |  handleize}}'
+        >
+          {% for product in block.settings.products %}
+            {% assign item_image = product.featured_image %}
+            {% if product.metafields.custom.nav_image != blank %}
+              {% assign item_image = product.metafields.custom.nav_image %}
+            {% endif %}
+
+            <a
+              href='{{product.url}}'
+              class='block relative rounded-[16px] border-2 border-solid border-white hover:border-[#003DA5] h-[100px] pl-4 pt-6 text-base overflow-hidden {% if is_variety %} bg-[#F5F5F5] w-[200px] h-[248px] p-6 {% endif %}'
+              {% unless is_variety %}
+                style='background: {{product.metafields.pdp.background_color}};'
+              {% endunless %}
+            >
+              <div class='font-bold {% unless is_variety %} max-w-[100px] {% else %} max-w-[150px] m-auto text-center {% endunless %} '>
+                {{ product.title }}
+              </div>
+
+              <img
+                src='{{item_image |  image_url }}'
+                class='absolute {% if is_variety %} bottom-0 left-[50%] -translate-x-[50%] {% else %} bottom-[-40%] h-[135%] right-[25%] {% endif %}'
+                alt='{{product.title}}'
+              >
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
