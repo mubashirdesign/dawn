@@ -220,48 +220,6 @@
                                 </div>
                               </div>
                             </div>
-
-                            {% comment %} NEW {% endcomment %}
-
-                            <div class='relative bg-transparent'>
-                              <div class='bg-gray-100 mx-auto px-8 shadow'>
-                                <div class='mx-auto grid grid-cols-2 items-start gap-y-10 gap-x-8 pt-10 pb-12'>
-                                  <div class='grid grid-cols-1 w-64  gap-y-10 gap-x-8'>
-                                    {% for childlink in link.links %}
-                                      <div>
-                                        <a href='{{childlink.url}}' class='font-extrabold text-gray-900'>
-                                          {{- childlink.title -}}
-                                        </a>
-                                      </div>
-                                    {% endfor %}
-                                  </div>
-
-                                  <div class='grid grid-cols-4 gap-y-10 gap-x-8'>
-                                    {% for childlink in link.links %}
-                                      <div>
-                                        <a href='{{childlink.url}}' class='font-extrabold text-gray-900'>
-                                          {{- childlink.title -}}
-                                        </a>
-                                        {% if childlink.links != blank %}
-                                          <ul role='list' class='mt-6 space-y-6 sm:mt-4 sm:space-y-4'>
-                                            {% for grandchildlink in childlink.links %}
-                                              <li class='flex'>
-                                                <a
-                                                  href='{{ grandchildlink.url }}'
-                                                  class='font-bold hover:text-gray-900'
-                                                >
-                                                  {{- grandchildlink.title -}}
-                                                </a>
-                                              </li>
-                                            {% endfor %}
-                                          </ul>
-                                        {% endif %}
-                                      </div>
-                                    {% endfor %}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </div>
 
