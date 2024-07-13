@@ -105,7 +105,7 @@
           "type": "featured-item",
           "settings": {
             "background_color": "#0066ff",
-            "image": "shopify:\/\/shop_images\/f11dadf1-7504-4265-ab4b-1ade82b0e2d2.jpg",
+            "image": "shopify:\/\/shop_images\/wagon.jpg",
             "desktop_image_max_width": 0,
             "mobile_image": "shopify:\/\/shop_images\/f11dadf1-7504-4265-ab4b-1ade82b0e2d2.jpg",
             "mobile_image_max_width": 0,
@@ -127,14 +127,13 @@
         },
         "19ca37e9-975f-4321-a52e-9c847c650491": {
           "type": "featured-item",
-          "disabled": true,
           "settings": {
             "background_color": "#0066ff",
-            "image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
+            "image": "shopify:\/\/shop_images\/wagon2.jpg",
             "desktop_image_max_width": 0,
-            "mobile_image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/wagon2.jpg",
             "mobile_image_max_width": 0,
-            "heading": "CIA 3\" header-back exhaust system",
+            "heading": "",
             "text_color": "#ffffff",
             "heading_alignment": "text-left",
             "font_weight": "font-bold",
