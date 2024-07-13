@@ -67,7 +67,7 @@
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-0": {
           "type": "heading",
           "settings": {
-            "heading": "SEE IT IN ACTION!",
+            "heading": "Guaranteed Fitment!",
             "text_color": "#ffffff",
             "heading_size": "h4",
             "font_weight": "font-bold",
@@ -78,7 +78,7 @@
         "template--16754726961399__052f6069-0189-49d2-8470-900edf036c0c-168420113297bee3d9-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Watch Terry Kehne in his beast LeadSSLED show of his 3 inch Clear Image Automotive catback system<\/p>",
+            "text": "<p>Checkout Brandon Green's mint wagon with our full kit installed<\/p>",
             "text_color": "#ffffff",
             "mobile_alignment": "text-left",
             "desktop_alignment": "text-left"
@@ -98,20 +98,6 @@
         "mobile_padding_bottom": 0
       }
     },
-    "05b2aa7f-2896-4239-889d-e0f56c09bf60": {
-      "type": "featured-youtube",
-      "settings": {
-        "background_color": "#0066ff",
-        "desktop_max_width": "max-w-medium",
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0,
-        "video_id": "ZwzE9VAsJEg",
-        "cover_image": "shopify:\/\/shop_images\/233594975_10159898477114026_3001837312878773094_n.jpg",
-        "enable_modal": false
-      }
-    },
     "17ad0798-6ff6-4e17-9ad6-a191086190a3": {
       "type": "featured-cards",
       "blocks": {
@@ -119,11 +105,11 @@
           "type": "featured-item",
           "settings": {
             "background_color": "#0066ff",
-            "image": "shopify:\/\/shop_images\/288199053_10220601334443216_8432919799074955784_n.jpg",
+            "image": "shopify:\/\/shop_images\/f11dadf1-7504-4265-ab4b-1ade82b0e2d2.jpg",
             "desktop_image_max_width": 0,
-            "mobile_image": "shopify:\/\/shop_images\/288199053_10220601334443216_8432919799074955784_n.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/f11dadf1-7504-4265-ab4b-1ade82b0e2d2.jpg",
             "mobile_image_max_width": 0,
-            "heading": "High-clearance tips.",
+            "heading": "",
             "text_color": "#ffffff",
             "heading_alignment": "text-left",
             "font_weight": "font-bold",
@@ -141,6 +127,7 @@
         },
         "19ca37e9-975f-4321-a52e-9c847c650491": {
           "type": "featured-item",
+          "disabled": true,
           "settings": {
             "background_color": "#0066ff",
             "image": "shopify:\/\/shop_images\/288629549_10220601331683147_5367720382169075995_n.jpg",
@@ -178,8 +165,8 @@
         "mobile_padding_x": 24,
         "mobile_card_padding_x": 0,
         "border_radius": 0,
-        "extra_wide_desktop_grid_columns": 2,
-        "desktop_grid_columns": 2,
+        "extra_wide_desktop_grid_columns": 1,
+        "desktop_grid_columns": 1,
         "mobile_grid_columns": 1,
         "desktop_row_gap": 40,
         "mobile_row_gap": 0,
@@ -251,7 +238,6 @@
   "order": [
     "main",
     "052f6069-0189-49d2-8470-900edf036c0c",
-    "05b2aa7f-2896-4239-889d-e0f56c09bf60",
     "17ad0798-6ff6-4e17-9ad6-a191086190a3",
     "product-recommendations",
     "1653734384d1162371",
