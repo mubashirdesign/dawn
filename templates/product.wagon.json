@@ -165,8 +165,8 @@
         "mobile_padding_x": 24,
         "mobile_card_padding_x": 0,
         "border_radius": 0,
-        "extra_wide_desktop_grid_columns": 1,
-        "desktop_grid_columns": 1,
+        "extra_wide_desktop_grid_columns": 2,
+        "desktop_grid_columns": 2,
         "mobile_grid_columns": 1,
         "desktop_row_gap": 40,
         "mobile_row_gap": 0,
@@ -200,7 +200,7 @@
           "settings": {
             "title": "Exhaust Systems",
             "sub_title": "",
-            "image": "shopify:\/\/shop_images\/custom_resized_0d5ae17b-a501-40be-ad48-b20eeb7555b8.jpg",
+            "image": "shopify:\/\/shop_images\/369819531_675228258087191_4480464772332396403_n_dd073cf6-76f6-41d1-8cf0-3dee5ae38d42.jpg",
             "url": "shopify:\/\/collections\/cat-back-systems-gm-b-body-1994-1996"
           }
         },
