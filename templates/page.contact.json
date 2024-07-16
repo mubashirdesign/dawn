@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -11,7 +20,7 @@
       "settings": {
         "text": "I would be happy to follow-up with a phone conversation with you.  If you would like for me call you, be sure and provide your phone number, but it is not required.",
         "phone": "+1 425.251.0329",
-        "email": "dan.ferraro@clearimageautomotive.com",
+        "email": "",
         "fb_link": "https:\/\/www.facebook.com\/groups\/178236898909081"
       }
     },
