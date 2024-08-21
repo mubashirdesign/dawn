@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -54,32 +63,6 @@
     },
     "06f9b168-ea25-4e1f-a5be-b4a6bf478456": {
       "type": "rich-text",
-      "blocks": {
-        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Big Power?",
-            "text_color": "#000000",
-            "heading_size": "h4",
-            "font_weight": "font-bold",
-            "mobile_alignment": "text-left",
-            "desktop_alignment": "text-left"
-          }
-        },
-        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>With Big Power... comes great responsibility to put it down, and your stock steel driveshaft just can't do the job.<br\/>Upgrade now to a 3.5 inch dennys driveshaft to enjoy a vibration free drive without wrecking your drivetrain.<\/p>",
-            "text_color": "#000000",
-            "mobile_alignment": "text-left",
-            "desktop_alignment": "text-left"
-          }
-        }
-      },
-      "block_order": [
-        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-0",
-        "template--16754752291063__06f9b168-ea25-4e1f-a5be-b4a6bf478456-1684203252e8c96148-1"
-      ],
       "settings": {
         "background_color": "#ffffff",
         "desktop_max_width": "max-w-medium",
